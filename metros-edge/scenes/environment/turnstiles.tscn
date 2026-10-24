@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckq8i1qxrwru7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8nqbb"]
+size = Vector3(17.832977, 0.892395, 16.361328)
+
+[sub_resource type="BoxMesh" id="BoxMesh_375kw"]
+size = Vector3(14.702209, 2.0031738, 1)
+
+[node name="Turnstiles" type="Node3D" unique_id=2135899008]
+
+[node name="Floor1" type="MeshInstance3D" parent="." unique_id=1508420081]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.46, 0)
+mesh = SubResource("BoxMesh_8nqbb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=341322314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14413452, 1.894439, 0)
+mesh = SubResource("BoxMesh_375kw")

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c3pubuujs71cs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+size = Vector3(100, 0.90148926, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gnb6d"]
+size = Vector3(46.761406, 0.90148926, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kied"]
+size = Vector3(99.98773, 0.90148926, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tnd4i"]
+size = Vector2(2.305, 4.097)
+
+[sub_resource type="BoxMesh" id="BoxMesh_715li"]
+size = Vector3(3.5, 3, 20)
+
+[node name="Platform" type="Node3D" unique_id=76340691]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1379870810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034029037, -0.4739608, 0.0014531612)
+mesh = SubResource("BoxMesh_fauy2")
+
+[node name="DoorWall" type="Node3D" parent="." unique_id=1728589186]
+visible = false
+
+[node name="SideWall" type="MeshInstance3D" parent="DoorWall" unique_id=842297138]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -26.209702, 2.348405, 2.9165037)
+mesh = SubResource("BoxMesh_gnb6d")
+
+[node name="SideWall2" type="MeshInstance3D" parent="DoorWall" unique_id=1132936753]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 26.624493, 2.348405, 2.9165037)
+mesh = SubResource("BoxMesh_gnb6d")
+
+[node name="SolidWall" type="Node3D" parent="." unique_id=2105825161]
+
+[node name="SideWall" type="MeshInstance3D" parent="SolidWall" unique_id=156458133]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.009536743, 2.348405, 2.9165037)
+mesh = SubResource("BoxMesh_4kied")
+
+[node name="Rails" type="MeshInstance3D" parent="." unique_id=1589063684]
+transform = Transform3D(43.10616, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -0.91342294, -4.535957)
+mesh = SubResource("PlaneMesh_tnd4i")
+
+[node name="Train" type="Node3D" parent="." unique_id=1511077543]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.08744812, 0, -4.5268126)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Train" unique_id=149105589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4936438, 0)
+mesh = SubResource("BoxMesh_715li")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Train" unique_id=551687917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4936438, 20.71484)
+mesh = SubResource("BoxMesh_715li")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Train" unique_id=275626886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 1.4936438, 41.466515)
+mesh = SubResource("BoxMesh_715li")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Train" unique_id=1920851334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 1.4936438, -41.37975)
+mesh = SubResource("BoxMesh_715li")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Train" unique_id=1935163060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4936438, -20.566448)
+mesh = SubResource("BoxMesh_715li")

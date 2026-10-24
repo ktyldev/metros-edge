@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bm0of53csllq5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_375kw"]
+size = Vector3(0.46123046, 0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fauy2"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[node name="Light" type="Node3D" unique_id=1318434118]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=177774976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011865236, 0, 0)
+mesh = SubResource("BoxMesh_375kw")
+surface_material_override/0 = SubResource("StandardMaterial3D_fauy2")
+
+[node name="SpotLight3D" type="OmniLight3D" parent="." unique_id=286171170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10848546, 0)
+light_color = Color(0.88235295, 0.99215686, 1, 1)
+light_energy = 0.7
+light_indirect_energy = 1.5
+light_bake_mode = 1
