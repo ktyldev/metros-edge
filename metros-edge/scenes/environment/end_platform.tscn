@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ha5ko6i2cxv3"]
+
+[ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform.tscn" id="1_75rmq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58tnn"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6uwxm"]
+material = SubResource("StandardMaterial3D_58tnn")
+radius = 1.0
+height = 2.0
+
+[node name="EndPlatform" type="Node3D" unique_id=736771860]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PlayerEnd" type="MeshInstance3D" parent="." unique_id=572670305]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.83618927, 1.1104889, -19.180336)
+mesh = SubResource("SphereMesh_6uwxm")
+
+[node name="Platform" parent="." unique_id=76340691 instance=ExtResource("1_75rmq")]
+
+[node name="DoorWall" parent="Platform" index="1" unique_id=1728589186]
+visible = true
+
+[node name="SolidWall" parent="Platform" index="2" unique_id=2105825161]
+visible = false
+
+[node name="Train" parent="Platform" index="4" unique_id=1511077543]
+visible = false
+
+[node name="Platform2" parent="." unique_id=499176395 instance=ExtResource("1_75rmq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -11.469887)
+
+[node name="SolidWall" parent="Platform2" index="2" unique_id=2105825161]
+visible = false
+
+[node name="Train" parent="Platform2" index="4" unique_id=1511077543]
+visible = false
+
+[node name="Platform3" parent="." unique_id=992827585 instance=ExtResource("1_75rmq")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, -16.417496)
+
+[node name="SolidWall" parent="Platform3" index="2" unique_id=2105825161]
+visible = false
+
+[editable path="Platform"]
+[editable path="Platform2"]
+[editable path="Platform3"]

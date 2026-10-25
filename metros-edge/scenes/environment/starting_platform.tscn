@@ -16,7 +16,7 @@ height = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.474049)
 
 [node name="Platform2" parent="." unique_id=1019169980 instance=ExtResource("1_p7wm6")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -7.692513)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -6.071442)
 
 [node name="DoorWall" parent="Platform2" index="1" unique_id=1728589186]
 visible = true
@@ -28,7 +28,7 @@ visible = false
 visible = false
 
 [node name="PlayerStart" type="MeshInstance3D" parent="." unique_id=476203600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2230148, 3.7968636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2230148, 4.7707443)
 mesh = SubResource("SphereMesh_jg88y")
 
 [editable path="Platform2"]

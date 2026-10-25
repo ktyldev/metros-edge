@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bsq1gdc4f7624" path="res://scenes/environment/starting_platform.tscn" id="1_8nqbb"]
 [ext_resource type="PackedScene" uid="uid://ckq8i1qxrwru7" path="res://scenes/environment/turnstiles.tscn" id="2_4ff8o"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
-[ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform.tscn" id="4_s0v2d"]
+[ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 size = Vector3(6.171814, 0.892395, 16.361328)
@@ -11,20 +11,12 @@ size = Vector3(6.171814, 0.892395, 16.361328)
 [sub_resource type="BoxMesh" id="BoxMesh_4ff8o"]
 size = Vector3(6.171814, 0.892395, 16.361328)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58tnn"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_6uwxm"]
-material = SubResource("StandardMaterial3D_58tnn")
-radius = 1.0
-height = 2.0
-
 [node name="Environment" type="Node3D" unique_id=437154403]
 
 [node name="Greybox" type="Node3D" parent="." unique_id=1592725347]
 
 [node name="StartingPlatform" parent="Greybox" unique_id=247923355 instance=ExtResource("1_8nqbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0, 58.80222)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0.109436035, 57.14059)
 
 [node name="Tunnel1" type="Node3D" parent="Greybox" unique_id=1256782497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0, 32.7993)
@@ -88,39 +80,5 @@ mesh = SubResource("BoxMesh_4ff8o")
 [node name="Turnstiles2" parent="Greybox" unique_id=1785544008 instance=ExtResource("2_4ff8o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.383705, 13.160067, -39.183594)
 
-[node name="EndPlatform" type="Node3D" parent="Greybox" unique_id=137726606]
+[node name="EndPlatform" parent="Greybox" unique_id=736771860 instance=ExtResource("4_s0v2d")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -55.918884, 13.194145, -38.373756)
-
-[node name="PlayerEnd" type="MeshInstance3D" parent="Greybox/EndPlatform" unique_id=974499594]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.83618927, 1.1104889, -19.180336)
-mesh = SubResource("SphereMesh_6uwxm")
-
-[node name="Platform" parent="Greybox/EndPlatform" unique_id=76340691 instance=ExtResource("4_s0v2d")]
-
-[node name="DoorWall" parent="Greybox/EndPlatform/Platform" index="1" unique_id=1728589186]
-visible = true
-
-[node name="SolidWall" parent="Greybox/EndPlatform/Platform" index="2" unique_id=2105825161]
-visible = false
-
-[node name="Train" parent="Greybox/EndPlatform/Platform" index="4" unique_id=1511077543]
-visible = false
-
-[node name="Platform2" parent="Greybox/EndPlatform" unique_id=2101118533 instance=ExtResource("4_s0v2d")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -13.109493)
-
-[node name="SolidWall" parent="Greybox/EndPlatform/Platform2" index="2" unique_id=2105825161]
-visible = false
-
-[node name="Train" parent="Greybox/EndPlatform/Platform2" index="4" unique_id=1511077543]
-visible = false
-
-[node name="Platform3" parent="Greybox/EndPlatform" unique_id=127649742 instance=ExtResource("4_s0v2d")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, -18.057106)
-
-[node name="SolidWall" parent="Greybox/EndPlatform/Platform3" index="2" unique_id=2105825161]
-visible = false
-
-[editable path="Greybox/EndPlatform/Platform"]
-[editable path="Greybox/EndPlatform/Platform2"]
-[editable path="Greybox/EndPlatform/Platform3"]
