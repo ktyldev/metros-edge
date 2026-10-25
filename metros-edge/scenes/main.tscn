@@ -1,7 +1,27 @@
 [gd_scene format=3 uid="uid://17hry686y0s3"]
 
 [ext_resource type="PackedScene" uid="uid://dimkn5ceaexmd" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c4laeptydhjxt" path="res://scenes/environment/environment.tscn" id="2_0wfyh"]
+
+[sub_resource type="Environment" id="Environment_jg88y"]
+ambient_light_source = 2
+ambient_light_color = Color(0.5033234, 0.5033233, 0.5033233, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_375kw"]
+
+[sub_resource type="Compositor" id="Compositor_fauy2"]
 
 [node name="Main" type="Node3D" unique_id=50357158]
 
 [node name="player" parent="." unique_id=107907444 instance=ExtResource("1_o5qli")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.1220932, -7.6293945e-06, 63.96524)
+
+[node name="Environment" parent="." unique_id=437154403 instance=ExtResource("2_0wfyh")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=358078869]
+transform = Transform3D(0.5624343, 0.5742976, -0.5948529, 0, 0.7194275, 0.6945675, 0.826842, -0.3906486, 0.40463072, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1135965417]
+environment = SubResource("Environment_jg88y")
+camera_attributes = SubResource("CameraAttributesPractical_375kw")
+compositor = SubResource("Compositor_fauy2")
