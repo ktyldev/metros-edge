@@ -4,11 +4,16 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ghx4o"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_4kied"]
+
 [node name="player" type="CharacterBody3D" unique_id=107907444]
 script = ExtResource("1_3vyb7")
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="." unique_id=2095842052]
 shape = SubResource("CapsuleShape3D_ghx4o")
+
+[node name="crouching_collision_shape" type="CollisionShape3D" parent="." unique_id=867759194]
+shape = SubResource("SphereShape3D_4kied")
 
 [node name="neck" type="Node3D" parent="." unique_id=611015831]
 
@@ -18,3 +23,6 @@ shape = SubResource("CapsuleShape3D_ghx4o")
 
 [node name="Camera3D" type="Camera3D" parent="neck/head/eyes" unique_id=246124193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59936434, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=686527683]
+target_position = Vector3(0, 1, 0)
