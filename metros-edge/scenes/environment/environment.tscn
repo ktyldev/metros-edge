@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bsq1gdc4f7624" path="res://scenes/environment/starting_platform.tscn" id="1_8nqbb"]
 [ext_resource type="PackedScene" uid="uid://ckq8i1qxrwru7" path="res://scenes/environment/turnstiles.tscn" id="2_4ff8o"]
+[ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
+[ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform.tscn" id="4_s0v2d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 size = Vector3(6.171814, 0.892395, 16.361328)
@@ -9,18 +11,23 @@ size = Vector3(6.171814, 0.892395, 16.361328)
 [sub_resource type="BoxMesh" id="BoxMesh_4ff8o"]
 size = Vector3(6.171814, 0.892395, 16.361328)
 
-[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
-size = Vector3(45.943085, 1, 9.036133)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58tnn"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6uwxm"]
+material = SubResource("StandardMaterial3D_58tnn")
+radius = 1.0
+height = 2.0
 
 [node name="Environment" type="Node3D" unique_id=437154403]
 
 [node name="Greybox" type="Node3D" parent="." unique_id=1592725347]
 
 [node name="StartingPlatform" parent="Greybox" unique_id=247923355 instance=ExtResource("1_8nqbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7343063, 0, 21.756283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0, 58.80222)
 
 [node name="Tunnel1" type="Node3D" parent="Greybox" unique_id=1256782497]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7343063, 0, -4.2466354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0, 32.7993)
 
 [node name="Floor1" type="MeshInstance3D" parent="Greybox/Tunnel1" unique_id=1725239072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2383728, -0.4602356, 7.680664)
@@ -51,15 +58,69 @@ transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0,
 mesh = SubResource("BoxMesh_4ff8o")
 
 [node name="Turnstiles" parent="Greybox" unique_id=2135899008 instance=ExtResource("2_4ff8o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.198526, 0, -29.926231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.736181, 0, 7.119705)
 
-[node name="Atrium" type="Node3D" parent="Greybox" unique_id=1730636412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.546644, 0, -56.82506)
+[node name="Atrium" parent="Greybox" unique_id=330536154 instance=ExtResource("3_als2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0843, 0, -19.779125)
 
-[node name="Walkway" type="MeshInstance3D" parent="Greybox/Atrium" unique_id=1135625592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6771045, -0.5, 13.505379)
-mesh = SubResource("BoxMesh_fauy2")
+[node name="Tunnel2" type="Node3D" parent="Greybox" unique_id=801481198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615602, 13.135507, -40.835175)
 
-[node name="Walkway2" type="MeshInstance3D" parent="Greybox/Atrium" unique_id=743989771]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6771045, 9.903225, -16.128399)
-mesh = SubResource("BoxMesh_fauy2")
+[node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel2" unique_id=805310567]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7341957, -0.4053936, 2.1182098)
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel2" unique_id=2121769102]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.7191658, 2.8518467, -1.2247162)
+mesh = SubResource("BoxMesh_4ff8o")
+
+[node name="Tunnel3" type="Node3D" parent="Greybox" unique_id=1852515470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.617455, 13.135507, -40.835175)
+
+[node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=1851400776]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7341957, -0.4053936, 2.1182098)
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=599836072]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.7191658, 2.8518467, -1.2247162)
+mesh = SubResource("BoxMesh_4ff8o")
+
+[node name="Turnstiles2" parent="Greybox" unique_id=1785544008 instance=ExtResource("2_4ff8o")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.383705, 13.160067, -39.183594)
+
+[node name="EndPlatform" type="Node3D" parent="Greybox" unique_id=137726606]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -55.918884, 13.194145, -38.373756)
+
+[node name="PlayerEnd" type="MeshInstance3D" parent="Greybox/EndPlatform" unique_id=974499594]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.83618927, 1.1104889, -19.180336)
+mesh = SubResource("SphereMesh_6uwxm")
+
+[node name="Platform" parent="Greybox/EndPlatform" unique_id=76340691 instance=ExtResource("4_s0v2d")]
+
+[node name="DoorWall" parent="Greybox/EndPlatform/Platform" index="1" unique_id=1728589186]
+visible = true
+
+[node name="SolidWall" parent="Greybox/EndPlatform/Platform" index="2" unique_id=2105825161]
+visible = false
+
+[node name="Train" parent="Greybox/EndPlatform/Platform" index="4" unique_id=1511077543]
+visible = false
+
+[node name="Platform2" parent="Greybox/EndPlatform" unique_id=2101118533 instance=ExtResource("4_s0v2d")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -13.109493)
+
+[node name="SolidWall" parent="Greybox/EndPlatform/Platform2" index="2" unique_id=2105825161]
+visible = false
+
+[node name="Train" parent="Greybox/EndPlatform/Platform2" index="4" unique_id=1511077543]
+visible = false
+
+[node name="Platform3" parent="Greybox/EndPlatform" unique_id=127649742 instance=ExtResource("4_s0v2d")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, -18.057106)
+
+[node name="SolidWall" parent="Greybox/EndPlatform/Platform3" index="2" unique_id=2105825161]
+visible = false
+
+[editable path="Greybox/EndPlatform/Platform"]
+[editable path="Greybox/EndPlatform/Platform2"]
+[editable path="Greybox/EndPlatform/Platform3"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://56don1h463lh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+size = Vector3(45.943085, 1, 9.036133)
+
+[sub_resource type="BoxMesh" id="BoxMesh_375kw"]
+size = Vector3(3.3659668, 1, 28.562256)
+
+[node name="Atrium" type="Node3D" unique_id=330536154]
+
+[node name="Walkway" type="MeshInstance3D" parent="." unique_id=1815744398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6771045, -0.5, 13.505379)
+mesh = SubResource("BoxMesh_fauy2")
+
+[node name="Walkway2" type="MeshInstance3D" parent="." unique_id=2058227180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.677105, 12.683624, -17.341732)
+mesh = SubResource("BoxMesh_fauy2")
+
+[node name="Escalator" type="MeshInstance3D" parent="." unique_id=98564477]
+transform = Transform3D(1, 0, 0, 0, 0.8612518, -0.5081785, 0, 0.5081785, 0.8612518, -27.462257, 5.8379908, -1.160141)
+mesh = SubResource("BoxMesh_375kw")
