@@ -1,21 +1,27 @@
 [gd_scene format=3 uid="uid://c3pubuujs71cs"]
 
+[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_51ysa"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+material = ExtResource("1_51ysa")
 size = Vector3(100, 0.90148926, 4.434082)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
 size = Vector3(100.007225, 1.3006592, 4.438551)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gnb6d"]
+material = ExtResource("1_51ysa")
 size = Vector3(46.761406, 0.90148926, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4kied"]
+material = ExtResource("1_51ysa")
 size = Vector3(99.98773, 0.90148926, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_375kw"]
 size = Vector3(100.05191, 4.935913, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tnd4i"]
+material = ExtResource("1_51ysa")
 size = Vector2(100, 4.097)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4kied"]
@@ -25,6 +31,7 @@ size = Vector3(100.007225, 0.41882324, 4.1385345)
 size = Vector3(100.007225, 2.4556885, 3.2028122)
 
 [sub_resource type="BoxMesh" id="BoxMesh_715li"]
+material = ExtResource("1_51ysa")
 size = Vector3(3.064, 2.5, 20)
 
 [node name="Platform" type="Node3D" unique_id=76340691]

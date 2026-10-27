@@ -24,8 +24,14 @@ visible = true
 [node name="SolidWall" parent="Platform2" index="2" unique_id=2105825161]
 visible = false
 
+[node name="CollisionShape3D" parent="Platform2/SolidWall/StaticBody3D" parent_id_path=PackedInt32Array(1019169980, 1069362352) index="0" unique_id=462761224]
+disabled = true
+
 [node name="Train" parent="Platform2" index="4" unique_id=1511077543]
 visible = false
+
+[node name="CollisionShape3D" parent="Platform2/Train/StaticBody3D" parent_id_path=PackedInt32Array(1019169980, 1073851444) index="0" unique_id=121110659]
+disabled = true
 
 [node name="PlayerStart" type="MeshInstance3D" parent="." unique_id=476203600]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2230148, 4.7707443)
