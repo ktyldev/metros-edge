@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform.tscn" id="1_p7wm6"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_375kw"]
+size = Vector3(46.78279, 4.935913, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_375kw"]
 albedo_color = Color(1, 0, 0, 1)
 
@@ -20,6 +23,17 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="DoorWall" parent="Platform2" index="1" unique_id=1728589186]
 visible = true
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Platform2/DoorWall" index="2" unique_id=824258936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.768372e-07, 2.451268, 2.9164748)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/DoorWall/StaticBody3D2" unique_id=2065579265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.61221, 0.05340576, 0)
+shape = SubResource("BoxShape3D_375kw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Platform2/DoorWall/StaticBody3D2" unique_id=1343866883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.228054, 0.05340576, -3.8146973e-06)
+shape = SubResource("BoxShape3D_375kw")
 
 [node name="SolidWall" parent="Platform2" index="2" unique_id=2105825161]
 visible = false

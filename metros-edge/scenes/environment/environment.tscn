@@ -2,23 +2,32 @@
 
 [ext_resource type="PackedScene" uid="uid://bsq1gdc4f7624" path="res://scenes/environment/starting_platform.tscn" id="1_8nqbb"]
 [ext_resource type="PackedScene" uid="uid://ckq8i1qxrwru7" path="res://scenes/environment/turnstiles.tscn" id="2_4ff8o"]
+[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_58tnn"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
+material = ExtResource("2_58tnn")
 size = Vector3(6.171814, 0.892395, 16.361328)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ff8o"]
+material = ExtResource("2_58tnn")
 size = Vector3(6.171814, 0.892395, 16.361328)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
+size = Vector3(23.88977, 1, 32.638535)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58tnn"]
+size = Vector3(0.8862915, 6.8691406, 16.345913)
 
 [node name="Environment" type="Node3D" unique_id=437154403]
 
 [node name="Greybox" type="Node3D" parent="." unique_id=1592725347]
 
 [node name="StartingPlatform" parent="Greybox" unique_id=247923355 instance=ExtResource("1_8nqbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0.109436035, 57.14059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0.010986328, 57.14059)
 
-[node name="Tunnel1" type="Node3D" parent="Greybox" unique_id=1256782497]
+[node name="Tunnel1" type="StaticBody3D" parent="Greybox" unique_id=772833701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0, 32.7993)
 
 [node name="Floor1" type="MeshInstance3D" parent="Greybox/Tunnel1" unique_id=1725239072]
@@ -48,6 +57,26 @@ mesh = SubResource("BoxMesh_4ff8o")
 [node name="Wall4" type="MeshInstance3D" parent="Greybox/Tunnel1" unique_id=1148805234]
 transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 10.9815235, 2.7970057, 6.025173)
 mesh = SubResource("BoxMesh_4ff8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Greybox/Tunnel1" unique_id=1907671626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9535522, -0.5, -0.5000763)
+shape = SubResource("BoxShape3D_jg88y")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Greybox/Tunnel1" unique_id=1359324325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5481873, 2.4345703, 7.6462326)
+shape = SubResource("BoxShape3D_58tnn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Greybox/Tunnel1" unique_id=638211284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4605, 2.4345703, -2.6405716)
+shape = SubResource("BoxShape3D_58tnn")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Greybox/Tunnel1" unique_id=1232849633]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.999929, 2.4345703, 6.0209274)
+shape = SubResource("BoxShape3D_58tnn")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Greybox/Tunnel1" unique_id=126045166]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.889578, 2.4345703, -0.9990921)
+shape = SubResource("BoxShape3D_58tnn")
 
 [node name="Turnstiles" parent="Greybox" unique_id=2135899008 instance=ExtResource("2_4ff8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.736181, 0, 7.119705)
