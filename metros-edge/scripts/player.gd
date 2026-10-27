@@ -1,40 +1,39 @@
 extends CharacterBody3D
 
 # Speed vars
-var current_speed = 5.0
-const walking_speed = 5.0
-const sprinting_speed = 9.5
-const crouching_speed = 2.5
-const lerp_speed = 10
-@export var air_lerp_speed = 2.25
+# i believe it's preferred to have it consts if we're not changing it during gameplay
+var current_speed = 0
+var crouching_speed = 2.5
+var jogging_speed = 5.0 # note : all "walking" is now jogging, as we don't really have walking in this
+var max_speed = 12.0
+# Accel + Decel
+@export var ground_friction = 20.0
+var slide_friction = ground_friction * 0.25
+@export var ground_acceleration = 10.0
+var horizontal_velocity = Vector3.ZERO
+@export var accel_to_max_speed_time = 2.5
+@export var accel_to_max_speed_timer = 0.0
+
+# will leave/rename after rewriting
+var lerp_speed = 10
+@export var air_drag = 2.25
 
 # States
-var walking = false
-var sprinting = false
+var jogging = false
+var sprinting = false # might be useful to state if we're at max running speed to call that sprinting?
 var crouching = false
 var free_looking = false
 var sliding = false
 
 # Slide vars
-var slide_timer = 0.0
-var slide_timer_max = 1
+# Consider slide_min_speed and just a way to get out of sliding via jumping out of it or if slowed down enough automatic standing up again, make it feel more momentum-y and natural
+var slide_min_speed = 7.0
+#@export var slide_timer = 0.0
+#@export var slide_timer_max = 1.0
 var slide_vector = Vector2.ZERO
 var slide_speed = 10.5
 var slide_end_speed_offset = 0.1
-var slide_headtilt = 7
-
-## Head bobbing vars
-#const head_bobbing_speed_sprinting = 22.0
-#const head_bobbing_speed_walking = 14.0
-#const head_bobbing_speed_crouching = 10.0
-#
-#var head_bobbing_intensity_current = 0
-#const head_bobbing_intensity_sprinting = 0.2
-#const head_bobbing_intensity_walking = 0.1
-#const head_bobbing_intensity_crouching = 0.05
-#
-#var head_bobbing_vector = Vector2.ZERO
-#var head_bobbing_index = 0.0
+var slide_headtilt = 7.0
 
 
 # Movement vars
@@ -66,27 +65,17 @@ var direction = Vector3.ZERO
 @onready var head = $neck/head
 @onready var eyes = $neck/head/eyes
 @onready var camera_3d = $neck/head/eyes/Camera3D
-#@onready var hand_cam = $SubViewportContainer/SubViewport/HandCam
-#@onready var player_arms = $neck/Player_Arms
+
 
 @onready var ray_cast_3d = $RayCast3D
-#@onready var animation_player = $neck/head/eyes/AnimationPlayer
-#@onready var audio_stream_player = $AudioStreamPlayer
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-#leftovers kept for comparison
-#func _process(delta):
-	#
-	#hand_cam.global_transform = camera_3d.global_transform
-	##make hands follow the camera
-	
-	
-	
+		
 func _input(event):
 	# Mouse looking logic
 	if event is InputEventMouseMotion:
@@ -96,7 +85,9 @@ func _input(event):
 		#was (deg_to_rad(-event.relative.x * mouse_sens)) but i felt this made more sense
 		#also it's the x axis rotating the character on the body's y axis that's why it looks a little weird
 		else:
-			rotate_y(deg_to_rad(-event.relative.x) * mouse_sens) 
+			var turn_amount: float = deg_to_rad(-event.relative.x) * mouse_sens 
+			rotate_y(turn_amount)
+			direction = direction.rotated(Vector3.UP,turn_amount)
 			head.rotate_x(deg_to_rad(-event.relative.y)*mouse_sens)
 			head.rotation.x = clamp(head.rotation.x,deg_to_rad(-98),deg_to_rad(98))
 		
@@ -106,111 +97,99 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 
 	#Handle movement state
-	# Crouching
-	if Input.is_action_pressed("crouch") || sliding:
-		current_speed = lerp(current_speed, crouching_speed, delta * lerp_speed)
-		
-		head.position.y = lerp(head.position.y, crouching_depth, delta*lerp_speed)
-		
+
+	# Sync horizontal_velocity with the actual movement velocity.
+	horizontal_velocity = Vector3(velocity.x, 0.0, velocity.z)
+
+	# Build up speed while jogging forward.
+	if is_on_floor() and input_dir.y < -0.1 and not sliding and not crouching:
+		accel_to_max_speed_timer = min(accel_to_max_speed_timer + delta,accel_to_max_speed_time)
+	else:
+		accel_to_max_speed_timer = max(accel_to_max_speed_timer-delta*2.0,0.0)
+
+	current_speed = lerp(jogging_speed,max_speed,accel_to_max_speed_timer/accel_to_max_speed_time)
+
+	# Handle slide initiation.
+	if Input.is_action_pressed("crouch") and not sliding:
+		if is_on_floor() and horizontal_velocity.length() >= slide_min_speed:
+			sliding = true
+			#slide_timer = slide_timer_max
+
+			# Preserve the direction of the current momentum.
+			slide_vector = Vector2(horizontal_velocity.dot(transform.basis.x),horizontal_velocity.dot(-transform.basis.z)).normalized()
+			free_looking = true
+
+	# Handle crouching and standing.
+	if Input.is_action_pressed("crouch") or sliding:
+		head.position.y = lerp(head.position.y,crouching_depth,delta*lerp_speed)
 		standing_collision_shape.disabled = true
 		crouching_collision_shape.disabled = false
-		
-		#slide beginning logic
-		if sprinting && input_dir != Vector2.ZERO:
-			sliding = true
-			slide_timer = slide_timer_max
-			slide_vector = input_dir
-			#prevent camera from altering slide direction via using free look during slide
-			free_looking = true
-			print("Slide start")
-			
-		walking = false
-		sprinting = false
+		jogging = false
 		crouching = true
-		#could be freelooking or sliding 
-		
-	# Standing logic
-	elif !ray_cast_3d.is_colliding():
-		standing_collision_shape.disabled = false
-		crouching_collision_shape.disabled = true
-		
-		head.position.y = lerp(head.position.y, 0.0,delta*lerp_speed)
-		
-		# Sprinting		
-		if Input.is_action_pressed("sprint"):
-			current_speed = lerp(current_speed, sprinting_speed, delta * lerp_speed)
-			walking = false
-			sprinting = true
-			crouching = false
-		# Walking
-		else:
-			current_speed = lerp(current_speed, walking_speed, delta * lerp_speed)	
-			walking = true
-			sprinting = false
-			crouching = false
-			
-	# Handle free look
-	if Input.is_action_pressed("free_look") || sliding:
+	else:
+		if not ray_cast_3d.is_colliding():
+			standing_collision_shape.disabled = false
+			crouching_collision_shape.disabled = true
+			head.position.y = lerp(head.position.y,0.0,delta*lerp_speed)
+		crouching = false
+
+	# Handle free look.
+	if Input.is_action_pressed("free_look") or sliding:
 		free_looking = true
+
 		if sliding:
 			eyes.rotation.z = lerp(eyes.rotation.z,-deg_to_rad(slide_headtilt),delta*lerp_speed)
 		else:
 			eyes.rotation.z = -deg_to_rad(neck.rotation.y*free_look_tilt_amount)
 	else:
-		free_looking = false 
-		neck.rotation.y = lerp(neck.rotation.y, 0.0, delta*lerp_speed)
-		eyes.rotation.z = lerp(eyes.rotation.z, 0.0, delta*lerp_speed)
-	
-	# Handle sliding
+		free_looking = false
+		neck.rotation.y = lerp(neck.rotation.y,0.0,delta*lerp_speed)
+		eyes.rotation.z = lerp(eyes.rotation.z,0.0,delta*lerp_speed)
+
+	# Direction handling and movement.
 	if sliding:
-		slide_timer -= delta
-		if slide_timer <=0:
+		#slide using momentum
+		#slide_timer -= delta
+
+		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,slide_friction*delta)
+
+		velocity.x = horizontal_velocity.x
+		velocity.z = horizontal_velocity.z
+
+		if  horizontal_velocity.length() <= 0.1:
 			sliding = false
-			free_looking = false
+			#slide_timer = 0.0
 			print("Slide end")
-			
-	#direction handling stuff
-	if is_on_floor():
-		direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),delta*lerp_speed)
-	elif input_dir != Vector2.ZERO:
-			direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),delta*air_lerp_speed)
-	
-	if sliding:
-		direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
-		current_speed = (slide_timer + slide_end_speed_offset) * slide_speed		
-		
-		
-	if direction:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
-		
-			
+
 	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
-	
-	## Handle headbob
-	#if sprinting:
-		#head_bobbing_intensity_current = head_bobbing_intensity_sprinting
-		#head_bobbing_index += head_bobbing_speed_sprinting * delta
-	#elif walking: 
-		#head_bobbing_intensity_current = head_bobbing_intensity_walking
-		#head_bobbing_index += head_bobbing_speed_walking * delta
-	#elif crouching:
-		#head_bobbing_intensity_current = head_bobbing_intensity_crouching
-		#head_bobbing_index += head_bobbing_speed_crouching * delta
-	#
-	#if is_on_floor() && !sliding && input_dir != Vector2.ZERO:
-		##for every side to side we go up and down twice
-		#head_bobbing_vector.y = sin(head_bobbing_index)
-		#head_bobbing_vector.x = sin(head_bobbing_index/2)+0.5
-		#eyes.position.y = lerp(eyes.position.y, head_bobbing_vector.y*(head_bobbing_intensity_current/2),delta*lerp_speed)
-		#eyes.position.x = lerp(eyes.position.x, head_bobbing_vector.x*head_bobbing_intensity_current,delta*lerp_speed)
-	#else:
-		#eyes.position.y = lerp(eyes.position.y, 0.0,delta*lerp_speed) 
-		#eyes.position.x = lerp(eyes.position.x, 0.0,delta*lerp_speed) 
-		
-		
+		# Normal ground steering.
+		if is_on_floor() and input_dir != Vector2.ZERO:
+			direction = (transform.basis * Vector3(input_dir.x,0,input_dir.y)).normalized()
+
+		## Air steering.
+		# leftovers i believe, do we want air steering? i think stopping in air is already maybe something i'd consider removing if anything, we gotta pick between realism and expected-gamey stuff
+		#elif input_dir != Vector2.ZERO:
+			#direction = direction.lerp(
+				#(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),
+				#delta * air_drag
+			#).normalized()
+
+		# Accelerate toward the jogging/sprinting target speed.
+		if input_dir != Vector2.ZERO and direction.length() > 0.01:
+			var target_velocity = direction * current_speed
+
+			if is_on_floor():
+				horizontal_velocity = horizontal_velocity.move_toward(target_velocity,ground_acceleration * delta)
+			else:
+				horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,air_drag * delta)
+		else:
+			# Decelerate when there is no input.
+			var rate = ground_friction if is_on_floor() else air_drag			
+			horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,rate * delta)
+
+		velocity.x = horizontal_velocity.x
+		velocity.z = horizontal_velocity.z
+
 	var look_dir := global_basis.get_rotation_quaternion() * Vector3(0, 0, -1)
 
 	# Add the gravity.
@@ -238,9 +217,10 @@ func _physics_process(delta):
 			crouching = false
 		elif wall_stick:
 			if wall_stick_timer > 0.0:
-
-				var launch := wall_stick.get_normal() * 16.0
-				launch += Vector3.UP * jump_velocity * 1.5
+				#was 16.0
+				var launch := wall_stick.get_normal() * 5.5
+				# was * 1.5
+				launch += Vector3.UP * jump_velocity 
 				
 				velocity = launch
 				look_at(position + wall_stick.get_normal())
@@ -264,10 +244,6 @@ func _physics_process(delta):
 			#animation_player.play("landing")
 			
 	# Handle wall stick
-		
-	
-	
-
 	last_velocity = velocity
 	move_and_slide()
 
@@ -286,7 +262,7 @@ func _physics_process(delta):
 		# if we're facing along but a bit into the wall then we can wallrun
 		# # TODO: wallrun
 
-	# if we press "turn" and we then rotate to face the normal
+	# if we press "turn" (Q) and we then rotate to face the normal
 	if Input.is_action_just_pressed("turn") and turn_to_face_timer == 0.0:
 		if wall_stick:
 			turn_to_face_timer = turn_to_face_time
