@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cxa0qqjb8yxod"]
 
-[ext_resource type="Shader" uid="uid://centkgaoojhxw" path="res://materials/graybox_sh.tres" id="1_40my1"]
+[ext_resource type="Shader" uid="uid://centkgaoojhxw" path="res://materials/graybox/graybox_sh.tres" id="1_40my1"]
 
 [resource]
 render_priority = 0
