@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://d11nh50ycjcm5"]
 
 [ext_resource type="FontFile" uid="uid://camsfjm3fac2r" path="res://resources/Dissolved Exchange.otf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://8srakymakwae" path="res://scripts/main_menu.gd" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bb20mf050pghw" path="res://assets/TRICKMETRO_LOGO_FINAL_V5_1.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://g57sr8lyuclf" path="res://assets/metros_edge_mockup_bg.png" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://qcstf4knwicv" path="res://assets/temp_spinning.png" id="5_8ln24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
 [sub_resource type="FontVariation" id="FontVariation_l6cm7"]
 base_font = ExtResource("1_l6cm7")
@@ -9,6 +15,136 @@ variation_transform = Transform2D(1, 0.33, 0, 1, 0, 0)
 [sub_resource type="Theme" id="Theme_si8gi"]
 default_font = SubResource("FontVariation_l6cm7")
 default_font_size = 24
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.7647059, 0.9411765, 1, 1)
+Button/colors/font_hover_color = Color(0.7647059, 0.9411765, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0.7294118, 0.9647059, 1)
+Button/colors/font_pressed_color = Color(0, 0.7294118, 0.9647059, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmy8"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dd4i"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flqon"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b55j"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pajh"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ex8"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8gd2"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstxw"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_si8gi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtw2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbmy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk1qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flqon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcqid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ajci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b55j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pajh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ex8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8gd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hstxw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_bqqt6"]
+resource_name = "OptionsMarquee"
+length = 1.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../OptionsText:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-148.7, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_l6cm7"]
 length = 0.001
@@ -24,9 +160,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-142, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../OptionsText:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-148.7, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ekxnf"]
-resource_name = "new_animation"
+resource_name = "StartMarquee"
 length = 2.0
 loop_mode = 1
 step = 0.1
@@ -40,13 +188,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-213.155, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(-213.155, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bqqt6"]
 _data = {
+&"OptionsMarquee": SubResource("Animation_bqqt6"),
 &"RESET": SubResource("Animation_l6cm7"),
-&"new_animation": SubResource("Animation_ekxnf")
+&"StartMarquee": SubResource("Animation_ekxnf")
 }
 
 [sub_resource type="Gradient" id="Gradient_l6cm7"]
@@ -56,64 +205,170 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l6cm7"]
 gradient = SubResource("Gradient_l6cm7")
 
-[node name="MarginContainer" type="MarginContainer" unique_id=1896956136]
+[node name="MainMenu" type="MarginContainer" unique_id=1896956136]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_si8gi")
+script = ExtResource("2_ekxnf")
 
-[node name="BoxContainer" type="BoxContainer" parent="." unique_id=1788754066]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1712646675]
 layout_mode = 2
+texture = ExtResource("3_wu84c")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1322528496]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1900715115]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-44.56, -102.99)
+texture = ExtResource("3_bqqt6")
+expand_mode = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer" unique_id=1788754066]
+layout_mode = 2
+theme_override_constants/separation = -9
 alignment = 1
 vertical = true
 
-[node name="Start" type="Button" parent="BoxContainer" unique_id=749544741]
+[node name="Container" type="Container" parent="MarginContainer/BoxContainer" unique_id=502441522]
+custom_minimum_size = Vector2(0, 192.835)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BoxContainer" unique_id=293914571]
+layout_mode = 2
+
+[node name="StartSpinny" type="AnimatedSprite2D" parent="MarginContainer/BoxContainer/HBoxContainer" unique_id=704601859]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(272.895, 22.200012)
+sprite_frames = SubResource("SpriteFrames_si8gi")
+autoplay = "default"
+frame_progress = 0.6575269
+
+[node name="StartContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/HBoxContainer" unique_id=1939284654]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+
+[node name="DropShadow" type="RichTextLabel" parent="MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=1390173449]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1.265, 5.51)
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Start Game"
+
+[node name="Start" type="Button" parent="MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=749544741]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(189, 34)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
 text = "Start Game"
 flat = true
 
-[node name="Options" type="Button" parent="BoxContainer" unique_id=1041965687]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/BoxContainer" unique_id=1270811013]
+layout_mode = 2
+
+[node name="OptionSpinny" type="AnimatedSprite2D" parent="MarginContainer/BoxContainer/HBoxContainer2" unique_id=1413744993]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(184.89499, 23.200012)
+sprite_frames = SubResource("SpriteFrames_si8gi")
+autoplay = "default"
+frame_progress = 0.86194086
+
+[node name="OptionsContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/HBoxContainer2" unique_id=433344521]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+
+[node name="DropShadow" type="RichTextLabel" parent="MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=2034721592]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1.265, 5.51)
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Options"
+
+[node name="Options" type="Button" parent="MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=1041965687]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
 text = "Options"
 flat = true
 
 [node name="HBoxContainer" type="BoxContainer" parent="." unique_id=608578497]
 layout_mode = 2
+mouse_filter = 2
 vertical = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1244953843]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=2105544054]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/MarginContainer" unique_id=991011535]
-root_node = NodePath("../RichTextLabel")
+unique_name_in_owner = true
+root_node = NodePath("../StartText")
 libraries/ = SubResource("AnimationLibrary_bqqt6")
-autoplay = &"new_animation"
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer" unique_id=479813516]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_filter = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=729996559]
+[node name="StartText" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=729996559]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 26)
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(-142, 0)
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
 text = "Start Game / Start Game / Start Game / Start Game / Start Game / Start Game"
 autowrap_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer" unique_id=579787913]
+[node name="OptionsText" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=455021343]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 26)
+clip_contents = false
 layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-148.7, 0)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
+text = "Options / Options / Options / Options / Options / Options / "
+autowrap_mode = 0
+
+[node name="Gradient" type="TextureRect" parent="HBoxContainer/MarginContainer" unique_id=579787913]
+layout_mode = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_l6cm7")
