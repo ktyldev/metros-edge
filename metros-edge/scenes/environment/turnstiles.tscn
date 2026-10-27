@@ -23,7 +23,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -
 mesh = SubResource("BoxMesh_8nqbb")
 
 [node name="Barrier" type="MeshInstance3D" parent="." unique_id=341322314]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14413452, 1.894439, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.144, 2, 0)
 mesh = SubResource("BoxMesh_375kw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2050653625]
@@ -31,5 +31,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02255249, -0.5, 0.009033203
 shape = SubResource("BoxShape3D_jg88y")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=537399245]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02255249, 1.8661194, -0.009185791)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, 2, -0.009)
 shape = SubResource("BoxShape3D_brfyq")
