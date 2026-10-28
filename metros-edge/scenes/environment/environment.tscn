@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_58tnn"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
+[ext_resource type="LightmapGIData" uid="uid://dmw8uil32soaq" path="res://scenes/environment/environment.lmbake" id="6_6uwxm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("2_58tnn")
@@ -19,6 +20,13 @@ size = Vector3(23.88977, 1, 32.638535)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58tnn"]
 size = Vector3(0.8862915, 6.8691406, 16.345913)
+
+[sub_resource type="Environment" id="Environment_58tnn"]
+tonemap_white = 16.0
+glow_enabled = true
+glow_intensity = 0.1
+glow_bloom = 0.3
+fog_enabled = true
 
 [node name="Environment" type="Node3D" unique_id=437154403]
 
@@ -111,3 +119,10 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.
 
 [node name="EndPlatform" parent="Greybox" unique_id=736771860 instance=ExtResource("4_s0v2d")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -55.918884, 13.194145, -38.373756)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=82925120]
+environment = SubResource("Environment_58tnn")
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=786913396]
+interior = true
+light_data = ExtResource("6_6uwxm")

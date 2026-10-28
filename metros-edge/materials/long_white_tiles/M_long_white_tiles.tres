@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bv8f1frd8n1ql"]
+
+[ext_resource type="Texture2D" uid="uid://jjlf0xwvqqto" path="res://materials/long_white_tiles/textures/long_white_tiles_diff_4k.jpg" id="1_wpk6f"]
+[ext_resource type="Texture2D" uid="uid://l2b8ueg8un7s" path="res://materials/long_white_tiles/textures/long_white_tiles_ao_4k.jpg" id="2_bv2n4"]
+[ext_resource type="Texture2D" uid="uid://cor5uponqj67i" path="res://materials/long_white_tiles/textures/long_white_tiles_nor_gl_4k.exr" id="3_kjbty"]
+[ext_resource type="Texture2D" uid="uid://c2wocg316yg8l" path="res://materials/long_white_tiles/textures/long_white_tiles_rough_4k.exr" id="4_qw3kd"]
+
+[resource]
+albedo_color = Color(0.9372549, 1, 1, 1)
+albedo_texture = ExtResource("1_wpk6f")
+roughness_texture = ExtResource("4_qw3kd")
+normal_enabled = true
+normal_texture = ExtResource("3_kjbty")
+ao_enabled = true
+ao_texture = ExtResource("2_bv2n4")
+ao_texture_channel = 1
+uv1_triplanar = true
+uv1_world_triplanar = true
