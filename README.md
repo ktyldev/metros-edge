@@ -13,5 +13,7 @@ Godot is inside `metros-edge` folder to leave space for ancillary scripts/docs/w
 # Credits
 
 ## Team
+[Eric/LemonyFresh](https://itch.io/jam/20-second-game-jam-2026)
 
 ## Assets used
+Font: Dissolved Exchange by [Chequered Ink Ltd](https://chequered.ink/).

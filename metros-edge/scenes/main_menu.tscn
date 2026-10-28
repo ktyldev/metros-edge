@@ -1,26 +1,11 @@
 [gd_scene format=3 uid="uid://d11nh50ycjcm5"]
 
-[ext_resource type="FontFile" uid="uid://camsfjm3fac2r" path="res://resources/Dissolved Exchange.otf" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://ckk8pbjqrtosd" path="res://resources/UI_theme.tres" id="1_rtw2f"]
 [ext_resource type="Script" uid="uid://8srakymakwae" path="res://scripts/main_menu.gd" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bb20mf050pghw" path="res://assets/TRICKMETRO_LOGO_FINAL_V5_1.png" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://g57sr8lyuclf" path="res://assets/metros_edge_mockup_bg.png" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://qcstf4knwicv" path="res://assets/temp_spinning.png" id="5_8ln24"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
-
-[sub_resource type="FontVariation" id="FontVariation_l6cm7"]
-base_font = ExtResource("1_l6cm7")
-variation_transform = Transform2D(1, 0.33, 0, 1, 0, 0)
-
-[sub_resource type="Theme" id="Theme_si8gi"]
-default_font = SubResource("FontVariation_l6cm7")
-default_font_size = 24
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_focus_color = Color(0.7647059, 0.9411765, 1, 1)
-Button/colors/font_hover_color = Color(0.7647059, 0.9411765, 1, 1)
-Button/colors/font_hover_pressed_color = Color(0, 0.7294118, 0.9647059, 1)
-Button/colors/font_pressed_color = Color(0, 0.7294118, 0.9647059, 1)
-Button/styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+[ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="6_rtw2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
 atlas = ExtResource("5_8ln24")
@@ -199,7 +184,7 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_l6cm7"]
-offsets = PackedFloat32Array(0, 0.36746988, 0.6385542, 1)
+offsets = PackedFloat32Array(0, 0.28313252, 0.55421686, 0.75301206)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l6cm7"]
@@ -211,7 +196,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_si8gi")
+theme = ExtResource("1_rtw2f")
 script = ExtResource("2_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1712646675]
@@ -314,39 +299,44 @@ theme_override_font_sizes/font_size = 32
 text = "Options"
 flat = true
 
-[node name="HBoxContainer" type="BoxContainer" parent="." unique_id=608578497]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=608578497]
 layout_mode = 2
 mouse_filter = 2
 vertical = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1244953843]
+[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer" unique_id=1244953843]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=2105544054]
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer" unique_id=2105544054]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/MarginContainer" unique_id=991011535]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BoxContainer/MarginContainer" unique_id=991011535]
 unique_name_in_owner = true
 root_node = NodePath("../StartText")
 libraries/ = SubResource("AnimationLibrary_bqqt6")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer" unique_id=479813516]
+[node name="ColorRect" type="ColorRect" parent="BoxContainer/MarginContainer" unique_id=479813516]
+visible = false
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="StartText" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=729996559]
+[node name="BottomBar" type="TextureRect" parent="BoxContainer/MarginContainer" unique_id=627094321]
+layout_mode = 2
+texture = ExtResource("6_rtw2f")
+
+[node name="StartText" type="RichTextLabel" parent="BoxContainer/MarginContainer" unique_id=729996559]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(0, 26)
+custom_minimum_size = Vector2(0, 36)
 clip_contents = false
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 8
 offset_transform_enabled = true
 offset_transform_position = Vector2(-142, 0)
 mouse_filter = 2
@@ -354,13 +344,13 @@ theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
 text = "Start Game / Start Game / Start Game / Start Game / Start Game / Start Game"
 autowrap_mode = 0
 
-[node name="OptionsText" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=455021343]
+[node name="OptionsText" type="RichTextLabel" parent="BoxContainer/MarginContainer" unique_id=455021343]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(0, 26)
+custom_minimum_size = Vector2(0, 36)
 clip_contents = false
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 8
 offset_transform_enabled = true
 offset_transform_position = Vector2(-148.7, 0)
 mouse_filter = 2
@@ -368,7 +358,22 @@ theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
 text = "Options / Options / Options / Options / Options / Options / "
 autowrap_mode = 0
 
-[node name="Gradient" type="TextureRect" parent="HBoxContainer/MarginContainer" unique_id=579787913]
+[node name="Gradient" type="TextureRect" parent="BoxContainer/MarginContainer" unique_id=579787913]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+size_flags_vertical = 8
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_l6cm7")
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/MarginContainer" unique_id=241244717]
+custom_minimum_size = Vector2(123.755, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 17
+
+[node name="ITGLogo" type="RichTextLabel" parent="BoxContainer/MarginContainer/MarginContainer" unique_id=608585443]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_font_sizes/normal_font_size = 51
+text = "ITG"
