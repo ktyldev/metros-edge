@@ -25,6 +25,7 @@ var sprinting = false # might be useful to state if we're at max running speed t
 var crouching = false
 var free_looking = false
 var sliding = false
+var wall_running = false
 
 # Slide vars
 # Consider slide_min_speed and just a way to get out of sliding via jumping out of it or if slowed down enough automatic standing up again, make it feel more momentum-y and natural
@@ -36,6 +37,11 @@ var slide_speed = 10.5
 var slide_end_speed_offset = 0.1
 var slide_headtilt = 7.0
 
+#Wall running vars
+var wall_run_vector = Vector2.ZERO #i'm just looking at how we did the slide, useful here to not turn away from wall run?
+var wall_run_deceleration = 1.0 #guesswork, unsure if used yet
+var wall_run_gravity = 3.0 
+var wall_run_min_speed = 7.0
 
 # Movement vars
 const jump_velocity = 5.5
@@ -190,7 +196,7 @@ func _physics_process(delta):
 	var look_dir := global_basis.get_rotation_quaternion() * Vector3(0, 0, -1)
 
 	# Add the gravity.
-	if not is_on_floor() and not wall_stick:
+	if not is_on_floor() and not wall_stick and not wall_running:
 		velocity.y -= gravity * delta
 
 	# don't want to move if we are wall sticking
@@ -202,6 +208,9 @@ func _physics_process(delta):
 			wall_stick_timer = 0.0
 			wall_stick = null
 		print("wall_stick_timer: ", wall_stick_timer)
+	#special lower 'gravity' for wall running so we stay on the wall longer
+	elif wall_running: 		
+		velocity.y -= wall_run_gravity * delta		
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
@@ -210,10 +219,12 @@ func _physics_process(delta):
 			#animation_player.play("jump")
 			#audio_stream_player.play()			
 			sliding = false
-			crouching = false			
+			crouching = false
+			wall_running = false			
 		elif is_on_floor and crouching: 
 			sliding = false
-			crouching = false			
+			crouching = false
+			wall_running = false		
 		
 		elif wall_stick:
 			if wall_stick_timer > 0.0:
@@ -234,6 +245,18 @@ func _physics_process(delta):
 
 				sliding = false
 				crouching = false
+				wall_running = false
+		
+			#TODO: special jump from wall when wall running ?
+		elif wall_running:
+			var jump_direction = -neck.global_basis.z
+			jump_direction.y = 0.0
+			jump_direction = jump_direction.normalized()
+			velocity.x = jump_direction.x * jump_velocity
+			velocity.z = jump_direction.z * jump_velocity
+			velocity.y = jump_velocity			
+			wall_running = false
+			free_looking = false
 
 
 	## Handle Landing
@@ -259,8 +282,12 @@ func _physics_process(delta):
 			wall_stick_ready = false
 	
 
-		# if we're facing along but a bit into the wall then we can wallrun
-		# # TODO: wallrun
+		# if we're facing along but a bit into the wall then we can wallrun		
+		if look_normal_dot < 0.3 and wall_stick_timer == 0.0 and horizontal_velocity.length() >= wall_run_min_speed: 
+			wall_running = true
+			free_looking = true #think it would feel natural
+			velocity.y = 0 # kill the upwards motion when touching the wall
+			wall_run_vector = Vector2(horizontal_velocity.dot(transform.basis.x),horizontal_velocity.dot(-transform.basis.z)).normalized()			
 
 	# if we press "turn" (Q) and we then rotate to face the normal
 	if Input.is_action_just_pressed("turn") and turn_to_face_timer == 0.0:
