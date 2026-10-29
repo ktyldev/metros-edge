@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Metro's Edge"
+config/name="TRICK METRO"
 run/main_scene="uid://17hry686y0s3"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bb20mf050pghw"
 
 [display]
 
