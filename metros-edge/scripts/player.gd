@@ -11,12 +11,13 @@ var max_speed = 12.0
 var slide_friction = ground_friction * 0.25
 @export var ground_acceleration = 10.0
 var horizontal_velocity = Vector3.ZERO
+@export var ground_turn_acceleration = 80
 @export var accel_to_max_speed_time = 2.5
 @export var accel_to_max_speed_timer = 0.0
 
 # will leave/rename after rewriting
 var lerp_speed = 10
-@export var air_drag = 2.25
+@export var air_drag = 0.25
 
 # States
 var jogging = false
@@ -106,6 +107,7 @@ func _physics_process(delta):
 		accel_to_max_speed_timer = min(accel_to_max_speed_timer + delta,accel_to_max_speed_time)
 	else:
 		accel_to_max_speed_timer = max(accel_to_max_speed_timer-delta*2.0,0.0)
+		#decel
 
 	current_speed = lerp(jogging_speed,max_speed,accel_to_max_speed_timer/accel_to_max_speed_time)
 
@@ -156,7 +158,7 @@ func _physics_process(delta):
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
 
-		if  horizontal_velocity.length() <= 0.1:
+		if  horizontal_velocity.length() <= 0.1 or Input.is_action_pressed("jump"):
 			sliding = false
 			#slide_timer = 0.0
 			print("Slide end")
@@ -166,22 +168,17 @@ func _physics_process(delta):
 		if is_on_floor() and input_dir != Vector2.ZERO:
 			direction = (transform.basis * Vector3(input_dir.x,0,input_dir.y)).normalized()
 
-		## Air steering.
-		# leftovers i believe, do we want air steering? i think stopping in air is already maybe something i'd consider removing if anything, we gotta pick between realism and expected-gamey stuff
-		#elif input_dir != Vector2.ZERO:
-			#direction = direction.lerp(
-				#(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),
-				#delta * air_drag
-			#).normalized()
-
 		# Accelerate toward the jogging/sprinting target speed.
 		if input_dir != Vector2.ZERO and direction.length() > 0.01:
-			var target_velocity = direction * current_speed
+			var target_velocity = direction * current_speed			
 
-			if is_on_floor():
-				horizontal_velocity = horizontal_velocity.move_toward(target_velocity,ground_acceleration * delta)
-			else:
-				horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,air_drag * delta)
+			if is_on_floor(): #Causes issue if holding down w and using mouse to steer, feels icey. must fine tune or change.
+				if horizontal_velocity.length()>0.1 and horizontal_velocity.normalized().dot(direction)<0.5:
+					horizontal_velocity = horizontal_velocity.move_toward(target_velocity,ground_turn_acceleration*delta)
+				else: 
+					horizontal_velocity = horizontal_velocity.move_toward(target_velocity,ground_acceleration*delta)
+			#else: #not on floor, so in air, use air drag instead (make sure air drag is minimal, otherwise ignore completely?
+				#horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,air_drag * delta)
 		else:
 			# Decelerate when there is no input.
 			var rate = ground_friction if is_on_floor() else air_drag			
@@ -208,13 +205,16 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if is_on_floor() and not crouching:
 			velocity.y = jump_velocity
 			#animation_player.play("jump")
-			#audio_stream_player.play()
-			#cancel slide when jumping
+			#audio_stream_player.play()			
 			sliding = false
-			crouching = false
+			crouching = false			
+		elif is_on_floor and crouching: 
+			sliding = false
+			crouching = false			
+		
 		elif wall_stick:
 			if wall_stick_timer > 0.0:
 				#was 16.0
