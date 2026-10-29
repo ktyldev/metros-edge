@@ -1,21 +1,48 @@
 [gd_scene format=3 uid="uid://56don1h463lh"]
 
+[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_xf7ej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
+size = Vector3(45.84912, 1, 8.993286)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xf7ej"]
+size = Vector3(45.84912, 1, 8.993286)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuyc2"]
+size = Vector3(4.757538, 1, 26.331848)
+
 [sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+material = ExtResource("1_xf7ej")
 size = Vector3(45.943085, 1, 9.036133)
 
 [sub_resource type="BoxMesh" id="BoxMesh_375kw"]
-size = Vector3(3.3659668, 1, 28.562256)
+material = ExtResource("1_xf7ej")
+size = Vector3(4.772949, 1, 25.90963)
 
-[node name="Atrium" type="Node3D" unique_id=330536154]
+[node name="Atrium" type="StaticBody3D" unique_id=447199645]
 
-[node name="Walkway" type="MeshInstance3D" parent="." unique_id=1815744398]
+[node name="LowerFloor" type="CollisionShape3D" parent="." unique_id=1901162184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6276855, -0.5, 13.5233)
+shape = SubResource("BoxShape3D_jg88y")
+
+[node name="UpperFloor" type="CollisionShape3D" parent="." unique_id=833460231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.629165, 12.6710205, -17.361073)
+shape = SubResource("BoxShape3D_xf7ej")
+
+[node name="Escalator" type="CollisionShape3D" parent="." unique_id=1397074463]
+transform = Transform3D(1, 0, 0, 0, 0.86162907, -0.5075383, 0, 0.5075383, 0.86162907, -26.746761, 6.101649, -1.7826653)
+shape = SubResource("BoxShape3D_wuyc2")
+
+[node name="Graphics" type="Node3D" parent="." unique_id=862007972]
+
+[node name="Walkway" type="MeshInstance3D" parent="Graphics" unique_id=574020471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6771045, -0.5, 13.505379)
 mesh = SubResource("BoxMesh_fauy2")
 
-[node name="Walkway2" type="MeshInstance3D" parent="." unique_id=2058227180]
+[node name="Walkway2" type="MeshInstance3D" parent="Graphics" unique_id=1607913300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.677105, 12.683624, -17.341732)
 mesh = SubResource("BoxMesh_fauy2")
 
-[node name="Escalator" type="MeshInstance3D" parent="." unique_id=98564477]
-transform = Transform3D(1, 0, 0, 0, 0.8612518, -0.5081785, 0, 0.5081785, 0.8612518, -27.462257, 5.8379908, -1.160141)
+[node name="Escalator" type="MeshInstance3D" parent="Graphics" unique_id=519940053]
+transform = Transform3D(1, 0, 0, 0, 0.8612518, -0.5081785, 0, 0.5081785, 0.8612518, -26.758766, 6.161932, -1.9166392)
 mesh = SubResource("BoxMesh_375kw")

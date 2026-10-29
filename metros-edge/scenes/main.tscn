@@ -18,9 +18,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.1
 
 [node name="Environment" parent="." unique_id=437154403 instance=ExtResource("2_0wfyh")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=358078869]
-transform = Transform3D(0.5624343, 0.5742976, -0.5948529, 0, 0.7194275, 0.6945675, 0.826842, -0.3906486, 0.40463072, 0, 0, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1135965417]
 environment = SubResource("Environment_jg88y")
 camera_attributes = SubResource("CameraAttributesPractical_375kw")

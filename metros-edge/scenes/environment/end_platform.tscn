@@ -25,8 +25,14 @@ visible = true
 [node name="SolidWall" parent="Platform" index="2" unique_id=2105825161]
 visible = false
 
+[node name="CollisionShape3D" parent="Platform/SolidWall/StaticBody3D" parent_id_path=PackedInt32Array(76340691, 1069362352) index="0" unique_id=462761224]
+disabled = true
+
 [node name="Train" parent="Platform" index="4" unique_id=1511077543]
 visible = false
+
+[node name="CollisionShape3D" parent="Platform/Train/StaticBody3D" parent_id_path=PackedInt32Array(76340691, 1073851444) index="0" unique_id=121110659]
+disabled = true
 
 [node name="Platform2" parent="." unique_id=499176395 instance=ExtResource("1_75rmq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -11.469887)
@@ -34,14 +40,23 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 [node name="SolidWall" parent="Platform2" index="2" unique_id=2105825161]
 visible = false
 
+[node name="CollisionShape3D" parent="Platform2/SolidWall/StaticBody3D" parent_id_path=PackedInt32Array(499176395, 1069362352) index="0" unique_id=462761224]
+disabled = true
+
 [node name="Train" parent="Platform2" index="4" unique_id=1511077543]
 visible = false
+
+[node name="CollisionShape3D" parent="Platform2/Train/StaticBody3D" parent_id_path=PackedInt32Array(499176395, 1073851444) index="0" unique_id=121110659]
+disabled = true
 
 [node name="Platform3" parent="." unique_id=992827585 instance=ExtResource("1_75rmq")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, -16.417496)
 
 [node name="SolidWall" parent="Platform3" index="2" unique_id=2105825161]
 visible = false
+
+[node name="CollisionShape3D" parent="Platform3/SolidWall/StaticBody3D" parent_id_path=PackedInt32Array(992827585, 1069362352) index="0" unique_id=462761224]
+disabled = true
 
 [editable path="Platform"]
 [editable path="Platform2"]

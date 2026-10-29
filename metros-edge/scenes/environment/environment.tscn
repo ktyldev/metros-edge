@@ -9,7 +9,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("2_58tnn")
-size = Vector3(6.171814, 0.892395, 16.361328)
+size = Vector3(6.171814, 0.964798, 16.361328)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ff8o"]
 material = ExtResource("2_58tnn")
@@ -20,6 +20,18 @@ size = Vector3(23.88977, 1, 32.638535)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58tnn"]
 size = Vector3(0.8862915, 6.8691406, 16.345913)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bw5cw"]
+size = Vector3(9.89801, 1, 5.7052)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6uwxm"]
+size = Vector3(16.340881, 6.429199, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nd6w"]
+size = Vector3(16.35733, 1, 5.7052)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c00nx"]
+size = Vector3(16.340881, 6.429199, 1)
 
 [sub_resource type="Environment" id="Environment_58tnn"]
 tonemap_white = 16.0
@@ -92,18 +104,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.736181, 0, 7.119705)
 [node name="Atrium" parent="Greybox" unique_id=330536154 instance=ExtResource("3_als2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0843, 0, -19.779125)
 
-[node name="Tunnel2" type="Node3D" parent="Greybox" unique_id=801481198]
+[node name="Tunnel2" type="StaticBody3D" parent="Greybox" unique_id=1880214225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615602, 13.135507, -40.835175)
 
 [node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel2" unique_id=805310567]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7341957, -0.4053936, 2.1182098)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7340002, -0.48337555, 2.118)
 mesh = SubResource("BoxMesh_jg88y")
 
 [node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel2" unique_id=2121769102]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.7191658, 2.8518467, -1.2247162)
 mesh = SubResource("BoxMesh_4ff8o")
 
-[node name="Tunnel3" type="Node3D" parent="Greybox" unique_id=1852515470]
+[node name="FloorCollision" type="CollisionShape3D" parent="Greybox/Tunnel2" unique_id=1376245028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9186096, -0.5, 2.3526)
+shape = SubResource("BoxShape3D_bw5cw")
+
+[node name="WallCollision" type="CollisionShape3D" parent="Greybox/Tunnel2" unique_id=163877608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7254944, 2.7145996, -1.2668495)
+shape = SubResource("BoxShape3D_6uwxm")
+
+[node name="Tunnel3" type="StaticBody3D" parent="Greybox" unique_id=916919284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.617455, 13.135507, -40.835175)
 
 [node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=1851400776]
@@ -113,6 +133,14 @@ mesh = SubResource("BoxMesh_jg88y")
 [node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=599836072]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.7191658, 2.8518467, -1.2247162)
 mesh = SubResource("BoxMesh_4ff8o")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=741639720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6889496, -0.5, 2.3526)
+shape = SubResource("BoxShape3D_8nd6w")
+
+[node name="WallCollision" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=1035911377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7254944, 2.7145996, -1.2668495)
+shape = SubResource("BoxShape3D_c00nx")
 
 [node name="Turnstiles2" parent="Greybox" unique_id=1785544008 instance=ExtResource("2_4ff8o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.383705, 13.160067, -39.183594)
