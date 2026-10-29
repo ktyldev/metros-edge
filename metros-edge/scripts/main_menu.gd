@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 
 func _ready():
@@ -13,7 +13,7 @@ func _on_button_mouse_entered(button:Button) -> void:
 	button.grab_focus()
 
 
-func _on_button_focus_entered(button:Button):
+func _on_button_focus_entered(button:Button) -> void:
 	var tween := get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
@@ -36,7 +36,7 @@ func _on_button_mouse_exited(button:Button) -> void:
 	button.release_focus()
 
 
-func _on_button_focus_exited(button:Button):
+func _on_button_focus_exited(button:Button) -> void:
 	var tween := get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)

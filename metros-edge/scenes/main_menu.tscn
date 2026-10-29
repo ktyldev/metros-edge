@@ -190,28 +190,35 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l6cm7"]
 gradient = SubResource("Gradient_l6cm7")
 
-[node name="MainMenu" type="MarginContainer" unique_id=1896956136]
+[node name="MainMenu" type="Control" unique_id=2028749162]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+script = ExtResource("2_ekxnf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1896956136]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rtw2f")
-script = ExtResource("2_ekxnf")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1712646675]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1712646675]
 layout_mode = 2
 texture = ExtResource("3_wu84c")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1322528496]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1322528496]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1900715115]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer" unique_id=1900715115]
 custom_minimum_size = Vector2(450, 450)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -221,20 +228,20 @@ offset_transform_position = Vector2(-44.56, -102.99)
 texture = ExtResource("3_bqqt6")
 expand_mode = 1
 
-[node name="BoxContainer" type="BoxContainer" parent="MarginContainer" unique_id=1788754066]
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/MarginContainer" unique_id=1788754066]
 layout_mode = 2
 theme_override_constants/separation = -9
 alignment = 1
 vertical = true
 
-[node name="Container" type="Container" parent="MarginContainer/BoxContainer" unique_id=502441522]
+[node name="Container" type="Container" parent="MarginContainer/MarginContainer/BoxContainer" unique_id=502441522]
 custom_minimum_size = Vector2(0, 192.835)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BoxContainer" unique_id=293914571]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/BoxContainer" unique_id=293914571]
 layout_mode = 2
 
-[node name="StartSpinny" type="AnimatedSprite2D" parent="MarginContainer/BoxContainer/HBoxContainer" unique_id=704601859]
+[node name="StartSpinny" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer" unique_id=704601859]
 unique_name_in_owner = true
 visible = false
 texture_filter = 1
@@ -243,20 +250,20 @@ sprite_frames = SubResource("SpriteFrames_si8gi")
 autoplay = "default"
 frame_progress = 0.6575269
 
-[node name="StartContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/HBoxContainer" unique_id=1939284654]
+[node name="StartContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer" unique_id=1939284654]
 layout_mode = 2
 size_flags_vertical = 0
 offset_transform_enabled = true
 
-[node name="DropShadow" type="RichTextLabel" parent="MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=1390173449]
+[node name="DropShadow" type="RichTextLabel" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=1390173449]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(1.265, 5.51)
+offset_transform_position = Vector2(1, 6)
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Start Game"
 
-[node name="Start" type="Button" parent="MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=749544741]
+[node name="Start" type="Button" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=749544741]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(189, 34)
 layout_mode = 2
@@ -266,10 +273,10 @@ theme_override_font_sizes/font_size = 32
 text = "Start Game"
 flat = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/BoxContainer" unique_id=1270811013]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer/BoxContainer" unique_id=1270811013]
 layout_mode = 2
 
-[node name="OptionSpinny" type="AnimatedSprite2D" parent="MarginContainer/BoxContainer/HBoxContainer2" unique_id=1413744993]
+[node name="OptionSpinny" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer2" unique_id=1413744993]
 unique_name_in_owner = true
 visible = false
 texture_filter = 1
@@ -278,20 +285,20 @@ sprite_frames = SubResource("SpriteFrames_si8gi")
 autoplay = "default"
 frame_progress = 0.86194086
 
-[node name="OptionsContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/HBoxContainer2" unique_id=433344521]
+[node name="OptionsContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer2" unique_id=433344521]
 layout_mode = 2
 size_flags_vertical = 0
 offset_transform_enabled = true
 
-[node name="DropShadow" type="RichTextLabel" parent="MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=2034721592]
+[node name="DropShadow" type="RichTextLabel" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=2034721592]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(1.265, 5.51)
+offset_transform_position = Vector2(1, 6)
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Options"
 
-[node name="Options" type="Button" parent="MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=1041965687]
+[node name="Options" type="Button" parent="MarginContainer/MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=1041965687]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -299,38 +306,38 @@ theme_override_font_sizes/font_size = 32
 text = "Options"
 flat = true
 
-[node name="BoxContainer" type="BoxContainer" parent="." unique_id=608578497]
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer" unique_id=608578497]
 layout_mode = 2
 mouse_filter = 2
 vertical = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer" unique_id=1244953843]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BoxContainer" unique_id=1244953843]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="BoxContainer" unique_id=2105544054]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer" unique_id=2105544054]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BoxContainer/MarginContainer" unique_id=991011535]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=991011535]
 unique_name_in_owner = true
 root_node = NodePath("../StartText")
 libraries/ = SubResource("AnimationLibrary_bqqt6")
 
-[node name="ColorRect" type="ColorRect" parent="BoxContainer/MarginContainer" unique_id=479813516]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=479813516]
 visible = false
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="BottomBar" type="TextureRect" parent="BoxContainer/MarginContainer" unique_id=627094321]
+[node name="BottomBar" type="TextureRect" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=627094321]
 layout_mode = 2
 texture = ExtResource("6_rtw2f")
 
-[node name="StartText" type="RichTextLabel" parent="BoxContainer/MarginContainer" unique_id=729996559]
+[node name="StartText" type="RichTextLabel" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=729996559]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 36)
@@ -344,7 +351,7 @@ theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
 text = "Start Game / Start Game / Start Game / Start Game / Start Game / Start Game"
 autowrap_mode = 0
 
-[node name="OptionsText" type="RichTextLabel" parent="BoxContainer/MarginContainer" unique_id=455021343]
+[node name="OptionsText" type="RichTextLabel" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=455021343]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 36)
@@ -358,20 +365,20 @@ theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
 text = "Options / Options / Options / Options / Options / Options / "
 autowrap_mode = 0
 
-[node name="Gradient" type="TextureRect" parent="BoxContainer/MarginContainer" unique_id=579787913]
+[node name="Gradient" type="TextureRect" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=579787913]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_l6cm7")
 
-[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/MarginContainer" unique_id=241244717]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BoxContainer/MarginContainer" unique_id=241244717]
 custom_minimum_size = Vector2(123.755, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_top = 17
 
-[node name="ITGLogo" type="RichTextLabel" parent="BoxContainer/MarginContainer/MarginContainer" unique_id=608585443]
+[node name="ITGLogo" type="RichTextLabel" parent="MarginContainer/BoxContainer/MarginContainer/MarginContainer" unique_id=608585443]
 clip_contents = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
