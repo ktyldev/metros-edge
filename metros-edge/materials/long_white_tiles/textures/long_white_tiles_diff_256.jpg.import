@@ -2,16 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2wocg316yg8l"
-valid=false
+uid="uid://bq2a1cj06yfmj"
+path="res://.godot/imported/long_white_tiles_diff_256.jpg-23f8588340aea430bb4adf22caaf923d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://materials/long_white_tiles/textures/long_white_tiles_rough_4k.exr"
+source_file="res://materials/long_white_tiles/textures/long_white_tiles_diff_256.jpg"
+dest_files=["res://.godot/imported/long_white_tiles_diff_256.jpg-23f8588340aea430bb4adf22caaf923d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -19,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -33,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

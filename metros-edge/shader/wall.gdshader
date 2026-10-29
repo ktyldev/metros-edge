@@ -34,7 +34,7 @@ void fragment() {
 	ALBEDO = texture(albedo, UV).rgb;
 	NORMAL_MAP = texture(normal, UV).rgb;
 	ROUGHNESS = texture(roughness, UV).r * roughness_scale;
-	SPECULAR = 1.0;
+	SPECULAR = 0.5;
 	// Called for every pixel the material is visible on.
 }
 

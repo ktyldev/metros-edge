@@ -2,12 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jjlf0xwvqqto"
-valid=false
+uid="uid://m5rpqybp63l5"
+path.bptc="res://.godot/imported/long_white_tiles_nor_gl_256.exr-9e39e0d65de4596c5750c2e5baec9c87.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
 
 [deps]
 
-source_file="res://materials/long_white_tiles/textures/long_white_tiles_diff_4k.jpg"
+source_file="res://materials/long_white_tiles/textures/long_white_tiles_nor_gl_256.exr"
+dest_files=["res://.godot/imported/long_white_tiles_nor_gl_256.exr-9e39e0d65de4596c5750c2e5baec9c87.bptc.ctex"]
 
 [params]
 

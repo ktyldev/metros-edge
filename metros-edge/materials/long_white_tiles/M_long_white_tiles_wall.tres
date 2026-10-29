@@ -1,17 +1,17 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://d15cwybmaj0on"]
 
 [ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/wall.gdshader" id="1_h82xt"]
-[ext_resource type="Texture2D" uid="uid://l2b8ueg8un7s" path="res://materials/long_white_tiles/textures/long_white_tiles_ao_4k.jpg" id="2_srtqp"]
-[ext_resource type="Texture2D" uid="uid://c2wocg316yg8l" path="res://materials/long_white_tiles/textures/long_white_tiles_rough_4k.exr" id="3_deina"]
-[ext_resource type="Texture2D" uid="uid://cor5uponqj67i" path="res://materials/long_white_tiles/textures/long_white_tiles_nor_gl_4k.exr" id="3_srtqp"]
+[ext_resource type="Texture2D" uid="uid://c7p1wu5pgiyg4" path="res://materials/long_white_tiles/textures/long_white_tiles_ao_256.jpg" id="2_srtqp"]
+[ext_resource type="Texture2D" uid="uid://m5rpqybp63l5" path="res://materials/long_white_tiles/textures/long_white_tiles_nor_gl_256.exr" id="3_pybvp"]
+[ext_resource type="Texture2D" uid="uid://uwjjvn7fwxf6" path="res://materials/long_white_tiles/textures/long_white_tiles_rough_256.exr" id="4_lvcw1"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_h82xt")
 shader_parameter/albedo = ExtResource("2_srtqp")
-shader_parameter/normal = ExtResource("3_srtqp")
+shader_parameter/normal = ExtResource("3_pybvp")
 shader_parameter/roughness_scale = 0.05
-shader_parameter/roughness = ExtResource("3_deina")
+shader_parameter/roughness = ExtResource("4_lvcw1")
 shader_parameter/offset = Vector2(0.185, 0)
 shader_parameter/scale = 7.113
 shader_parameter/angle = 1.5699999999999998
