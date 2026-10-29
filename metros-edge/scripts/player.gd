@@ -42,6 +42,7 @@ var wall_run_vector = Vector2.ZERO #i'm just looking at how we did the slide, us
 var wall_run_deceleration = 1.0 #guesswork, unsure if used yet
 var wall_run_gravity = 3.0 
 var wall_run_min_speed = 7.0
+var wall_run_normal: Vector3 = Vector3.ZERO
 
 # Movement vars
 const jump_velocity = 5.5
@@ -286,6 +287,7 @@ func _physics_process(delta):
 		if look_normal_dot < 0.3 and wall_stick_timer == 0.0 and horizontal_velocity.length() >= wall_run_min_speed: 
 			wall_running = true
 			free_looking = true #think it would feel natural
+			wall_run_normal = normal
 			velocity.y = 0 # kill the upwards motion when touching the wall
 			wall_run_vector = Vector2(horizontal_velocity.dot(transform.basis.x),horizontal_velocity.dot(-transform.basis.z)).normalized()			
 
@@ -296,6 +298,11 @@ func _physics_process(delta):
 			turn_to_face_target = wall_stick.get_normal()
 			# TODO: pick direction based on which way is closer
 			turn_to_face_angle = turn_to_face_target.signed_angle_to(look_dir, Vector3.UP)
+			#straight up copying that one
+		elif wall_running:
+			turn_to_face_timer = turn_to_face_time
+			turn_to_face_target = wall_run_normal
+			turn_to_face_angle = turn_to_face_target.signed_angle_to(look_dir,Vector3.UP)
 		elif is_on_floor():
 			turn_to_face_timer = turn_to_face_time
 			turn_to_face_target = look_dir.rotated(Vector3.UP, PI)
