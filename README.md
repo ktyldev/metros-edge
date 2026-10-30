@@ -16,4 +16,7 @@ Godot is inside `metros-edge` folder to leave space for ancillary scripts/docs/w
 [Eric/LemonyFresh](https://lemonyfresh.itch.io/)
 
 ## Assets used
-Font: Dissolved Exchange by [Chequered Ink Ltd](https://chequered.ink/).
+
+- Font: Dissolved Exchange by [Chequered Ink Ltd](https://chequered.ink/).
+- Texture: Long White Tiles from [Polyhaven](https://polyhaven.com/a/long_white_tiles)
+
