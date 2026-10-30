@@ -1,6 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://ckk8pbjqrtosd"]
 
 [ext_resource type="FontFile" uid="uid://camsfjm3fac2r" path="res://resources/Dissolved Exchange.otf" id="1_bspwt"]
+[ext_resource type="Texture2D" uid="uid://c1vjdy35rao5g" path="res://assets/UI_checkbox_checked.svg" id="1_fpjo6"]
+[ext_resource type="Texture2D" uid="uid://dqyhj52vhfbol" path="res://assets/UI_checkbox_empty.svg" id="1_gqoi8"]
 [ext_resource type="Texture2D" uid="uid://dpusib7tpuy0n" path="res://assets/UI_slider_grabber.svg" id="1_m6q0x"]
 [ext_resource type="Texture2D" uid="uid://0bgpcdiicm3r" path="res://assets/UI_slider.svg" id="2_7304k"]
 [ext_resource type="Texture2D" uid="uid://ovfeg23phnqr" path="res://assets/UI_slider_grabber_focus.svg" id="2_i2qsi"]
@@ -9,14 +11,14 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijpji"]
-texture = ExtResource("2_7304k")
+texture = ExtResource("3_fw5cb")
 texture_margin_left = 9.0
 texture_margin_top = 8.0
 texture_margin_right = 9.0
 texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gqoi8"]
-texture = ExtResource("3_fw5cb")
+texture = ExtResource("2_7304k")
 texture_margin_left = 9.0
 texture_margin_top = 8.0
 texture_margin_right = 9.0
@@ -35,6 +37,8 @@ Button/colors/font_hover_color = Color(0.7647059, 0.9411765, 1, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0.7294118, 0.9647059, 1)
 Button/colors/font_pressed_color = Color(0, 0.7294118, 0.9647059, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+CheckBox/icons/checked = ExtResource("1_fpjo6")
+CheckBox/icons/unchecked = ExtResource("1_gqoi8")
 HSlider/icons/grabber = ExtResource("1_m6q0x")
 HSlider/icons/grabber_highlight = ExtResource("2_i2qsi")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ijpji")

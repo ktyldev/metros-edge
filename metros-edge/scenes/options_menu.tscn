@@ -38,7 +38,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DescriptionLabel:offset_transform_position")
+tracks/0/path = NodePath("MusicMarq:offset_transform_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,15 +47,157 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFXMarq:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FOVMarq:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FullscreenMarq:offset_transform_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%FullscreenMarq:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%FOVMarq:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%SFXMarq:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%MusicMarq:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_k61yy"]
+resource_name = "fov_marquee"
+length = 3.1333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FOVMarq:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.1333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-334, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%FOVMarq:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7txom"]
+resource_name = "fullscreen_marquee"
+length = 2.7333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullscreenMarq:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.7333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-291, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%FullscreenMarq:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lfjc7"]
-resource_name = "new_animation"
+resource_name = "music_marquee"
 length = 3.1666667
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DescriptionLabel:offset_transform_position")
+tracks/0/path = NodePath("MusicMarq:offset_transform_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -64,11 +206,55 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-335, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MusicMarq:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dhn0l"]
+resource_name = "sfx_marquee"
+length = 2.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SFXMarq:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-310, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%SFXMarq:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xsyx"]
 _data = {
 &"RESET": SubResource("Animation_3xsyx"),
-&"new_animation": SubResource("Animation_lfjc7")
+&"fov_marquee": SubResource("Animation_k61yy"),
+&"fullscreen_marquee": SubResource("Animation_7txom"),
+&"music_marquee": SubResource("Animation_lfjc7"),
+&"sfx_marquee": SubResource("Animation_dhn0l")
 }
 
 [node name="Options" type="MarginContainer" unique_id=61530862]
@@ -154,7 +340,7 @@ theme_override_constants/separation = 32
 layout_mode = 2
 
 [node name="MusicShadow" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1002249961]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -167,7 +353,7 @@ horizontal_alignment = 2
 
 [node name="MusicLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=522138631]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 mouse_filter = 2
@@ -180,6 +366,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../MarginContainer2/HBoxContainer2/SFXSlider")
+focus_next = NodePath("../../../MarginContainer2/HBoxContainer2/SFXSlider")
+focus_previous = NodePath(".")
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -226,7 +418,7 @@ theme_override_constants/separation = 32
 layout_mode = 2
 
 [node name="SFXShadow" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer" unique_id=2049532050]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -239,7 +431,7 @@ horizontal_alignment = 2
 
 [node name="SFXLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer" unique_id=1139227433]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 mouse_filter = 2
@@ -252,6 +444,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../MarginContainer/HBoxContainer/MusicSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../MarginContainer3/HBoxContainer3/FOVSlider")
+focus_next = NodePath("../../../MarginContainer3/HBoxContainer3/FOVSlider")
+focus_previous = NodePath("../../../MarginContainer/HBoxContainer/MusicSlider")
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -298,7 +496,7 @@ theme_override_constants/separation = 32
 layout_mode = 2
 
 [node name="FOVShadow" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer3/MarginContainer" unique_id=1753281474]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -311,7 +509,7 @@ horizontal_alignment = 2
 
 [node name="FOVLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer3/MarginContainer" unique_id=2067947934]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 mouse_filter = 2
@@ -324,6 +522,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../MarginContainer2/HBoxContainer2/SFXSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../MarginContainer4/HBoxContainer4/CheckBox")
+focus_next = NodePath("../../../MarginContainer4/HBoxContainer4/CheckBox")
+focus_previous = NodePath("../../../MarginContainer2/HBoxContainer2/SFXSlider")
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -370,7 +574,7 @@ theme_override_constants/separation = 28
 layout_mode = 2
 
 [node name="FullscreenShadow" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer4/MarginContainer" unique_id=437560324]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -383,7 +587,7 @@ horizontal_alignment = 2
 
 [node name="FullscreenLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer4/MarginContainer" unique_id=847204357]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 mouse_filter = 2
@@ -395,6 +599,12 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../MarginContainer3/HBoxContainer3/FOVSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../MarginContainer5/HBoxContainer5/MarginContainer/BackButton")
+focus_next = NodePath("../../../MarginContainer5/HBoxContainer5/MarginContainer/BackButton")
+focus_previous = NodePath("../../../MarginContainer3/HBoxContainer3/FOVSlider")
 
 [node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=275324245]
 layout_mode = 2
@@ -405,10 +615,9 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer5" unique_id=467491441]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="FullscreenShadow2" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer5/MarginContainer" unique_id=1204305825]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(235, 0)
 clip_contents = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -422,7 +631,13 @@ horizontal_alignment = 2
 [node name="BackButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer5/MarginContainer" unique_id=993651171]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../MarginContainer4/HBoxContainer4/CheckBox")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../../../../MarginContainer4/HBoxContainer4/CheckBox")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijpji")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hm4m4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lfjc7")
@@ -439,7 +654,7 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/MarginContainer3" unique_id=462815325]
+[node name="BottomBarThing" type="TextureRect" parent="VBoxContainer/MarginContainer3" unique_id=462815325]
 visible = false
 layout_mode = 2
 mouse_filter = 2
@@ -450,7 +665,9 @@ stretch_mode = 2
 layout_mode = 2
 mouse_filter = 2
 
-[node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=647522870]
+[node name="MusicMarq" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=647522870]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 28)
 clip_contents = false
 layout_mode = 2
@@ -463,12 +680,57 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/MarginContainer3" unique_id=741197245]
+[node name="SFXMarq" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=1340944652]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 28)
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 2
+theme = ExtResource("1_ijpji")
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Adjust SFX volume / Adjust SFX volume / Adjust SFX volume / Adjust SFX volume / "
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="FOVMarq" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=1580336037]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 28)
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 2
+theme = ExtResource("1_ijpji")
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Adjust field of vision / Adjust field of vision / Adjust field of vision / Adjust field of vision / "
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="FullscreenMarq" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=1834901821]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 28)
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 2
+theme = ExtResource("1_ijpji")
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Toggle fullscreen / Toggle fullscreen / Toggle fullscreen / Toggle fullscreen / "
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Gradient" type="TextureRect" parent="VBoxContainer/MarginContainer3" unique_id=741197245]
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_lfjc7")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=1578047724]
+[node name="UIHint" type="RichTextLabel" parent="VBoxContainer/MarginContainer3" unique_id=1578047724]
 visible = false
 modulate = Color(0, 0.5372549, 0.85490197, 1)
 layout_mode = 2
@@ -482,8 +744,8 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/MarginContainer3" unique_id=1227024898]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_3xsyx")
-autoplay = &"new_animation"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=96513478]
 layout_mode = 2

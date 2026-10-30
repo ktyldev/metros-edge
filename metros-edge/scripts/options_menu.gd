@@ -15,19 +15,30 @@ func _on_node_focused(node:Control) -> void:
 	%SFXLabel.modulate = Color.WHITE
 	%FOVLabel.modulate = Color.WHITE 
 	%FullscreenLabel.modulate = Color.WHITE
+	#%AnimationPlayer.stop()
 	match node.name:
 		"MusicSlider":
 			%MusicSelection.visible = true
 			%MusicLabel.modulate = Color(0.765, 0.941, 1.0)
+			%AnimationPlayer.play("music_marquee")
 		"SFXSlider":
 			%SFXSelection.visible = true
 			%SFXLabel.modulate = Color(0.765, 0.941, 1.0)
+			%AnimationPlayer.play("sfx_marquee")
 		"FOVSlider":
 			%FOVSelection.visible = true
 			%FOVLabel.modulate = Color(0.765, 0.941, 1.0)
+			%AnimationPlayer.play("fov_marquee")
 		"CheckBox":
 			%FullscreenSelection.visible = true
 			%FullscreenLabel.modulate = Color(0.765, 0.941, 1.0)
+			%AnimationPlayer.play("fullscreen_marquee")
+		_:
+			%AnimationPlayer.stop()
+	%MusicMarq.visible = false
+	%SFXMarq.visible = false
+	%FOVMarq.visible = false
+	%FullscreenMarq.visible = false
 
 
 func _on_mouse_enetered(node:Control) -> void:

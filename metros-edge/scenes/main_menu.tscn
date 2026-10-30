@@ -384,3 +384,8 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 51
 text = "ITG"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1766529307]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 8.0
