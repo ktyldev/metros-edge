@@ -85,6 +85,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED)
 	# Mouse looking logic
 	if event is InputEventMouseMotion:
 		if free_looking:
@@ -140,7 +142,7 @@ func _physics_process(delta):
 			standing_collision_shape.disabled = false
 			crouching_collision_shape.disabled = true
 			head.position.y = lerp(head.position.y,0.0,delta*lerp_speed)
-		crouching = false
+		crouching = ray_cast_3d.is_colliding()
 
 	# Handle free look.
 	if Input.is_action_pressed("free_look") or sliding:
@@ -165,8 +167,9 @@ func _physics_process(delta):
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
 
-		if  horizontal_velocity.length() <= 0.1 or Input.is_action_pressed("jump"):
+		if  horizontal_velocity.length() <= crouching_speed or not is_on_floor() or Input.is_action_pressed("jump"):
 			sliding = false
+			crouching = false
 			#slide_timer = 0.0
 			print("Slide end")
 
@@ -177,7 +180,7 @@ func _physics_process(delta):
 
 		# Accelerate toward the jogging/sprinting target speed.
 		if input_dir != Vector2.ZERO and direction.length() > 0.01:
-			var target_velocity = direction * current_speed			
+			var target_velocity = direction * (crouching_speed if crouching else current_speed)
 
 			if is_on_floor(): #Causes issue if holding down w and using mouse to steer, feels icey. must fine tune or change.
 				if horizontal_velocity.length()>0.1 and horizontal_velocity.normalized().dot(direction)<0.5:
@@ -211,7 +214,8 @@ func _physics_process(delta):
 		print("wall_stick_timer: ", wall_stick_timer)
 	#special lower 'gravity' for wall running so we stay on the wall longer
 	elif wall_running: 		
-		velocity.y -= wall_run_gravity * delta		
+		velocity.y -= wall_run_gravity * delta
+		velocity -= wall_run_normal * 0.5
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
@@ -222,7 +226,7 @@ func _physics_process(delta):
 			sliding = false
 			crouching = false
 			wall_running = false			
-		elif is_on_floor and crouching: 
+		elif is_on_floor() and crouching: 
 			sliding = false
 			crouching = false
 			wall_running = false		
@@ -271,6 +275,9 @@ func _physics_process(delta):
 	last_velocity = velocity
 	move_and_slide()
 
+	if wall_running and not is_on_wall_only():
+		wall_running = false
+
 	var collision := _get_wall_stick_collision()
 	if collision and wall_stick_ready:
 		var normal := collision.get_normal()
@@ -284,7 +291,7 @@ func _physics_process(delta):
 	
 
 		# if we're facing along but a bit into the wall then we can wallrun		
-		if look_normal_dot < 0.3 and wall_stick_timer == 0.0 and horizontal_velocity.length() >= wall_run_min_speed: 
+		if look_normal_dot < 0.3 and wall_stick_timer == 0.0 and horizontal_velocity.length() >= wall_run_min_speed and not wall_running:
 			wall_running = true
 			free_looking = true #think it would feel natural
 			wall_run_normal = normal
