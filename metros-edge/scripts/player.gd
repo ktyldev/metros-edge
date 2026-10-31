@@ -9,6 +9,7 @@ var max_speed = 12.0
 # Accel + Decel
 @export var ground_friction = 20.0
 var slide_friction = ground_friction * 0.25
+var slide_friction_multiplier = 1
 @export var ground_acceleration = 10.0
 var horizontal_velocity = Vector3.ZERO
 @export var ground_turn_acceleration = 80
@@ -157,11 +158,14 @@ func _physics_process(delta):
 
 	# Direction handling and movement.
 	if sliding:
-		#slide using momentum
-		#slide_timer -= delta
-
-		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,slide_friction*delta)
-
+		#slide using momentum		
+		#Velocity determines also which slide_friction multiplier we want, slowing down more rapidly if going slower than 3.5
+		if horizontal_velocity.length()>=3.5:			
+			slide_friction_multiplier = 1			
+		elif horizontal_velocity.length()<= 3.5:			
+			slide_friction_multiplier = 2.5
+		#The deceleration math itself	
+		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,slide_friction*slide_friction_multiplier*delta)
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
 
