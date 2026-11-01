@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cforelm8s6tv4"]
+
+[ext_resource type="Texture2D" uid="uid://blajr4bjvj2xu" path="res://assets/UI_run_icon.svg" id="1_us8qs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3efsh"]
+size = Vector3(3.9801025, 2.1865234, 0.17468262)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3efsh"]
+emission_enabled = true
+emission = Color(0.49803922, 1, 1, 1)
+
+[node name="ExitSign" type="MeshInstance3D" unique_id=230232096]
+mesh = SubResource("BoxMesh_3efsh")
+surface_material_override/0 = SubResource("StandardMaterial3D_3efsh")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=415862637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4915142, 0, 0.09338808)
+modulate = Color(0, 1, 0, 1)
+text = "EXIT
+"
+font_size = 214
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=372996306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2282087, 0, 0.0908432)
+texture = ExtResource("1_us8qs")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=490189379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05773002)
+light_bake_mode = 1
+area_range = 0.76
+area_attenuation = 0.281
+area_size = Vector2(2.9869003, 0.98881817)

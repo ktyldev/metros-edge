@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c3pubuujs71cs"]
+
+[ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_0udi4"]
+[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="3_d4gko"]
+[ext_resource type="PackedScene" uid="uid://nt2x1x4tw8d3" path="res://scenes/environment/props/train.tscn" id="4_86x3v"]
+[ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/light.tscn" id="5_juk0s"]
+[ext_resource type="Material" uid="uid://vg2uxgx2fgl2" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles_surface.tres" id="6_dkujg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+lightmap_size_hint = Vector2i(526, 515)
+material = ExtResource("1_0udi4")
+add_uv2 = true
+size = Vector3(100, 0.90148926, 4.434082)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
+size = Vector3(100.007225, 1.3006592, 4.438551)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tnd4i"]
+lightmap_size_hint = Vector2i(502, 22)
+material = ExtResource("3_d4gko")
+add_uv2 = true
+size = Vector2(100, 4.097)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kied"]
+size = Vector3(100.007225, 0.41882324, 4.1385345)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_375kw"]
+lightmap_size_hint = Vector2i(12, 12)
+material = ExtResource("6_dkujg")
+
+[node name="Platform" type="Node3D" unique_id=76340691]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1379870810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034029037, -0.4739608, 0.28441215)
+material_override = ExtResource("1_0udi4")
+mesh = SubResource("BoxMesh_fauy2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=838165008]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1608796117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, -0.14788815, -0.057034492)
+shape = SubResource("BoxShape3D_jg88y")
+
+[node name="Rails" type="MeshInstance3D" parent="." unique_id=1589063684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -0.91342294, -3.7260666)
+mesh = SubResource("PlaneMesh_tnd4i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rails" unique_id=1102674119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.895346e-05, -0.5017135, 0.18403673)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/StaticBody3D" unique_id=873258164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, 0.3155061, -0.15128326)
+shape = SubResource("BoxShape3D_4kied")
+
+[node name="Train" parent="." unique_id=1648389235 instance=ExtResource("4_86x3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.08744812, -0.29340553, -3.6838322)
+
+[node name="Lights" type="Node3D" parent="." unique_id=69886405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8753691, 2.8477964, -2.342173)
+visible = false
+
+[node name="Light" parent="Lights" unique_id=1318434118 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.674652, 3.821343, 0)
+
+[node name="Light2" parent="Lights" unique_id=1731640391 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.841553, 3.821343, 0)
+
+[node name="Light3" parent="Lights" unique_id=1619964632 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.872034, 3.821343, 0)
+
+[node name="Light4" parent="Lights" unique_id=1331392964 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0389347, 3.821343, 0)
+
+[node name="Light5" parent="Lights" unique_id=1781262826 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.157776, 3.821343, 0)
+
+[node name="Light6" parent="Lights" unique_id=2035866395 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.990875, 3.821343, 0)
+
+[node name="Light7" parent="Lights" unique_id=1573470587 instance=ExtResource("5_juk0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.960396, 3.821343, 0)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=877447392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36631298, 3.4838257, -1.2561398)
+size = Vector3(101.85224, 8.923218, 9.641415)
+box_projection = true
+interior = true
+ambient_mode = 0
+ambient_color = Color(0.99607843, 0.827451, 0.42352942, 1)
+ambient_color_energy = 10.0
+
+[node name="TactilePaving" type="MeshInstance3D" parent="." unique_id=728526221]
+transform = Transform3D(49.821934, 0, 0, 0, 1, 0, 0, 0, 0.27226412, 0, 0.001, -0.9835582)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_375kw")

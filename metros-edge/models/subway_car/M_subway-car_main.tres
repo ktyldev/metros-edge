@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c154m0axvu2qb"]
+
+[ext_resource type="Texture2D" uid="uid://4vino2c3xyii" path="res://models/subway_car/subway-car_subway-car_body_basecolor_blue.jpg" id="1_s21vh"]
+[ext_resource type="Texture2D" uid="uid://dnsboiud2s3da" path="res://models/subway_car/subway-car_subway-car_body_normal.jpg" id="2_em6fg"]
+[ext_resource type="Texture2D" uid="uid://cvvbfdr71nusj" path="res://models/subway_car/subway-car_subway-car_body_metallic-subway-car_body_roughness.jpg" id="3_7n8i2"]
+
+[resource]
+albedo_texture = ExtResource("1_s21vh")
+roughness = 0.0
+roughness_texture = ExtResource("3_7n8i2")
+normal_enabled = true
+normal_scale = 0.0
+normal_texture = ExtResource("2_em6fg")

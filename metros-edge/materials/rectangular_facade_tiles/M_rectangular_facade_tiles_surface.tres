@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://vg2uxgx2fgl2"]
+
+[ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/wall.gdshader" id="1_8cauo"]
+[ext_resource type="Texture2D" uid="uid://bj73b312vriwa" path="res://materials/rectangular_facade_tiles/textures/rectangular_facade_tiles_rough_256.exr" id="2_6wed4"]
+[ext_resource type="Texture2D" uid="uid://dqobemxnn385p" path="res://materials/rectangular_facade_tiles/textures/rectangular_facade_tiles_nor_gl_256.exr" id="3_rcgjs"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8cauo")
+shader_parameter/tint = Color(0.02959579, 0.058957614, 0.47951645, 1)
+shader_parameter/albedo = ExtResource("2_6wed4")
+shader_parameter/normal_scale = 1.698
+shader_parameter/normal = ExtResource("3_rcgjs")
+shader_parameter/roughness_scale = 1.0
+shader_parameter/roughness = ExtResource("2_6wed4")
+shader_parameter/specular = 0.357
+shader_parameter/offset = Vector2(-0.033, 0)
+shader_parameter/scale = 4.274
+shader_parameter/angle = 0.0

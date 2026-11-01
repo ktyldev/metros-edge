@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b3cqwmcqk3w0h"]
+
+[ext_resource type="PackedScene" uid="uid://jc7q2gwpv37c" path="res://models/subway_car/subway-car.glb" id="1_jtc5t"]
+[ext_resource type="PackedScene" uid="uid://b3tc0hxtitth0" path="res://models/subway_car/subway_car_2.scn" id="2_1ohoj"]
+
+[node name="SubwayCar" type="Node3D" unique_id=407904658]
+
+[node name="subway-car2" parent="." unique_id=1998672677 instance=ExtResource("1_jtc5t")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.722, 0)
+visible = false
+
+[node name="subway-car3" parent="." unique_id=1303605199 instance=ExtResource("2_1ohoj")]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, -0.722, 0)

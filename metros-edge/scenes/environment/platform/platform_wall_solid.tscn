@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cragqoawdodxp"]
+
+[ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="1_jaj16"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggf2l"]
+lightmap_size_hint = Vector2i(550, 512)
+material = ExtResource("1_jaj16")
+add_uv2 = true
+size = Vector3(99.553276, 0.90148926, 9.802246)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3efsh"]
+size = Vector3(99.6479, 9.656311, 1)
+
+[node name="SolidWall" type="Node3D" unique_id=117284775]
+
+[node name="SideWall" type="MeshInstance3D" parent="." unique_id=846841738]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.21722794, 2.4011233, -0.080732346)
+mesh = SubResource("BoxMesh_ggf2l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1462004411]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1430214019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18409014, 2.4136047, 0)
+shape = SubResource("BoxShape3D_3efsh")

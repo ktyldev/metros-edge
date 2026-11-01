@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://bsq1gdc4f7624"]
 
-[ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform.tscn" id="1_p7wm6"]
+[ext_resource type="PackedScene" uid="uid://cragqoawdodxp" path="res://scenes/environment/platform/platform_wall_solid.tscn" id="1_3efsh"]
+[ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform/platform.tscn" id="1_p7wm6"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_5d18s"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="3_610ad"]
-[ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/light.tscn" id="4_v07ep"]
+[ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/lights/light_platform.tscn" id="5_v07ep"]
+[ext_resource type="PackedScene" uid="uid://ba57ch2ex3sm3" path="res://scenes/environment/platform/platform_wall_door.tscn" id="6_5s7c0"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+[sub_resource type="BoxMesh" id="BoxMesh_setbh"]
 lightmap_size_hint = Vector2i(526, 515)
 material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector3(100, 0.90148926, 4.434082)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_20cge"]
 size = Vector3(100.007225, 1.3006592, 4.438551)
 
 [sub_resource type="BoxMesh" id="BoxMesh_610ad"]
@@ -29,7 +31,7 @@ size = Vector3(46.761406, 0.90148926, 9.889648)
 [sub_resource type="BoxShape3D" id="BoxShape3D_375kw"]
 size = Vector3(46.78279, 4.935913, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ggf2l"]
+[sub_resource type="BoxMesh" id="BoxMesh_mj0xq"]
 lightmap_size_hint = Vector2i(303, 265)
 material = ExtResource("3_610ad")
 add_uv2 = true
@@ -41,46 +43,46 @@ material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector3(49.991684, 0.90148926, 9.802246)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3efsh"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f52qy"]
 size = Vector3(99.6479, 4.935913, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_tnd4i"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_ob1lv"]
 lightmap_size_hint = Vector2i(502, 22)
 material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector2(100, 4.097)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4kied"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_oyg5w"]
 size = Vector3(100.007225, 0.41882324, 4.1385345)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_51ysa"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2uwt5"]
 size = Vector3(100.007225, 2.4556885, 3.2028122)
 
-[sub_resource type="BoxMesh" id="BoxMesh_02w3q"]
+[sub_resource type="BoxMesh" id="BoxMesh_hukej"]
 lightmap_size_hint = Vector2i(119, 131)
 material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector3(3.064, 2.5, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b3o2k"]
+[sub_resource type="BoxMesh" id="BoxMesh_20cge"]
 lightmap_size_hint = Vector2i(119, 131)
 material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector3(3.064, 2.5, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_cjywh"]
+[sub_resource type="BoxMesh" id="BoxMesh_f52qy"]
 lightmap_size_hint = Vector2i(119, 131)
 material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector3(3.064, 2.5, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_nd48o"]
+[sub_resource type="BoxMesh" id="BoxMesh_ob1lv"]
 lightmap_size_hint = Vector2i(119, 131)
 material = ExtResource("2_5d18s")
 add_uv2 = true
 size = Vector3(3.064, 2.5, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_715li"]
+[sub_resource type="BoxMesh" id="BoxMesh_oyg5w"]
 lightmap_size_hint = Vector2i(119, 131)
 material = ExtResource("2_5d18s")
 add_uv2 = true
@@ -93,34 +95,40 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_375kw")
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
+lightmap_size_hint = Vector2i(598, 518)
 material = ExtResource("2_5d18s")
+add_uv2 = true
 size = Vector3(100.47061, 1, 18.375977)
 
 [node name="StartingPlatform" type="Node3D" unique_id=247923355]
 
 [node name="Platform" parent="." unique_id=76340691 instance=ExtResource("1_p7wm6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.474049)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.297198)
+
+[node name="Platform3" parent="." unique_id=753467421 instance=ExtResource("1_p7wm6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -5.278249)
 
 [node name="Platform2" type="Node3D" parent="." unique_id=1019169980]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -6.071442)
+visible = false
 
-[node name="Floor" type="MeshInstance3D" parent="Platform2" unique_id=1379870810]
+[node name="Floor" type="MeshInstance3D" parent="Platform2" unique_id=920226916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034029037, -0.4739608, 0.28441215)
-mesh = SubResource("BoxMesh_fauy2")
+mesh = SubResource("BoxMesh_setbh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platform2/Floor" unique_id=838165008]
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform2/Floor" unique_id=585428956]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/Floor/StaticBody3D" unique_id=1608796117]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/Floor/StaticBody3D" unique_id=142043410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, -0.14788815, -0.057034492)
-shape = SubResource("BoxShape3D_jg88y")
+shape = SubResource("BoxShape3D_20cge")
 
-[node name="DoorWall" type="Node3D" parent="Platform2" unique_id=1728589186]
+[node name="DoorWall" type="Node3D" parent="Platform2" unique_id=1694742723]
 
-[node name="SideWall" type="MeshInstance3D" parent="Platform2/DoorWall" unique_id=842297138]
+[node name="SideWall" type="MeshInstance3D" parent="Platform2/DoorWall" unique_id=626375763]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -26.209702, 4.791276, 2.9165037)
 mesh = SubResource("BoxMesh_610ad")
 
-[node name="SideWall2" type="MeshInstance3D" parent="Platform2/DoorWall" unique_id=1132936753]
+[node name="SideWall2" type="MeshInstance3D" parent="Platform2/DoorWall" unique_id=1307268596]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 26.624493, 4.793229, 2.9165037)
 mesh = SubResource("BoxMesh_v07ep")
 
@@ -135,35 +143,35 @@ shape = SubResource("BoxShape3D_375kw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.228054, 0.05340576, -3.8146973e-06)
 shape = SubResource("BoxShape3D_375kw")
 
-[node name="SolidWall" type="Node3D" parent="Platform2" unique_id=2105825161]
+[node name="SolidWall" type="Node3D" parent="Platform2" unique_id=998248175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7683716e-07, 2.451268, 2.916475)
 visible = false
 
-[node name="SideWall" type="MeshInstance3D" parent="Platform2/SolidWall" unique_id=156458133]
+[node name="SideWall" type="MeshInstance3D" parent="Platform2/SolidWall" unique_id=1807246306]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 24.99186, 2.4011233, 0)
-mesh = SubResource("BoxMesh_ggf2l")
+mesh = SubResource("BoxMesh_mj0xq")
 
-[node name="SideWall2" type="MeshInstance3D" parent="Platform2/SolidWall" unique_id=659091590]
+[node name="SideWall2" type="MeshInstance3D" parent="Platform2/SolidWall" unique_id=1220604841]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -24.998024, 2.4011233, 0)
 mesh = SubResource("BoxMesh_4kied")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platform2/SolidWall" unique_id=1069362352]
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform2/SolidWall" unique_id=1198698216]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/SolidWall/StaticBody3D" unique_id=462761224]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/SolidWall/StaticBody3D" unique_id=1852717820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18409014, 0.05340576, 0)
-shape = SubResource("BoxShape3D_3efsh")
+shape = SubResource("BoxShape3D_f52qy")
 disabled = true
 
-[node name="Rails" type="MeshInstance3D" parent="Platform2" unique_id=1589063684]
+[node name="Rails" type="MeshInstance3D" parent="Platform2" unique_id=856995143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -0.91342294, -3.7260666)
-mesh = SubResource("PlaneMesh_tnd4i")
+mesh = SubResource("PlaneMesh_ob1lv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platform2/Rails" unique_id=1102674119]
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform2/Rails" unique_id=1806891768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.895346e-05, -0.5017135, 0.18403673)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/Rails/StaticBody3D" unique_id=873258164]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/Rails/StaticBody3D" unique_id=489535400]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, 0.3155061, -0.15128326)
-shape = SubResource("BoxShape3D_4kied")
+shape = SubResource("BoxShape3D_oyg5w")
 
 [node name="Train" type="Node3D" parent="Platform2" unique_id=1511077543]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.08744812, -0.29340553, -3.6838322)
@@ -173,53 +181,53 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.57
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/Train/StaticBody3D" unique_id=121110659]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, 0.72784424, 0.6368904)
-shape = SubResource("BoxShape3D_51ysa")
+shape = SubResource("BoxShape3D_2uwt5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2/Train" unique_id=149105589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4936438, 0)
-mesh = SubResource("BoxMesh_02w3q")
+mesh = SubResource("BoxMesh_hukej")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Platform2/Train" unique_id=551687917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4936438, 20.71484)
-mesh = SubResource("BoxMesh_b3o2k")
+mesh = SubResource("BoxMesh_20cge")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Platform2/Train" unique_id=275626886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 1.4936438, 41.466515)
-mesh = SubResource("BoxMesh_cjywh")
+mesh = SubResource("BoxMesh_f52qy")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Platform2/Train" unique_id=1920851334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 1.4936438, -41.37975)
-mesh = SubResource("BoxMesh_nd48o")
+mesh = SubResource("BoxMesh_ob1lv")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Platform2/Train" unique_id=1935163060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4936438, -20.566448)
-mesh = SubResource("BoxMesh_715li")
+mesh = SubResource("BoxMesh_oyg5w")
 
-[node name="Lights" type="Node3D" parent="Platform2" unique_id=69886405]
+[node name="Lights" type="Node3D" parent="Platform2" unique_id=257795711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8753691, 2.8477964, -2.342173)
 
-[node name="Light" parent="Platform2/Lights" unique_id=1318434118 instance=ExtResource("4_v07ep")]
+[node name="Light" parent="Platform2/Lights" unique_id=1568137715 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.674652, 3.821343, 0)
 
-[node name="Light2" parent="Platform2/Lights" unique_id=1731640391 instance=ExtResource("4_v07ep")]
+[node name="Light2" parent="Platform2/Lights" unique_id=119206509 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.841553, 3.821343, 0)
 
-[node name="Light3" parent="Platform2/Lights" unique_id=1619964632 instance=ExtResource("4_v07ep")]
+[node name="Light3" parent="Platform2/Lights" unique_id=2127729738 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.872034, 3.821343, 0)
 
-[node name="Light4" parent="Platform2/Lights" unique_id=1331392964 instance=ExtResource("4_v07ep")]
+[node name="Light4" parent="Platform2/Lights" unique_id=2053168159 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0389347, 3.821343, 0)
 
-[node name="Light5" parent="Platform2/Lights" unique_id=1781262826 instance=ExtResource("4_v07ep")]
+[node name="Light5" parent="Platform2/Lights" unique_id=1257145882 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.157776, 3.821343, 0)
 
-[node name="Light6" parent="Platform2/Lights" unique_id=2035866395 instance=ExtResource("4_v07ep")]
+[node name="Light6" parent="Platform2/Lights" unique_id=1153671090 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.990875, 3.821343, 0)
 
-[node name="Light7" parent="Platform2/Lights" unique_id=1573470587 instance=ExtResource("4_v07ep")]
+[node name="Light7" parent="Platform2/Lights" unique_id=1210118441 instance=ExtResource("5_v07ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.960396, 3.821343, 0)
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Platform2" unique_id=877447392]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Platform2" unique_id=323046977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36631298, 3.4838257, -0.6727376)
 size = Vector3(101.85224, 8.923218, 10.808219)
 box_projection = true
@@ -230,6 +238,37 @@ ambient_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0785036, -0.032143712, 4.1411643)
 mesh = SubResource("SphereMesh_jg88y")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=763779216]
+[node name="Ceiling" type="MeshInstance3D" parent="." unique_id=763779216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25486755, 9.065771, 0.064941406)
 mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Lights" type="Node3D" parent="." unique_id=756735876]
+
+[node name="PlatformLight" parent="Lights" unique_id=1318434118 instance=ExtResource("5_v07ep")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -35.953453, 8.092851, 0)
+
+[node name="PlatformLight2" parent="Lights" unique_id=181980935 instance=ExtResource("5_v07ep")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.953453, 8.093, 0)
+
+[node name="PlatformLight3" parent="Lights" unique_id=608992129 instance=ExtResource("5_v07ep")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.046546936, 8.093, 0)
+
+[node name="PlatformLight4" parent="Lights" unique_id=1780958414 instance=ExtResource("5_v07ep")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18, 8.093, 0)
+
+[node name="PlatformLight5" parent="Lights" unique_id=233102945 instance=ExtResource("5_v07ep")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, 8.093, 0)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1859531807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39979553, 4.606201, 0.48779297)
+size = Vector3(101.33133, 10.787598, 19.024414)
+box_projection = true
+interior = true
+
+[node name="SolidWall" parent="." unique_id=117284775 instance=ExtResource("1_3efsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6544566, 7.4324236)
+
+[node name="DoorWall" parent="." unique_id=1966028340 instance=ExtResource("6_5s7c0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42539883, -0.2922716, -8.018111)
+
+[editable path="Platform3"]

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://jdxftpyxwuyg"]
+
+[ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/wall.gdshader" id="1_je4jf"]
+[ext_resource type="Texture2D" uid="uid://556yjvpe80l1" path="res://materials/concrete_wall_009/textures/concrete_wall_009_diff_256.jpg" id="2_je4jf"]
+[ext_resource type="Texture2D" uid="uid://b0n14a2p10siq" path="res://materials/concrete_wall_009/textures/concrete_wall_009_nor_gl_256.exr" id="3_lrtn7"]
+[ext_resource type="Texture2D" uid="uid://d34l3ln7kbey7" path="res://materials/concrete_wall_009/textures/concrete_wall_009_rough_256.exr" id="4_km6ig"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_je4jf")
+shader_parameter/tint = Color(1.361, 1.361, 1.456, 1)
+shader_parameter/albedo = ExtResource("2_je4jf")
+shader_parameter/normal = ExtResource("3_lrtn7")
+shader_parameter/roughness_scale = 0.5
+shader_parameter/roughness = ExtResource("4_km6ig")
+shader_parameter/offset = Vector2(-3.182, 0)
+shader_parameter/scale = 2.404
+shader_parameter/angle = 0.0

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ba57ch2ex3sm3"]
+
+[ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="1_idxfd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gnb6d"]
+lightmap_size_hint = Vector2i(287, 248)
+material = ExtResource("1_idxfd")
+add_uv2 = true
+size = Vector3(46.761406, 0.90148926, 9.885742)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmrsh"]
+lightmap_size_hint = Vector2i(470, 100)
+material = ExtResource("1_idxfd")
+add_uv2 = true
+size = Vector3(46.761406, 0.90148926, 9.889648)
+
+[node name="DoorWall" type="Node3D" unique_id=1966028340]
+
+[node name="SideWall" type="MeshInstance3D" parent="." unique_id=419956758]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -26.209702, 4.791276, 0.6501062)
+mesh = SubResource("BoxMesh_gnb6d")
+
+[node name="SideWall2" type="MeshInstance3D" parent="." unique_id=1843195609]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 26.624493, 4.793229, 0.6501062)
+mesh = SubResource("BoxMesh_xmrsh")
