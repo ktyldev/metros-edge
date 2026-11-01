@@ -12,20 +12,62 @@ size = Vector3(45.84912, 1, 8.993286)
 size = Vector3(4.757538, 1, 26.331848)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+lightmap_size_hint = Vector2i(278, 245)
 material = ExtResource("1_xf7ej")
+add_uv2 = true
+size = Vector3(45.943085, 1, 9.036133)
+
+[sub_resource type="BoxMesh" id="BoxMesh_erkwx"]
+lightmap_size_hint = Vector2i(278, 245)
+material = ExtResource("1_xf7ej")
+add_uv2 = true
 size = Vector3(45.943085, 1, 9.036133)
 
 [sub_resource type="BoxMesh" id="BoxMesh_375kw"]
+lightmap_size_hint = Vector2i(157, 145)
 material = ExtResource("1_xf7ej")
+add_uv2 = true
 size = Vector3(4.772949, 1, 25.90963)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
+lightmap_size_hint = Vector2i(237, 838)
+material = ExtResource("1_xf7ej")
+add_uv2 = true
+size = Vector3(45.662415, 60.42392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cgojt"]
+lightmap_size_hint = Vector2i(237, 838)
+material = ExtResource("1_xf7ej")
+add_uv2 = true
+size = Vector3(45.662415, 60.42392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xf7ej"]
+lightmap_size_hint = Vector2i(86, 687)
+material = ExtResource("1_xf7ej")
+add_uv2 = true
+size = Vector3(15.423492, 60.42392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wuyc2"]
+lightmap_size_hint = Vector2i(86, 687)
+material = ExtResource("1_xf7ej")
+add_uv2 = true
+size = Vector3(15.423492, 60.42392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1la6"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_715li"]
+material = SubResource("StandardMaterial3D_s1la6")
+size = Vector3(45.346405, 1, 39.52118)
 
 [node name="Atrium" type="StaticBody3D" unique_id=447199645]
 
-[node name="LowerFloor" type="CollisionShape3D" parent="." unique_id=1901162184]
+[node name="LowerConcourse" type="CollisionShape3D" parent="." unique_id=1901162184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6276855, -0.5, 13.5233)
 shape = SubResource("BoxShape3D_jg88y")
 
-[node name="UpperFloor" type="CollisionShape3D" parent="." unique_id=833460231]
+[node name="UpperConcourse" type="CollisionShape3D" parent="." unique_id=833460231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.629165, 12.6710205, -17.361073)
 shape = SubResource("BoxShape3D_xf7ej")
 
@@ -41,8 +83,45 @@ mesh = SubResource("BoxMesh_fauy2")
 
 [node name="Walkway2" type="MeshInstance3D" parent="Graphics" unique_id=1607913300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.677105, 12.683624, -17.341732)
-mesh = SubResource("BoxMesh_fauy2")
+mesh = SubResource("BoxMesh_erkwx")
 
 [node name="Escalator" type="MeshInstance3D" parent="Graphics" unique_id=519940053]
 transform = Transform3D(1, 0, 0, 0, 0.8612518, -0.5081785, 0, 0.5081785, 0.8612518, -26.758766, 6.161932, -1.9166392)
 mesh = SubResource("BoxMesh_375kw")
+
+[node name="Walls" type="Node3D" parent="." unique_id=125516969]
+
+[node name="Rear" type="MeshInstance3D" parent="Walls" unique_id=718736073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8385925, -4.2322845, -21.87644)
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Rear2" type="MeshInstance3D" parent="Walls" unique_id=686437924]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.962542, -4.232292, -2.4887218)
+mesh = SubResource("BoxMesh_cgojt")
+
+[node name="FrontLeft" type="MeshInstance3D" parent="Walls" unique_id=1341559189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.958054, -4.2322845, 17.94362)
+mesh = SubResource("BoxMesh_xf7ej")
+
+[node name="FrontLeft2" type="MeshInstance3D" parent="Walls" unique_id=1606292190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6622963, -4.2322845, 17.94362)
+mesh = SubResource("BoxMesh_wuyc2")
+
+[node name="Lights" type="Node3D" parent="." unique_id=2014657988]
+
+[node name="Main" type="Node3D" parent="Lights" unique_id=1981838057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.770534, 25.68383, -2.0684834)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Lights/Main" unique_id=2079451815]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25.76751, 0)
+light_size = 50.0
+light_bake_mode = 1
+area_range = 576.558
+area_attenuation = 1.801
+area_normalize_energy = false
+area_size = Vector2(44.19525, 38.383553)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lights/Main" unique_id=1257608224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23973131, 0, -0.0541687)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_715li")

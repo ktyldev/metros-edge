@@ -260,8 +260,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18, 
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, 8.093, 0)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1859531807]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39979553, 4.606201, 0.48779297)
-size = Vector3(101.33133, 10.787598, 19.024414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39979553, 6.600464, 0.48779297)
+size = Vector3(101.33133, 6.7990723, 19.024414)
 box_projection = true
 interior = true
 

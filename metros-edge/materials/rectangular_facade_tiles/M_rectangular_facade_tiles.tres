@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://odd2tonjxlyw"]
+
+[ext_resource type="Texture2D" uid="uid://ctfyu00s5ne4" path="res://materials/rectangular_facade_tiles/textures/rectangular_facade_tiles_diff_4k.jpg" id="1_7i43v"]
+[ext_resource type="Texture2D" uid="uid://hfqemoa6234" path="res://materials/rectangular_facade_tiles/textures/rectangular_facade_tiles_disp_4k.png" id="2_0itox"]
+[ext_resource type="Texture2D" uid="uid://btka0symy8stf" path="res://materials/rectangular_facade_tiles/textures/rectangular_facade_tiles_nor_gl_4k.exr" id="3_ybox3"]
+[ext_resource type="Texture2D" uid="uid://b8bswdqgvhg2n" path="res://materials/rectangular_facade_tiles/textures/rectangular_facade_tiles_rough_4k.exr" id="4_0a3ly"]
+
+[resource]
+albedo_color = Color(0.6452714, 0.6452714, 0.64527136, 1)
+albedo_texture = ExtResource("1_7i43v")
+roughness = 0.5
+roughness_texture = ExtResource("4_0a3ly")
+normal_enabled = true
+normal_scale = 1.51
+normal_texture = ExtResource("3_ybox3")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_0itox")
+uv1_triplanar = true
+uv1_world_triplanar = true

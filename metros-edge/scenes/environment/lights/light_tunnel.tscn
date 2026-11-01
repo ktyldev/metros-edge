@@ -18,9 +18,8 @@ mesh = SubResource("BoxMesh_375kw")
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1209088800]
 transform = Transform3D(-4.371139e-08, 0.9999975, 0.002231759, 0, -0.002231759, 0.9999975, 1, 4.3711278e-08, 9.7553285e-11, -0.026722793, 0, -0.0030196356)
-light_color = Color(1, 0.92156863, 0.7882353, 1)
-light_energy = 4.093
+light_color = Color(0.92156863, 1, 1, 1)
 light_specular = 10.0
 light_bake_mode = 1
-area_range = 4.518
+area_range = 8.0
 area_size = Vector2(2.3038995, 0.6739888)
