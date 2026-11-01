@@ -1,0 +1,5 @@
+# Ignore high-resolution 4k textures
+*_4k.jpg*
+*_4k.png*
+*_4k.exr*
+*_4k.blend*
