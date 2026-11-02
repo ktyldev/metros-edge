@@ -6,12 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="2_hm4m4"]
 [ext_resource type="Texture2D" uid="uid://ddxu3yhb2ywms" path="res://assets/UI_arrow.svg" id="2_lfjc7"]
 
-[sub_resource type="Gradient" id="Gradient_ijpji"]
-colors = PackedColorArray(0, 0.7294118, 0.9647059, 1, 0.7647059, 0.9411765, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jygx2"]
-gradient = SubResource("Gradient_ijpji")
-
 [sub_resource type="Gradient" id="Gradient_hm4m4"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
@@ -258,6 +252,7 @@ _data = {
 }
 
 [node name="Options" type="MarginContainer" unique_id=61530862]
+custom_minimum_size = Vector2(640, 480)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -267,13 +262,8 @@ mouse_filter = 2
 theme = ExtResource("1_ijpji")
 script = ExtResource("2_dhn0l")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1280084699]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_jygx2")
-
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=499174422]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_3xsyx")
 expand_mode = 1
@@ -747,7 +737,11 @@ vertical_alignment = 1
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_3xsyx")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=96513478]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=886415802]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=96513478]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -40)
@@ -757,7 +751,7 @@ stretch_mode = 2
 flip_h = true
 flip_v = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1712246360]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1712246360]
 clip_contents = false
 layout_mode = 2
 offset_transform_enabled = true
