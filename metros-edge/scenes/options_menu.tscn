@@ -140,7 +140,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3.1333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-334, 0)]
+"values": [Vector2(-156, 0), Vector2(-490, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -169,7 +169,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.7333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-291, 0)]
+"values": [Vector2(-106, 0), Vector2(-397, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -198,7 +198,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3.1666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-335, 0)]
+"values": [Vector2(-169, 0), Vector2(-504, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -227,7 +227,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-310, 0)]
+"values": [Vector2(-106, 0), Vector2(-416, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -249,6 +249,276 @@ _data = {
 &"fullscreen_marquee": SubResource("Animation_7txom"),
 &"music_marquee": SubResource("Animation_lfjc7"),
 &"sfx_marquee": SubResource("Animation_dhn0l")
+}
+
+[sub_resource type="Animation" id="Animation_tbmy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.89, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.89, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.89, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.89, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.89, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1.045)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.095)]
+}
+
+[sub_resource type="Animation" id="Animation_jk1qb"]
+resource_name = "options_enter"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.89, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.100000024, 0.6),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.89, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.20000005, 0.70000005),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.89, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.29999995, 0.79999995),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.89, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.39999998, 0.9),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.89, 0), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 1.045), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, -0.095), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5dd4i"]
+resource_name = "options_exit"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.755, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.450581e-09, 0.5),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.785, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.10000001, 0.6),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.745, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.20000002, 0.70000005),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.745, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.8000001),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.89, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(5, 0.2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.045)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(5, 0.2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.095)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhn0l"]
+_data = {
+&"RESET": SubResource("Animation_tbmy8"),
+&"options_enter": SubResource("Animation_jk1qb"),
+&"options_exit": SubResource("Animation_5dd4i")
 }
 
 [node name="Options" type="MarginContainer" unique_id=61530862]
@@ -290,6 +560,8 @@ alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1281171940]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.89, 0)
 
 [node name="MusicSelection" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1326382249]
 unique_name_in_owner = true
@@ -368,6 +640,8 @@ value = 1.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1263731758]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.89, 0)
 
 [node name="SFXSelection" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1642691071]
 unique_name_in_owner = true
@@ -446,6 +720,8 @@ value = 1.0
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1322693022]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.89, 0)
 
 [node name="FOVSelection" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3" unique_id=1016169246]
 unique_name_in_owner = true
@@ -524,6 +800,8 @@ value = 1.0
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=923813962]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.89, 0)
 
 [node name="FullscreenSelection" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4" unique_id=653203801]
 unique_name_in_owner = true
@@ -598,6 +876,8 @@ focus_previous = NodePath("../../../MarginContainer3/HBoxContainer3/FOVSlider")
 
 [node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=275324245]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.89, 0)
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5" unique_id=1444723370]
 layout_mode = 2
@@ -642,6 +922,8 @@ mouse_filter = 2
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=375003220]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 1.045)
 mouse_filter = 2
 
 [node name="BottomBarThing" type="TextureRect" parent="VBoxContainer/MarginContainer3" unique_id=462815325]
@@ -665,7 +947,7 @@ offset_transform_enabled = true
 mouse_filter = 2
 theme = ExtResource("1_ijpji")
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
-text = "Adjust music volume / Adjust music volume / Adjust music volume / "
+text = "Adjust music volume / Adjust music volume / Adjust music volume / Adjust music volume / "
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
@@ -739,6 +1021,8 @@ libraries/ = SubResource("AnimationLibrary_3xsyx")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=886415802]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.095)
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=96513478]
@@ -760,3 +1044,9 @@ mouse_filter = 2
 theme = ExtResource("1_ijpji")
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 text = "Options"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2058724614]
+libraries/ = SubResource("AnimationLibrary_dhn0l")
+
+[connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer4/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer5/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="6_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://by7mk00e6ma3b" path="res://scenes/options_menu.tscn" id="7_oa1go"]
 
+[sub_resource type="Gradient" id="Gradient_oa1go"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tbmy8"]
+gradient = SubResource("Gradient_oa1go")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
 atlas = ExtResource("5_8ln24")
 region = Rect2(0, 0, 16, 16)
@@ -196,251 +202,143 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StartScreen/ColorRect:offset_transform_position")
+tracks/0/path = NodePath("StartScreen/ColorRect:offset_transform_position_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -8)]
+"values": [Vector2(0, -1.04)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StartScreen/MarginContainer/TextureRect:offset_transform_position_ratio")
+tracks/1/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer:offset_transform_position_ratio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.81, 0)]
+"values": [Vector2(-0.45, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StartScreen/BoxContainer/MarginContainer:offset_transform_position_ratio")
+tracks/2/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2:offset_transform_position_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1.045)]
+"values": [Vector2(-0.455, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StartScreen/MarginContainer/BoxContainer/HBoxContainer:offset_transform_position_ratio")
+tracks/3/path = NodePath("StartScreen/MarginContainer/TextureRect:offset_transform_position_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.44, 0)]
+"values": [Vector2(-0.795, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StartScreen/MarginContainer/BoxContainer/HBoxContainer2:offset_transform_position_ratio")
+tracks/4/path = NodePath("StartScreen/BoxContainer/MarginContainer:offset_transform_position_ratio")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.3, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5:offset_transform_position_ratio")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.89, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer:offset_transform_position_ratio")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.89, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2:offset_transform_position_ratio")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.89, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.89, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4:offset_transform_position_ratio")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.89, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Options/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1.045)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Options/MarginContainer:offset_transform_position_ratio")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -0.095)]
-}
-
-[sub_resource type="Animation" id="Animation_jk1qb"]
-resource_name = "options_enter"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5:offset_transform_position_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(-0.89, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer:offset_transform_position_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.100000024, 0.6),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(-0.89, 0), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2:offset_transform_position_ratio")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.20000005, 0.70000005),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(-0.89, 0), Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.29999995, 0.79999995),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(-0.89, 0), Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Options/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4:offset_transform_position_ratio")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.39999998, 0.9),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(-0.89, 0), Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Options/VBoxContainer/MarginContainer3:offset_transform_position_ratio")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(0, 1.045), Vector2(0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Options/MarginContainer:offset_transform_position_ratio")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.2, 1),
-"update": 0,
-"values": [Vector2(0, -0.095), Vector2(0, 0)]
+"values": [Vector2(0, 1.015)]
 }
 
 [sub_resource type="Animation" id="Animation_oa1go"]
 resource_name = "start_enter"
-length = 0.6
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StartScreen/ColorRect:offset_transform_position")
+tracks/0/path = NodePath("StartScreen/ColorRect:offset_transform_position_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.29999998),
+"times": PackedFloat32Array(0.39999998, 0.6),
 "transitions": PackedFloat32Array(0.2, 1),
 "update": 0,
-"values": [Vector2(0, -8), Vector2(0, 0)]
+"values": [Vector2(0, -1.04), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.90000004),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.45, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.455, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartScreen/MarginContainer/TextureRect:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.795, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartScreen/BoxContainer/MarginContainer:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 1.015), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jk1qb"]
+resource_name = "start_exit"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartScreen/ColorRect:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1.095)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -449,10 +347,10 @@ tracks/1/path = NodePath("StartScreen/MarginContainer/TextureRect:offset_transfo
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.099999994, 0.6),
-"transitions": PackedFloat32Array(0.2, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
-"values": [Vector2(-0.81, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(1.335, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -461,41 +359,41 @@ tracks/2/path = NodePath("StartScreen/BoxContainer/MarginContainer:offset_transf
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.49999997),
-"transitions": PackedFloat32Array(0.2, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
-"values": [Vector2(0, 1.045), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 1.045)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StartScreen/MarginContainer/BoxContainer/HBoxContainer:offset_transform_position_ratio")
+tracks/3/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer:offset_transform_position_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.099999994, 0.6),
-"transitions": PackedFloat32Array(0.2, 1),
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
-"values": [Vector2(-0.44, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(1.02, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StartScreen/MarginContainer/BoxContainer/HBoxContainer2:offset_transform_position_ratio")
+tracks/4/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2:offset_transform_position_ratio")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.099999994, 0.6),
-"transitions": PackedFloat32Array(0.2, 1),
+"times": PackedFloat32Array(0.2, 0.70000005),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
-"values": [Vector2(-0.3, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(1.025, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbmy8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
 _data = {
 &"RESET": SubResource("Animation_tbmy8"),
-&"options_enter": SubResource("Animation_jk1qb"),
-&"start_enter": SubResource("Animation_oa1go")
+&"start_enter": SubResource("Animation_oa1go"),
+&"start_exit": SubResource("Animation_jk1qb")
 }
 
 [node name="MainMenu" type="Control" unique_id=2028749162]
@@ -513,7 +411,6 @@ texture = ExtResource("3_wu84c")
 expand_mode = 1
 
 [node name="StartScreen" type="MarginContainer" parent="." unique_id=1896956136]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -526,16 +423,12 @@ theme = ExtResource("1_rtw2f")
 custom_maximum_size = Vector2(-1, 8)
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, -8)
+offset_transform_position_ratio = Vector2(0, -1.04)
 
 [node name="MarginContainer" type="MarginContainer" parent="StartScreen" unique_id=1322528496]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0.02, 0)
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
 [node name="TextureRect" type="TextureRect" parent="StartScreen/MarginContainer" unique_id=1900715115]
 custom_minimum_size = Vector2(450, 450)
@@ -544,7 +437,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-45, -103)
-offset_transform_position_ratio = Vector2(-0.81, 0)
+offset_transform_position_ratio = Vector2(-0.795, 0)
 texture = ExtResource("3_bqqt6")
 expand_mode = 1
 
@@ -559,12 +452,25 @@ vertical = true
 custom_minimum_size = Vector2(0, 192.835)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StartScreen/MarginContainer/BoxContainer" unique_id=293914571]
+[node name="MarginContainer" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer" unique_id=1996104201]
+layout_mode = 2
+
+[node name="StartGradient" type="TextureRect" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer" unique_id=868649209]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-14, 0)
+texture = SubResource("GradientTexture1D_tbmy8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer" unique_id=293914571]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.44, 0)
+offset_transform_position_ratio = Vector2(-0.45, 0)
 
-[node name="StartSpinny" type="AnimatedSprite2D" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer" unique_id=704601859]
+[node name="StartSpinny" type="AnimatedSprite2D" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer" unique_id=704601859]
 unique_name_in_owner = true
 visible = false
 texture_filter = 1
@@ -573,12 +479,12 @@ sprite_frames = SubResource("SpriteFrames_si8gi")
 autoplay = "default"
 frame_progress = 0.6575269
 
-[node name="StartContainer" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer" unique_id=1939284654]
+[node name="StartContainer" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer" unique_id=1939284654]
 layout_mode = 2
 size_flags_vertical = 0
 offset_transform_enabled = true
 
-[node name="DropShadow" type="RichTextLabel" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=1390173449]
+[node name="DropShadow" type="RichTextLabel" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer/StartContainer" unique_id=1390173449]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(1, 6)
@@ -586,7 +492,7 @@ theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Start Game"
 
-[node name="Start" type="Button" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer/StartContainer" unique_id=749544741]
+[node name="Start" type="Button" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer/StartContainer" unique_id=749544741]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(189, 34)
 layout_mode = 2
@@ -596,12 +502,25 @@ theme_override_font_sizes/font_size = 32
 text = "Start Game"
 flat = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="StartScreen/MarginContainer/BoxContainer" unique_id=1270811013]
+[node name="MarginContainer2" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer" unique_id=110125070]
+layout_mode = 2
+
+[node name="OptionGradient" type="TextureRect" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2" unique_id=1578568646]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-14, 0)
+texture = SubResource("GradientTexture1D_tbmy8")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2" unique_id=1270811013]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.3, 0)
+offset_transform_position_ratio = Vector2(-0.455, 0)
 
-[node name="OptionSpinny" type="AnimatedSprite2D" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer2" unique_id=1413744993]
+[node name="OptionSpinny" type="AnimatedSprite2D" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2" unique_id=1413744993]
 unique_name_in_owner = true
 visible = false
 texture_filter = 1
@@ -610,12 +529,12 @@ sprite_frames = SubResource("SpriteFrames_si8gi")
 autoplay = "default"
 frame_progress = 0.86194086
 
-[node name="OptionsContainer" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer2" unique_id=433344521]
+[node name="OptionsContainer" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2" unique_id=433344521]
 layout_mode = 2
 size_flags_vertical = 0
 offset_transform_enabled = true
 
-[node name="DropShadow" type="RichTextLabel" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=2034721592]
+[node name="DropShadow" type="RichTextLabel" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2/OptionsContainer" unique_id=2034721592]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(1, 6)
@@ -623,7 +542,7 @@ theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Options"
 
-[node name="Options" type="Button" parent="StartScreen/MarginContainer/BoxContainer/HBoxContainer2/OptionsContainer" unique_id=1041965687]
+[node name="Options" type="Button" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2/OptionsContainer" unique_id=1041965687]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -646,7 +565,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, 1.045)
+offset_transform_position_ratio = Vector2(0, 1.015)
 mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StartScreen/BoxContainer/MarginContainer" unique_id=991011535]
@@ -722,35 +641,9 @@ offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="MarginContainer" parent="Options/VBoxContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(61530862, 1738718760) index="0" unique_id=1281171940]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.89, 0)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1350230102]
+libraries/ = SubResource("AnimationLibrary_5dd4i")
+autoplay = &"start_enter"
 
-[node name="MarginContainer2" parent="Options/VBoxContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(61530862, 1738718760) index="1" unique_id=1263731758]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.89, 0)
-
-[node name="MarginContainer3" parent="Options/VBoxContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(61530862, 1738718760) index="2" unique_id=1322693022]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.89, 0)
-
-[node name="MarginContainer4" parent="Options/VBoxContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(61530862, 1738718760) index="3" unique_id=923813962]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.89, 0)
-
-[node name="MarginContainer5" parent="Options/VBoxContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(61530862, 1738718760) index="4" unique_id=275324245]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(-0.89, 0)
-
-[node name="MarginContainer3" parent="Options/VBoxContainer" parent_id_path=PackedInt32Array(61530862, 338645576) index="2" unique_id=375003220]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, 1.045)
-
-[node name="MarginContainer" parent="Options" index="2" unique_id=886415802]
-offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, -0.095)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=945222965]
-libraries/ = SubResource("AnimationLibrary_tbmy8")
-
-[editable path="Options"]
+[connection signal="pressed" from="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2/OptionsContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
