@@ -12,6 +12,12 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hm4m4"]
 gradient = SubResource("Gradient_hm4m4")
 
+[sub_resource type="Gradient" id="Gradient_3xsyx"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3xsyx"]
+gradient = SubResource("Gradient_3xsyx")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijpji"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm4m4"]
@@ -878,6 +884,12 @@ focus_previous = NodePath("../../../MarginContainer3/HBoxContainer3/FOVSlider")
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.89, 0)
+
+[node name="BackSelection" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5" unique_id=633555033]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("GradientTexture1D_3xsyx")
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5" unique_id=1444723370]
 layout_mode = 2

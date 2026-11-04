@@ -5,20 +5,13 @@ signal options_exited
 func _ready():
 	for node:Control in [%MusicSlider, %SFXSlider, %FOVSlider, %CheckBox, %BackButton]:
 		node.connect("focus_entered", _on_node_focused.bind(node))
-		node.connect("mouse_entered", _on_mouse_enetered.bind(node))
+		node.connect("focus_exited", _on_node_unfocused)
+		node.connect("mouse_entered", _on_mouse_entered.bind(node))
 		node.focus_mode = Control.FOCUS_NONE
 		node.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 
 
 func _on_node_focused(node:Control) -> void:
-	%MusicSelection.visible = false
-	%SFXSelection.visible = false
-	%FOVSelection.visible = false
-	%FullscreenSelection.visible = false
-	%MusicLabel.modulate = Color.WHITE
-	%SFXLabel.modulate = Color.WHITE
-	%FOVLabel.modulate = Color.WHITE 
-	%FullscreenLabel.modulate = Color.WHITE
 	#%AnimationPlayer.stop()
 	match node.name:
 		"MusicSlider":
@@ -37,7 +30,8 @@ func _on_node_focused(node:Control) -> void:
 			%FullscreenSelection.visible = true
 			%FullscreenLabel.modulate = Color(0.765, 0.941, 1.0)
 			%AnimationPlayer.play("fullscreen_marquee")
-		_:
+		"BackButton":
+			%BackSelection.visible = true
 			%AnimationPlayer.stop()
 	%MusicMarq.visible = false
 	%SFXMarq.visible = false
@@ -45,7 +39,19 @@ func _on_node_focused(node:Control) -> void:
 	%FullscreenMarq.visible = false
 
 
-func _on_mouse_enetered(node:Control) -> void:
+func _on_node_unfocused():
+	%MusicSelection.visible = false
+	%SFXSelection.visible = false
+	%FOVSelection.visible = false
+	%FullscreenSelection.visible = false
+	%BackSelection.visible = false
+	%MusicLabel.modulate = Color.WHITE
+	%SFXLabel.modulate = Color.WHITE
+	%FOVLabel.modulate = Color.WHITE 
+	%FullscreenLabel.modulate = Color.WHITE
+
+
+func _on_mouse_entered(node:Control) -> void:
 	node.grab_focus()
 
 
