@@ -1,0 +1,904 @@
+[gd_scene format=3 uid="uid://b688a74yi2ksk"]
+
+[ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="1_myx47"]
+[ext_resource type="Script" uid="uid://dvrn06nhrb8uo" path="res://scripts/pause_menu.gd" id="2_5d2l8"]
+[ext_resource type="Theme" uid="uid://ckk8pbjqrtosd" path="res://resources/UI_theme.tres" id="2_kukqi"]
+[ext_resource type="Shader" uid="uid://bd6e00omutj56" path="res://shader/blue_tint.gdshader" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://g57sr8lyuclf" path="res://assets/metros_edge_mockup_bg.png" id="4_5d2l8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5d2l8"]
+shader = ExtResource("3_7l7mv")
+
+[sub_resource type="Gradient" id="Gradient_kukqi"]
+offsets = PackedFloat32Array(0, 0.25903615, 0.74698794, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kukqi"]
+gradient = SubResource("Gradient_kukqi")
+
+[sub_resource type="Animation" id="Animation_5d2l8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ResumeMarquee:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-239, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ResumeMarquee:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%OptionsMarquee:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-149, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%OptionsMarquee:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%QuitMarquee:offset_transform_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%QuitMarquee:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7l7mv"]
+resource_name = "options_marquee"
+length = 1.4
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%OptionsMarquee:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-45, 0), Vector2(-194, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%OptionsMarquee:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v4r4p"]
+resource_name = "quit_marquee"
+length = 2.8166666
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%QuitMarquee:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8166666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-125, 0), Vector2(-425, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%QuitMarquee:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kukqi"]
+resource_name = "resume_marquee"
+length = 2.45
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ResumeMarquee:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-239, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ResumeMarquee:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5d2l8"]
+_data = {
+&"RESET": SubResource("Animation_5d2l8"),
+&"options_marquee": SubResource("Animation_7l7mv"),
+&"quit_marquee": SubResource("Animation_v4r4p"),
+&"resume_marquee": SubResource("Animation_kukqi")
+}
+
+[sub_resource type="Gradient" id="Gradient_oa1go"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_myx47"]
+gradient = SubResource("Gradient_oa1go")
+
+[sub_resource type="Animation" id="Animation_88e76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/MarginContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.165, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/MarginContainer4/MarginContainer2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.275, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer/MarginContainer2/MarginContainer:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.28, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.09)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer3:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1.015)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1s2dm"]
+resource_name = "pause_enter"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/MarginContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.165, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/MarginContainer4/MarginContainer2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.099999994, 0.6),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.275, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer/MarginContainer2/MarginContainer:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.28, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, -0.09), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer3:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 1.015), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ofnjo"]
+resource_name = "pause_enter_with_bg"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/MarginContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.165, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/MarginContainer4/MarginContainer2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.099999994, 0.6),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.275, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer/MarginContainer2/MarginContainer:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.28, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, -0.09), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer3:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 1.015), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_knqa7"]
+resource_name = "pause_exit"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/MarginContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.98, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/MarginContainer4/MarginContainer2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.98, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer/MarginContainer2/MarginContainer:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.98, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 0.2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.09)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer3:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 0.2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.015)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cmnsq"]
+resource_name = "pause_exit_with_bg"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/MarginContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.98, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/MarginContainer4/MarginContainer2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.98, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer/MarginContainer2/MarginContainer:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.98, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 0.2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.09)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer3:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 0.2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.015)]
+}
+
+[sub_resource type="Animation" id="Animation_71k7c"]
+resource_name = "set_exit"
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/MarginContainer/MarginContainer3:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.98, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/MarginContainer4/MarginContainer2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.98, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer/MarginContainer2/MarginContainer:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.98, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.2),
+"update": 0,
+"values": [Vector2(0, -0.09)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer3:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.2),
+"update": 0,
+"values": [Vector2(0, 1.015)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88e76"]
+_data = {
+&"RESET": SubResource("Animation_88e76"),
+&"pause_enter": SubResource("Animation_1s2dm"),
+&"pause_enter_with_bg": SubResource("Animation_ofnjo"),
+&"pause_exit": SubResource("Animation_knqa7"),
+&"pause_exit_with_bg": SubResource("Animation_cmnsq"),
+&"set_exit": SubResource("Animation_71k7c")
+}
+
+[node name="PauseMenu" type="MarginContainer" unique_id=2074902505]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_kukqi")
+script = ExtResource("2_5d2l8")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=357044923]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_5d2l8")
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_5d2l8")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=868519920]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.09)
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1975080017]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -40)
+mouse_filter = 2
+texture = ExtResource("1_myx47")
+stretch_mode = 2
+flip_h = true
+flip_v = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1772036911]
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(4.39, 7.215)
+mouse_filter = 2
+theme = ExtResource("2_kukqi")
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Paused"
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1919367261]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 1.015)
+mouse_filter = 2
+
+[node name="BottomBarThing" type="TextureRect" parent="MarginContainer3" unique_id=868242017]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_myx47")
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer3" unique_id=1766476841]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ResumeMarquee" type="RichTextLabel" parent="MarginContainer3" unique_id=1570469630]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 36)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(-239, 0)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
+text = "Resume game / Resume game / Resume game / Resume game / Resume game / "
+autowrap_mode = 0
+
+[node name="OptionsMarquee" type="RichTextLabel" parent="MarginContainer3" unique_id=1702610406]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 36)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(-149, 0)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
+text = "Options / Options / Options / Options / Options / Options / Options / "
+autowrap_mode = 0
+
+[node name="QuitMarquee" type="RichTextLabel" parent="MarginContainer3" unique_id=998034692]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 36)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(-300, 0)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.7294118, 0.9647059, 1)
+text = "Quit to main menu / Quit to main menu / Quit to main menu / Quit to main menu / Quit to main menu / "
+autowrap_mode = 0
+
+[node name="Gradient" type="TextureRect" parent="MarginContainer3" unique_id=1218898269]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_kukqi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer3" unique_id=345057378]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_5d2l8")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=117532297]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(12, 0)
+mouse_filter = 2
+theme_override_constants/separation = -9
+alignment = 1
+vertical = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer" unique_id=26690893]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ResumeGradient" type="TextureRect" parent="BoxContainer/MarginContainer2" unique_id=1599565157]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-12, 0)
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_myx47")
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/MarginContainer2" unique_id=2146408151]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.28, 0)
+mouse_filter = 2
+
+[node name="DropShadow" type="RichTextLabel" parent="BoxContainer/MarginContainer2/MarginContainer" unique_id=279811127]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1, 6)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Resume"
+
+[node name="Resume" type="Button" parent="BoxContainer/MarginContainer2/MarginContainer" unique_id=1752085211]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(189, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+flat = true
+alignment = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="BoxContainer" unique_id=1590557430]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="OptionsGradient" type="TextureRect" parent="BoxContainer/MarginContainer4" unique_id=1527659306]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-12, 0)
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_myx47")
+
+[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer/MarginContainer4" unique_id=810118707]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.275, 0)
+mouse_filter = 2
+
+[node name="DropShadow" type="RichTextLabel" parent="BoxContainer/MarginContainer4/MarginContainer2" unique_id=293397215]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1, 6)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Options
+"
+
+[node name="Options" type="Button" parent="BoxContainer/MarginContainer4/MarginContainer2" unique_id=1294933530]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(189, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
+text = "Options"
+flat = true
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer" unique_id=680448165]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="QuitGradient" type="TextureRect" parent="BoxContainer/MarginContainer" unique_id=1898370646]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-12, 0)
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_myx47")
+
+[node name="MarginContainer3" type="MarginContainer" parent="BoxContainer/MarginContainer" unique_id=1886766450]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.165, 0)
+mouse_filter = 2
+
+[node name="DropShadow" type="RichTextLabel" parent="BoxContainer/MarginContainer/MarginContainer3" unique_id=1602414695]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1, 6)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Quit
+"
+
+[node name="Quit" type="Button" parent="BoxContainer/MarginContainer/MarginContainer3" unique_id=90718045]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(189, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+flat = true
+alignment = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1676567906]
+libraries/ = SubResource("AnimationLibrary_88e76")
+
+[connection signal="pressed" from="BoxContainer/MarginContainer2/MarginContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="BoxContainer/MarginContainer4/MarginContainer2/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="BoxContainer/MarginContainer/MarginContainer3/Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

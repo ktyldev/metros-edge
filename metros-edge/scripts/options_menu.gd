@@ -1,6 +1,9 @@
 extends MarginContainer
 
-signal options_exited
+signal options_exited(String)
+
+var source := ""
+var entered := false
 
 func _ready():
 	for node:Control in [%MusicSlider, %SFXSlider, %FOVSlider, %CheckBox, %BackButton]:
@@ -39,7 +42,7 @@ func _on_node_focused(node:Control) -> void:
 	%FullscreenMarq.visible = false
 
 
-func _on_node_unfocused():
+func _on_node_unfocused() -> void:
 	%MusicSelection.visible = false
 	%SFXSelection.visible = false
 	%FOVSelection.visible = false
@@ -55,9 +58,11 @@ func _on_mouse_entered(node:Control) -> void:
 	node.grab_focus()
 
 
-func enter() -> void:
+func enter(from_source:String) -> void:
 	$AnimationPlayer.play("options_enter")
+	source = from_source
 	await $AnimationPlayer.animation_finished
+	entered = true
 	for node:Control in [%MusicSlider, %SFXSlider, %FOVSlider, %CheckBox, %BackButton]:
 		node.focus_mode = Control.FOCUS_ALL
 		node.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
@@ -69,7 +74,9 @@ func _on_back_button_pressed() -> void:
 		node.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 	$AnimationPlayer.play("options_exit")
 	await $AnimationPlayer.animation_finished
-	options_exited.emit()
+	entered = false
+	options_exited.emit(source)
+	source = ""
 
 
 func _on_check_box_toggled(toggled_on: bool) -> void:

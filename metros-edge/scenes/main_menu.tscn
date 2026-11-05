@@ -6,14 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://g57sr8lyuclf" path="res://assets/metros_edge_mockup_bg.png" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://qcstf4knwicv" path="res://assets/temp_spinning.png" id="5_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="6_rtw2f"]
-[ext_resource type="PackedScene" uid="uid://by7mk00e6ma3b" path="res://scenes/options_menu.tscn" id="7_oa1go"]
 [ext_resource type="Texture2D" uid="uid://5gfr3ibwefol" path="res://assets/UI_ITG_Logo.svg" id="7_tbmy8"]
 
-[sub_resource type="Gradient" id="Gradient_oa1go"]
+[sub_resource type="Gradient" id="Gradient_tbmy8"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tbmy8"]
-gradient = SubResource("Gradient_oa1go")
+gradient = SubResource("Gradient_tbmy8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
 atlas = ExtResource("5_8ln24")
@@ -191,12 +190,12 @@ _data = {
 &"StartMarquee": SubResource("Animation_ekxnf")
 }
 
-[sub_resource type="Gradient" id="Gradient_l6cm7"]
+[sub_resource type="Gradient" id="Gradient_jk1qb"]
 offsets = PackedFloat32Array(0, 0.28313252, 0.55421686, 0.75301206)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l6cm7"]
-gradient = SubResource("Gradient_l6cm7")
+gradient = SubResource("Gradient_jk1qb")
 
 [sub_resource type="Animation" id="Animation_tbmy8"]
 length = 0.001
@@ -429,7 +428,7 @@ offset_transform_position_ratio = Vector2(0, -1.04)
 [node name="MarginContainer" type="MarginContainer" parent="StartScreen" unique_id=1322528496]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0.02, 0)
+offset_transform_position = Vector2(12, 0)
 
 [node name="TextureRect" type="TextureRect" parent="StartScreen/MarginContainer" unique_id=1900715115]
 custom_minimum_size = Vector2(450, 450)
@@ -641,19 +640,10 @@ texture = ExtResource("7_tbmy8")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Options" parent="." unique_id=61530862 instance=ExtResource("7_oa1go")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 640.0
-offset_bottom = 480.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1350230102]
 libraries/ = SubResource("AnimationLibrary_5dd4i")
 autoplay = &"start_enter"
 
+[connection signal="pressed" from="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer/StartContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2/OptionsContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
