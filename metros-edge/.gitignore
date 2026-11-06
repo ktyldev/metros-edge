@@ -5,3 +5,5 @@
 scenes/environment/**/*.lmbake
 scenes/environment/**/*.exr
 scenes/environment/**/*.exr.import
+addons/fmod/libs/windows/~libGodotFmod.windows.editor.x86_64.dll
+
