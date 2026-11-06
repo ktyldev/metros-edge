@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform/platform.tscn" id="1_p7wm6"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_5d18s"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="3_610ad"]
-[ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/lights/light_platform.tscn" id="5_v07ep"]
+[ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/light.tscn" id="5_v07ep"]
+[ext_resource type="Texture2D" uid="uid://dl5ygmromgjbc" path="res://assets/TUT_walljump_poster.png" id="6_2uwt5"]
 [ext_resource type="PackedScene" uid="uid://ba57ch2ex3sm3" path="res://scenes/environment/platform/platform_wall_door.tscn" id="6_5s7c0"]
+[ext_resource type="Material" uid="uid://dcr3pblpp4qrf" path="res://materials/poster/poster.tres" id="6_hukej"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_setbh"]
 lightmap_size_hint = Vector2i(526, 515)
@@ -267,6 +269,14 @@ interior = true
 
 [node name="SolidWall" parent="." unique_id=117284775 instance=ExtResource("1_3efsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6544566, 7.4324236)
+
+[node name="Sprite3D" type="Sprite3D" parent="SolidWall" unique_id=1972514806]
+transform = Transform3D(-0.16475855, -0.008923005, 2.4914309e-08, -0.008923005, 0.16475855, -1.0614929e-17, -2.487785e-08, -1.3473364e-09, -0.165, 6.22958, 0.7676656, -0.5320721)
+material_override = ExtResource("6_hukej")
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("6_2uwt5")
 
 [node name="DoorWall" parent="." unique_id=1966028340 instance=ExtResource("6_5s7c0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42539883, -0.2922716, -8.018111)
