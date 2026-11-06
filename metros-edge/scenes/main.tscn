@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://17hry686y0s3"]
 
 [ext_resource type="PackedScene" uid="uid://dimkn5ceaexmd" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://ceq2mjevler3v" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c4laeptydhjxt" path="res://scenes/environment/environment.tscn" id="2_0wfyh"]
 
 [sub_resource type="Environment" id="Environment_jg88y"]
@@ -12,6 +13,7 @@ ambient_light_color = Color(0.5033234, 0.5033233, 0.5033233, 1)
 [sub_resource type="Compositor" id="Compositor_fauy2"]
 
 [node name="Main" type="Node3D" unique_id=50357158]
+script = ExtResource("1_sugp2")
 
 [node name="player" parent="." unique_id=107907444 instance=ExtResource("1_o5qli")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.1220932, -7.6293945e-06, 63.96524)
