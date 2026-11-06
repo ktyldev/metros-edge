@@ -34,6 +34,7 @@ func _input(event):
 
 func _on_button_focused(button:Button) -> void:
 	var tween := get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(button.get_parent(), "offset_transform_position", Vector2(12, 0), 0.3)
@@ -50,6 +51,7 @@ func _on_button_focused(button:Button) -> void:
 
 func _on_button_focus_exited(button:Button) -> void:
 	var tween := get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(button.get_parent(), "offset_transform_position", Vector2(0, 0), 0.3)
