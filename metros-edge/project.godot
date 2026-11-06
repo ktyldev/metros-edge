@@ -8,6 +8,10 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://assets/FMODBanks/Desktop"
+
 [application]
 
 config/name="TRICK METRO"
@@ -19,6 +23,7 @@ config/icon="uid://bb20mf050pghw"
 
 UILayer="*uid://dwl83vik3o2af"
 Global="*uid://bxp30nqr0lnco"
+FmodManager="*uid://cds10pm7hwn3p"
 
 [display]
 
@@ -28,6 +33,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [filesystem]
 
