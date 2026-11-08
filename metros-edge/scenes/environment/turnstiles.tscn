@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://ckq8i1qxrwru7"]
 
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_prkmf"]
+[ext_resource type="PackedScene" uid="uid://rd1pc1ilqqem" path="res://scenes/environment/props/turnstile_gate.tscn" id="3_pvv00"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nqbb"]
 material = ExtResource("1_prkmf")
 size = Vector3(17.832977, 0.892395, 16.361328)
-
-[sub_resource type="BoxMesh" id="BoxMesh_375kw"]
-material = ExtResource("1_prkmf")
-size = Vector3(14.702209, 2.0031738, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
 size = Vector3(16.34967, 1, 17.842285)
@@ -22,10 +19,6 @@ size = Vector3(16.34967, 1.874939, 1.0147095)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.46, 0)
 mesh = SubResource("BoxMesh_8nqbb")
 
-[node name="Barrier" type="MeshInstance3D" parent="." unique_id=341322314]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.144, 2, 0)
-mesh = SubResource("BoxMesh_375kw")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2050653625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02255249, -0.5, 0.009033203)
 shape = SubResource("BoxShape3D_jg88y")
@@ -33,3 +26,21 @@ shape = SubResource("BoxShape3D_jg88y")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=537399245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, 2, -0.009)
 shape = SubResource("BoxShape3D_brfyq")
+
+[node name="Gate" parent="." unique_id=903344685 instance=ExtResource("3_pvv00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4293795, 0, 0)
+
+[node name="Gate2" parent="." unique_id=1581194848 instance=ExtResource("3_pvv00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.256736, 0, 0)
+
+[node name="Gate3" parent="." unique_id=382167127 instance=ExtResource("3_pvv00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0810156, 0, 0)
+
+[node name="Gate4" parent="." unique_id=936463938 instance=ExtResource("3_pvv00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0792856, 0, 0)
+
+[node name="Gate5" parent="." unique_id=1076874790 instance=ExtResource("3_pvv00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.251929, 0, 0)
+
+[node name="Gate6" parent="." unique_id=2069387693 instance=ExtResource("3_pvv00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4276495, 0, 0)
