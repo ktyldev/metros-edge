@@ -8,10 +8,13 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_h82xt")
+shader_parameter/tint = Color(1, 1, 1, 1)
 shader_parameter/albedo = ExtResource("2_srtqp")
+shader_parameter/normal_scale = 1.0
 shader_parameter/normal = ExtResource("3_pybvp")
 shader_parameter/roughness_scale = 0.05
 shader_parameter/roughness = ExtResource("4_lvcw1")
+shader_parameter/specular = 0.5
 shader_parameter/offset = Vector2(0.185, 0)
 shader_parameter/scale = 7.113
 shader_parameter/angle = 1.5699999999999998

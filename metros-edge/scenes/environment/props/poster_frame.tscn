@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bamsl0yax1pcq"]
+
+[ext_resource type="Material" uid="uid://dcr3pblpp4qrf" path="res://materials/poster/poster.tres" id="1_6onxy"]
+[ext_resource type="Texture2D" uid="uid://dl5ygmromgjbc" path="res://assets/TUT_walljump_poster.png" id="2_tlx7v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jygx2"]
+albedo_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+metallic = 0.62
+roughness = 0.56
+uv1_offset = Vector3(0.14, 0, 0)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_si8gi"]
+lightmap_size_hint = Vector2i(5, 46)
+material = SubResource("StandardMaterial3D_jygx2")
+add_uv2 = true
+size = Vector3(0.1701355, 3.9151, 0.058778316)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fnynx"]
+material = SubResource("StandardMaterial3D_jygx2")
+size = Vector3(0.16661072, 2.959659, 0.058778316)
+
+[node name="PosterFrame" type="Node3D" unique_id=1929314103]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=85144912]
+transform = Transform3D(0.16499999, 0, 0, 0, 0.16499999, 0, 0, 0, 0.165, 0, 0, 0)
+material_override = ExtResource("1_6onxy")
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_tlx7v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1239942475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3944958, 0.016204834, 0.025742508)
+mesh = SubResource("BoxMesh_si8gi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1030533239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3942727, 0.016204834, 0.025742508)
+mesh = SubResource("BoxMesh_si8gi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1383661355]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.0007933369, 1.9357082, 0.025742508)
+mesh = SubResource("BoxMesh_fnynx")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1437066793]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.00033598114, -1.9380294, 0.025742508)
+mesh = SubResource("BoxMesh_fnynx")

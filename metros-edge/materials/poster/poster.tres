@@ -2,11 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dl5ygmromgjbc" path="res://assets/TUT_walljump_poster.png" id="1_wnlwr"]
 [ext_resource type="Texture2D" uid="uid://bxqkmyh5ltrwn" path="res://materials/poster/poster_normal.png" id="2_xccmy"]
-[ext_resource type="Texture2D" uid="uid://bl70rib5g6q15" path="res://materials/poster/poster_texture_lighter.png" id="3_j3ras"]
 
 [resource]
 albedo_texture = ExtResource("1_wnlwr")
-roughness_texture = ExtResource("3_j3ras")
+roughness = 0.4
 normal_enabled = true
 normal_texture = ExtResource("2_xccmy")
 texture_filter = 0
