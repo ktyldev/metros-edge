@@ -2,7 +2,6 @@
 
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_sa8xu"]
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_xejik"]
-[ext_resource type="Material" uid="uid://boyj3ee8am3yf" path="res://materials/concrete_floor_worn_001/M_concrete_floor_worn_001.tres" id="2_scot0"]
 [ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="2_w2cwu"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="4_jmilr"]
 
@@ -73,7 +72,6 @@ mesh = SubResource("BoxMesh_w2cwu")
 
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1818709750]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4678297, 3.6679482, -0.9267311)
-material_override = ExtResource("2_scot0")
 mesh = SubResource("BoxMesh_kprjh")
 
 [node name="Wall1" type="MeshInstance3D" parent="." unique_id=2084975141]
