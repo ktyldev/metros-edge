@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://yab08aoj8t46"]
+
+[ext_resource type="Texture2D" uid="uid://hvacyix4mm4g" path="res://models/turnstile_gate/modular_pipes_metal_diff_256.png" id="1_lbvp0"]
+[ext_resource type="Texture2D" uid="uid://ccnt17rfpfl4" path="res://models/turnstile_gate/modular_pipes_metal_nor_gl_256.png" id="2_30u7i"]
+[ext_resource type="Texture2D" uid="uid://c8o0xqsei0cxm" path="res://models/turnstile_gate/modular_pipes_metal_metal-modular_pipes_metal_rough_256.png" id="3_kxidl"]
+
+[resource]
+albedo_color = Color(0.77910423, 0.77910423, 0.7791042, 1)
+albedo_texture = ExtResource("1_lbvp0")
+roughness = 0.61
+roughness_texture = ExtResource("3_kxidl")
+normal_enabled = true
+normal_scale = 1.24
+normal_texture = ExtResource("2_30u7i")

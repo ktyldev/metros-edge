@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://rd1pc1ilqqem"]
+
+[ext_resource type="PackedScene" uid="uid://mv4r03mg1pa1" path="res://models/turnstile_gate/turnstile_gate.gltf" id="1_elmvh"]
+[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_721o0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pvv00"]
+size = Vector3(1.993, 1.9336665, 0.172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nai6o"]
+size = Vector3(0.14353418, 3.2588618, 0.30386424)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
+material = ExtResource("2_721o0")
+size = Vector3(0.3, 2.709, 0.3)
+
+[node name="Gate" type="Node3D" unique_id=903344685]
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=139812649]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=56094720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001701355, 2.2488728, 0)
+shape = SubResource("BoxShape3D_pvv00")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collision" unique_id=1822406123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0129573, 1.586275, -0.0028530322)
+shape = SubResource("BoxShape3D_nai6o")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collision" unique_id=892606839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0134633, 1.586, -0.003)
+shape = SubResource("BoxShape3D_nai6o")
+
+[node name="Graphics" type="Node3D" parent="." unique_id=1784075365]
+
+[node name="turnstile_gate" parent="Graphics" unique_id=2007554646 instance=ExtResource("1_elmvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839, 1.09, 0)
+
+[node name="turnstile_gate2" parent="Graphics" unique_id=2071284362 instance=ExtResource("1_elmvh")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.85021824, 1.09, 0)
+
+[node name="Pillar" type="MeshInstance3D" parent="Graphics" unique_id=538320956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934808, 1.3333435, 0)
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Pillar2" type="MeshInstance3D" parent="Graphics" unique_id=515621206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935, 1.333, 0)
+mesh = SubResource("BoxMesh_jg88y")

@@ -25,6 +25,7 @@ This project uses static global illumination, which requires baking a lightmap (
 
 - Font: Dissolved Exchange by [Chequered Ink Ltd](https://chequered.ink/).
 - Model: Subway Car from [Grab3D](https://grab3d.com/models/vehicles/subway-car/)
+- Model: Modular Pipes from [Polyhave](https://polyhaven.com/a/modular_pipes)
 - Texture: Long White Tiles from [Polyhaven](https://polyhaven.com/a/long_white_tiles)
 - Texture: Rectangular Facade Tiles from [Polyhaven](https://polyhaven.com/a/rectangular_facade_tiles)
 - Texture: Concrete Wall 009 from [Polyhaven](https://polyhaven.com/a/concrete_wall_009)
