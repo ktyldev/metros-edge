@@ -7,7 +7,6 @@
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="2_c00nx"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
-[ext_resource type="LightmapGIData" uid="uid://bhy3n50j8ygyr" path="res://scenes/environment/starting_platform.lmbake" id="8_c00nx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tis82"]
 lightmap_size_hint = Vector2i(693, 515)
@@ -131,7 +130,6 @@ environment = SubResource("Environment_58tnn")
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=786913396]
 interior = true
-light_data = ExtResource("8_c00nx")
 
 [editable path="Greybox/StartingPlatform"]
 [editable path="Greybox/StartingPlatform/Platform3"]
