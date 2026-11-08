@@ -2,8 +2,9 @@
 
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_sa8xu"]
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_xejik"]
+[ext_resource type="Material" uid="uid://boyj3ee8am3yf" path="res://materials/concrete_floor_worn_001/M_concrete_floor_worn_001.tres" id="2_scot0"]
 [ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="2_w2cwu"]
-[ext_resource type="PackedScene" uid="uid://bamsl0yax1pcq" path="res://scenes/environment/props/poster_frame.tscn" id="4_bk1iq"]
+[ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="4_jmilr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w2cwu"]
 lightmap_size_hint = Vector2i(284, 177)
@@ -18,48 +19,51 @@ add_uv2 = true
 size = Vector3(32.321037, 0.964798, 24.133911)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6uwxm"]
-lightmap_size_hint = Vector2i(119, 100)
-material = ExtResource("1_sa8xu")
+lightmap_size_hint = Vector2i(111, 100)
+material = ExtResource("4_jmilr")
 add_uv2 = true
-size = Vector3(6.171814, 0.892395, 17.027344)
+size = Vector3(4.545868, 0.892395, 17.027344)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nd6w"]
 material = ExtResource("1_sa8xu")
-size = Vector3(6.171814, 0.892395, 17.027344)
+size = Vector3(4.594208, 0.892395, 17.155151)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c00nx"]
 material = ExtResource("1_sa8xu")
-size = Vector3(6.171814, 0.892395, 17.027344)
+size = Vector3(4.564911, 0.892395, 17.903442)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xejik"]
-lightmap_size_hint = Vector2i(76, 56)
+lightmap_size_hint = Vector2i(82, 56)
 material = ExtResource("1_sa8xu")
 add_uv2 = true
-size = Vector3(6.171814, 0.892395, 8.293945)
+size = Vector3(7.370346, 0.892395, 8.293945)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tis82"]
-lightmap_size_hint = Vector2i(148, 128)
+lightmap_size_hint = Vector2i(141, 128)
 material = ExtResource("1_sa8xu")
 add_uv2 = true
-size = Vector3(6.171814, 0.892395, 22.794067)
+size = Vector3(4.7636414, 0.892395, 22.794067)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7cjvn"]
-lightmap_size_hint = Vector2i(118, 98)
+lightmap_size_hint = Vector2i(116, 103)
 material = ExtResource("1_sa8xu")
 add_uv2 = true
-size = Vector3(6.171814, 0.892395, 16.722656)
+size = Vector3(4.80954, 0.892395, 17.742188)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m43ax"]
-lightmap_size_hint = Vector2i(81, 61)
-material = ExtResource("1_sa8xu")
+lightmap_size_hint = Vector2i(83, 70)
+material = ExtResource("4_jmilr")
 add_uv2 = true
-size = Vector3(6.171814, 0.892395, 9.400879)
+size = Vector3(4.7289734, 0.892395, 11.084778)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
-size = Vector3(23.88977, 1, 32.638535)
+size = Vector3(23.88977, 1, 34.178642)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_58tnn"]
-size = Vector3(0.8862915, 6.8691406, 16.345913)
+size = Vector3(0.8862915, 5.2871094, 16.788078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xejik"]
+size = Vector3(0.8862915, 5.2871094, 11.42828)
 
 [node name="Tunnel1" type="StaticBody3D" unique_id=761534905]
 
@@ -68,94 +72,99 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.328529, -0.4602356, -0.2949
 mesh = SubResource("BoxMesh_w2cwu")
 
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1818709750]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4678297, 4.760828, -0.9267311)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4678297, 3.6679482, -0.9267311)
+material_override = ExtResource("2_scot0")
 mesh = SubResource("BoxMesh_kprjh")
 
 [node name="Wall1" type="MeshInstance3D" parent="." unique_id=2084975141]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -3.5812979, 2.7970057, 7.3326263)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.5249865, 1.9840326, 7.3326263)
 mesh = SubResource("BoxMesh_6uwxm")
 
 [node name="Wall6" type="MeshInstance3D" parent="." unique_id=1909486912]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 13.10323, 2.7970057, -9.1978855)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 13.847245, 2.0082026, -9.133982)
 mesh = SubResource("BoxMesh_8nd6w")
 
 [node name="Wall2" type="MeshInstance3D" parent="." unique_id=2015777217]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 4.8938417, 2.7970057, -1.0031738)
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 5.331891, 1.9935541, -0.30181718)
 mesh = SubResource("BoxMesh_c00nx")
 
 [node name="Wall7" type="MeshInstance3D" parent="." unique_id=868038120]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.61445904, 7.7977805, 14.830253)
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.61445904, 7.1985145, 14.830253)
 mesh = SubResource("BoxMesh_xejik")
 
 [node name="Wall3" type="MeshInstance3D" parent="." unique_id=1041689716]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 19.456661, 2.7970057, -5.5269966)
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 18.93318, 2.0929193, -5.5269966)
 mesh = SubResource("BoxMesh_tis82")
 
 [node name="Wall4" type="MeshInstance3D" parent="." unique_id=461277822]
-transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 11.387285, 2.7970057, 6.025173)
+transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 10.877459, 2.1158686, 4.5435066)
 mesh = SubResource("BoxMesh_7cjvn")
 
 [node name="Wall5" type="MeshInstance3D" parent="." unique_id=730984343]
-transform = Transform3D(4.371139e-08, -1, -8.742277e-08, -1, -4.371139e-08, 0, -3.8213714e-15, 8.742277e-08, -1, 3.2624986, 2.7970047, 10.535667)
+transform = Transform3D(4.371139e-08, -1, -8.742277e-08, -1, -4.371139e-08, 0, -3.8213714e-15, 8.742277e-08, -1, 2.4493144, 2.0755844, 9.693718)
 mesh = SubResource("BoxMesh_m43ax")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=606327047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9535522, -0.5, -0.5000763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9535522, -0.5, -1.2701302)
 shape = SubResource("BoxShape3D_jg88y")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=897868125]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5481873, 2.4345703, 7.6462326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.517109, 1.6435547, 7.473752)
 shape = SubResource("BoxShape3D_58tnn")
 
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=580260243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.421811, 1.6435547, 10.237326)
+shape = SubResource("BoxShape3D_xejik")
+
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=269950598]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4605, 2.4345703, -2.6405716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.288311, 2.4345703, -2.6405716)
 shape = SubResource("BoxShape3D_58tnn")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1890079839]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.999929, 2.4345703, 6.0209274)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.606366, 2.4345703, 4.5439415)
 shape = SubResource("BoxShape3D_58tnn")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=247300338]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.889578, 2.4345703, -0.9990921)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.889578, 2.4345703, -0.29689443)
 shape = SubResource("BoxShape3D_58tnn")
 
 [node name="Lights" type="Node3D" parent="." unique_id=1011277124]
 
 [node name="TunnelLight3" parent="Lights" unique_id=333963310 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4200182, 4.1172285, 2.3280876)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4200182, 3.1265001, 2.3280876)
 
 [node name="TunnelLight4" parent="Lights" unique_id=666663229 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.021309, 4.1172285, 2.3280876)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.021309, 3.1265001, 2.3280876)
 
 [node name="TunnelLight5" parent="Lights" unique_id=1330802827 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.348228, 4.1172285, 2.3280876)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.348228, 3.1265001, 2.3280876)
 
 [node name="TunnelLight6" parent="Lights" unique_id=1594310815 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.735491, 4.1172285, 2.3280873)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.735491, 3.1265001, 2.3280873)
 
 [node name="TunnelLight7" parent="Lights" unique_id=546310582 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 4.1172285, -1.3177171)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 3.1265001, -1.3177171)
 
 [node name="TunnelLight8" parent="Lights" unique_id=801920310 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 4.1172285, -4.9190083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 3.1265001, -4.9190083)
 
 [node name="TunnelLight9" parent="Lights" unique_id=698991812 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 4.1172285, -8.245928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 3.1265001, -8.245928)
 
 [node name="TunnelLight10" parent="Lights" unique_id=1628914689 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 4.1172285, -11.633191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.560562, 3.1265001, -11.633191)
 
 [node name="TunnelLight11" parent="Lights" unique_id=1413893153 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028805256, 4.1172285, 12.703466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028805256, 3.1265001, 12.703466)
 
 [node name="TunnelLight12" parent="Lights" unique_id=570702272 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028804779, 4.1172285, 9.102179)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028804779, 3.1265001, 9.102179)
 
 [node name="TunnelLight13" parent="Lights" unique_id=755419078 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028805256, 4.1172285, 5.7752576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028805256, 3.1265001, 5.7752576)
 
 [node name="TunnelLight14" parent="Lights" unique_id=357555939 instance=ExtResource("2_w2cwu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028805256, 4.1172285, 2.3879933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028805256, 3.1265001, 2.3879933)
 
 [node name="Reflections" type="Node3D" parent="." unique_id=9390977]
 
@@ -171,7 +180,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.042603, 2.6228638, 2.635742
 size = Vector3(25.759521, 8.731323, 10.769531)
 box_projection = true
 interior = true
-
-[node name="PosterFrame" parent="." unique_id=1929314103 instance=ExtResource("4_bk1iq")]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 19.004124, 2.2232766, 2.2694552)
-instance_shader_parameters/poster_index = 1

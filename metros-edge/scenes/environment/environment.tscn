@@ -14,12 +14,6 @@ material = ExtResource("2_c00nx")
 add_uv2 = true
 size = Vector3(100, 0.90148926, 37.80072)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7cjvn"]
-lightmap_size_hint = Vector2i(526, 515)
-material = ExtResource("2_58tnn")
-add_uv2 = true
-size = Vector3(100, 0.90148926, 4.434082)
-
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("2_58tnn")
 size = Vector3(6.171814, 0.964798, 17.10437)
@@ -61,8 +55,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0.010986328, 57.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034028292, -0.4739608, 16.967731)
 mesh = SubResource("BoxMesh_tis82")
 
-[node name="Floor" parent="Greybox/StartingPlatform/Platform2" parent_id_path=PackedInt32Array(247923355, 1019169980) index="0" unique_id=920226916]
-mesh = SubResource("BoxMesh_7cjvn")
+[node name="StaticBody3D" parent="Greybox/StartingPlatform/Platform3/Floor" index="0" unique_id=838165008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4454126e-06, -0.050320596, -16.61436)
 
 [node name="Tunnel1" parent="Greybox" unique_id=761534905 instance=ExtResource("2_8nd6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07989788, -0.034129143, 34.20308)
@@ -133,4 +127,5 @@ interior = true
 
 [editable path="Greybox/StartingPlatform"]
 [editable path="Greybox/StartingPlatform/Platform3"]
+[editable path="Greybox/StartingPlatform/Platform3/Train"]
 [editable path="Greybox/Tunnel1"]
