@@ -18,7 +18,7 @@ var horizontal_velocity = Vector3.ZERO
 
 # will leave/rename after rewriting
 var lerp_speed = 10
-@export var air_drag = 0.25
+#@export var air_drag = 0.25
 
 # States
 var jogging = false
@@ -46,7 +46,7 @@ var wall_run_min_speed = 7.0
 var wall_run_normal: Vector3 = Vector3.ZERO
 
 # Movement vars
-const jump_velocity = 5.5
+@export var jump_velocity: float = 3.0
 var crouching_depth = -0.5
 var free_look_tilt_amount = 7
 var last_velocity = Vector3.ZERO
@@ -193,7 +193,7 @@ func _physics_process(delta):
 				#horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,air_drag * delta)
 		else:
 			# Decelerate when there is no input.
-			var rate = ground_friction if is_on_floor() else air_drag			
+			var rate = ground_friction if is_on_floor() else 0.0
 			horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO,rate * delta)
 
 		velocity.x = horizontal_velocity.x
@@ -208,12 +208,12 @@ func _physics_process(delta):
 	# don't want to move if we are wall sticking
 	if wall_stick:
 		input_dir = Vector2.ZERO
-		velocity = Vector3.ZERO
+		velocity.x = 0.0
+		velocity.z = 0.0
 		wall_stick_timer -= delta
 		if wall_stick_timer <= 0.0:
 			wall_stick_timer = 0.0
 			wall_stick = null
-		print("wall_stick_timer: ", wall_stick_timer)
 	#special lower 'gravity' for wall running so we stay on the wall longer
 	elif wall_running: 		
 		velocity.y -= wall_run_gravity * delta
@@ -297,7 +297,7 @@ func _physics_process(delta):
 			wall_running = true
 			free_looking = true #think it would feel natural
 			wall_run_normal = normal
-			velocity.y = 0 # kill the upwards motion when touching the wall
+			#velocity.y = 0 # kill the upwards motion when touching the wall
 			wall_run_vector = Vector2(horizontal_velocity.dot(transform.basis.x),horizontal_velocity.dot(-transform.basis.z)).normalized()			
 
 	# if we press "turn" (Q) and we then rotate to face the normal
