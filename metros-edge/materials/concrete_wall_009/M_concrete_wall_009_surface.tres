@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://jdxftpyxwuyg"]
 
-[ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/wall.gdshader" id="1_je4jf"]
+[ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/surface.gdshader" id="1_je4jf"]
 [ext_resource type="Texture2D" uid="uid://556yjvpe80l1" path="res://materials/concrete_wall_009/textures/concrete_wall_009_diff_256.jpg" id="2_je4jf"]
 [ext_resource type="Texture2D" uid="uid://b0n14a2p10siq" path="res://materials/concrete_wall_009/textures/concrete_wall_009_nor_gl_256.exr" id="3_lrtn7"]
 [ext_resource type="Texture2D" uid="uid://d34l3ln7kbey7" path="res://materials/concrete_wall_009/textures/concrete_wall_009_rough_256.exr" id="4_km6ig"]
