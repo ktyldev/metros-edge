@@ -47,7 +47,7 @@ var wall_run_normal: Vector3 = Vector3.ZERO
 
 # Movement vars
 @export var jump_velocity: float = 3.0
-var crouching_depth = -0.5
+var crouching_depth = -1.0
 var free_look_tilt_amount = 7
 var last_velocity = Vector3.ZERO
 
@@ -169,7 +169,7 @@ func _physics_process(delta):
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
 
-		if  horizontal_velocity.length() <= crouching_speed or not is_on_floor() or Input.is_action_pressed("jump"):
+		if  horizontal_velocity.length() <= crouching_speed or not is_on_floor() or Input.is_action_pressed("jump") or (sliding and Input.is_action_just_released("crouch")):
 			sliding = false
 			crouching = false
 			#slide_timer = 0.0
