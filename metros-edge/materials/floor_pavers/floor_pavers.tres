@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bnokworgm7hgn"]
+
+[ext_resource type="Texture2D" uid="uid://cjm48idrpbm1q" path="res://materials/floor_pavers/textures/floor_pavers_color.png" id="1_ncjvi"]
+[ext_resource type="Texture2D" uid="uid://djr0ljrxs7q33" path="res://materials/floor_pavers/textures/floor_pavers_occlusion.png" id="2_86ogx"]
+[ext_resource type="Texture2D" uid="uid://2xdadxcgjldp" path="res://materials/floor_pavers/textures/floor_pavers_depth.png" id="3_477du"]
+[ext_resource type="Texture2D" uid="uid://b310uxm3lwc5k" path="res://materials/floor_pavers/textures/floor_pavers_normal.png" id="4_mn2rv"]
+
+[resource]
+albedo_texture = ExtResource("1_ncjvi")
+roughness = 0.15
+normal_enabled = true
+normal_texture = ExtResource("4_mn2rv")
+ao_enabled = true
+ao_texture = ExtResource("2_86ogx")
+heightmap_enabled = true
+heightmap_scale = -0.5
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("3_477du")

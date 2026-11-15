@@ -14,6 +14,7 @@ jump_velocity = 4.5
 shape = SubResource("CapsuleShape3D_ghx4o")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="." unique_id=867759194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505, 0)
 shape = SubResource("SphereShape3D_4kied")
 
 [node name="neck" type="Node3D" parent="." unique_id=611015831]
