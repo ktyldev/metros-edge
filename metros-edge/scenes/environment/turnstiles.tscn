@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://ckq8i1qxrwru7"]
 
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_40bdf"]
+[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_prkmf"]
 [ext_resource type="PackedScene" uid="uid://rd1pc1ilqqem" path="res://scenes/environment/props/turnstile_gate.tscn" id="3_pvv00"]
+[ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="4_nai6o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nqbb"]
+lightmap_size_hint = Vector2i(174, 104)
 material = ExtResource("1_40bdf")
+add_uv2 = true
 size = Vector3(17.832977, 0.892395, 16.361328)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
@@ -12,6 +16,24 @@ size = Vector3(16.34967, 1, 17.842285)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brfyq"]
 size = Vector3(16.34967, 1.874939, 1.0147095)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_375kw"]
+size = Vector3(1, 6.6255493, 17.70221)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
+lightmap_size_hint = Vector2i(97, 159)
+material = ExtResource("1_prkmf")
+add_uv2 = true
+size = Vector3(1, 6.5382996, 17.648987)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pvv00"]
+size = Vector3(16.44928, 0.99916077, 17.70221)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nai6o"]
+lightmap_size_hint = Vector2i(171, 105)
+material = ExtResource("1_prkmf")
+add_uv2 = true
+size = Vector3(15.907227, 1.1641808, 17.648987)
 
 [node name="Turnstiles" type="StaticBody3D" unique_id=1607049778]
 
@@ -28,20 +50,73 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, 2, -0.009)
 shape = SubResource("BoxShape3D_brfyq")
 disabled = true
 
-[node name="Gate" parent="." unique_id=903344685 instance=ExtResource("3_pvv00")]
+[node name="SideWall" type="CollisionShape3D" parent="." unique_id=865793682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.291345, 2.8127747, 0.08554077)
+shape = SubResource("BoxShape3D_375kw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SideWall" unique_id=363092727]
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="SideWall2" type="CollisionShape3D" parent="." unique_id=268787533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.132976, 2.992844, 0.08554077)
+shape = SubResource("BoxShape3D_375kw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SideWall2" unique_id=1602776425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.002, 0)
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Ceiling" type="CollisionShape3D" parent="." unique_id=2121440565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03994751, 4.6350927, 0)
+shape = SubResource("BoxShape3D_pvv00")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceiling" unique_id=1762890573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024414063, 0.008561134, 0)
+mesh = SubResource("BoxMesh_nai6o")
+
+[node name="WallLights" type="Node3D" parent="." unique_id=1510129127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7329483, 4.0018497, 0)
+
+[node name="TunnelLight" parent="WallLights" unique_id=1318434118 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, 5.013956)
+
+[node name="TunnelLight2" parent="WallLights" unique_id=1609193686 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, -0.08561325)
+
+[node name="TunnelLight3" parent="WallLights" unique_id=648626220 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, -5.287919)
+
+[node name="WallLights2" type="Node3D" parent="." unique_id=303940517]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7.562334, 4.0018497, 0)
+
+[node name="TunnelLight" parent="WallLights2" unique_id=406889836 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, 5.013956)
+
+[node name="TunnelLight2" parent="WallLights2" unique_id=2026882799 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, -0.08561325)
+
+[node name="TunnelLight3" parent="WallLights2" unique_id=1873915623 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, -5.287919)
+
+[node name="GateArray" type="Node3D" parent="." unique_id=534084939]
+
+[node name="Gate" parent="GateArray" unique_id=903344685 instance=ExtResource("3_pvv00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4293795, 0, 0)
 
-[node name="Gate2" parent="." unique_id=1581194848 instance=ExtResource("3_pvv00")]
+[node name="Gate2" parent="GateArray" unique_id=1581194848 instance=ExtResource("3_pvv00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.256736, 0, 0)
 
-[node name="Gate3" parent="." unique_id=382167127 instance=ExtResource("3_pvv00")]
+[node name="Gate3" parent="GateArray" unique_id=382167127 instance=ExtResource("3_pvv00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0810156, 0, 0)
 
-[node name="Gate4" parent="." unique_id=936463938 instance=ExtResource("3_pvv00")]
+[node name="Gate4" parent="GateArray" unique_id=936463938 instance=ExtResource("3_pvv00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0792856, 0, 0)
 
-[node name="Gate5" parent="." unique_id=1076874790 instance=ExtResource("3_pvv00")]
+[node name="Gate5" parent="GateArray" unique_id=1076874790 instance=ExtResource("3_pvv00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.251929, 0, 0)
 
-[node name="Gate6" parent="." unique_id=2069387693 instance=ExtResource("3_pvv00")]
+[node name="Gate6" parent="GateArray" unique_id=2069387693 instance=ExtResource("3_pvv00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4276495, 0, 0)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1595401022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09311676, 2.167863, 0.070858955)
+size = Vector3(19.601974, 8.376209, 19.622648)

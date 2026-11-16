@@ -4,15 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ckq8i1qxrwru7" path="res://scenes/environment/turnstiles.tscn" id="2_4ff8o"]
 [ext_resource type="PackedScene" uid="uid://bkqqndwingm17" path="res://scenes/environment/tunnel_1.tscn" id="2_8nd6w"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_58tnn"]
-[ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="2_c00nx"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_tis82"]
-lightmap_size_hint = Vector2i(693, 515)
-material = ExtResource("2_c00nx")
-add_uv2 = true
-size = Vector3(100, 0.90148926, 37.80072)
+[ext_resource type="LightmapGIData" uid="uid://dmw8uil32soaq" path="res://scenes/environment/environment.lmbake" id="8_c00nx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("2_58tnn")
@@ -51,29 +45,14 @@ fog_sky_affect = 0.0
 [node name="StartingPlatform" parent="Greybox" unique_id=247923355 instance=ExtResource("1_8nqbb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19665146, 0.010986328, 57.14059)
 
-[node name="Floor" parent="Greybox/StartingPlatform/Platform3" parent_id_path=PackedInt32Array(247923355, 753467421) index="0" unique_id=1379870810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034028292, -0.4739608, 16.967731)
-mesh = SubResource("BoxMesh_tis82")
-
-[node name="StaticBody3D" parent="Greybox/StartingPlatform/Platform3/Floor" index="0" unique_id=838165008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4454126e-06, -0.050320596, -16.61436)
-
 [node name="Tunnel1" parent="Greybox" unique_id=761534905 instance=ExtResource("2_8nd6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07989788, -0.034129143, 34.20308)
-
-[node name="Floor" parent="Greybox/Tunnel1" index="0" unique_id=22242911]
-visible = false
-
-[node name="ReflectionProbe2" parent="Greybox/Tunnel1/Reflections" parent_id_path=PackedInt32Array(761534905, 9390977) index="1" unique_id=1828121421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.033264, 2.68956, 1.9106445)
-blend_distance = 2.67
-size = Vector3(27.778198, 10.791595, 12.219727)
 
 [node name="Turnstiles" parent="Greybox" unique_id=2135899008 instance=ExtResource("2_4ff8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.736181, 0, 7.119705)
 
 [node name="Atrium" parent="Greybox" unique_id=330536154 instance=ExtResource("3_als2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0843, 0, -19.779125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.372126, 0, -19.779125)
 
 [node name="Tunnel2" type="StaticBody3D" parent="Greybox" unique_id=1880214225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615602, 13.135507, -40.835175)
@@ -124,8 +103,8 @@ environment = SubResource("Environment_58tnn")
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=786913396]
 interior = true
+light_data = ExtResource("8_c00nx")
 
 [editable path="Greybox/StartingPlatform"]
 [editable path="Greybox/StartingPlatform/Platform3"]
 [editable path="Greybox/StartingPlatform/Platform3/Train"]
-[editable path="Greybox/Tunnel1"]

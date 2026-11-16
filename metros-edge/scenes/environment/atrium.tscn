@@ -1,27 +1,28 @@
 [gd_scene format=3 uid="uid://56don1h463lh"]
 
+[ext_resource type="Material" uid="uid://ba5e1vn53tpty" path="res://materials/granite_tile/M_granite_tile_surface.tres" id="1_wuyc2"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_xf7ej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
 size = Vector3(45.84912, 1, 8.993286)
 
+[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
+lightmap_size_hint = Vector2i(278, 245)
+material = ExtResource("1_wuyc2")
+add_uv2 = true
+size = Vector3(45.943085, 1, 9.036133)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xf7ej"]
 size = Vector3(45.84912, 1, 8.993286)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wuyc2"]
-size = Vector3(4.757538, 1, 26.331848)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
-lightmap_size_hint = Vector2i(278, 245)
-material = ExtResource("1_xf7ej")
-add_uv2 = true
-size = Vector3(45.943085, 1, 9.036133)
-
 [sub_resource type="BoxMesh" id="BoxMesh_erkwx"]
 lightmap_size_hint = Vector2i(278, 245)
-material = ExtResource("1_xf7ej")
+material = ExtResource("1_wuyc2")
 add_uv2 = true
 size = Vector3(45.943085, 1, 9.036133)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuyc2"]
+size = Vector3(4.757538, 1, 26.331848)
 
 [sub_resource type="BoxMesh" id="BoxMesh_375kw"]
 lightmap_size_hint = Vector2i(157, 145)
@@ -53,6 +54,12 @@ material = ExtResource("1_xf7ej")
 add_uv2 = true
 size = Vector3(15.423492, 60.42392, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_desp8"]
+lightmap_size_hint = Vector2i(86, 280)
+material = ExtResource("1_xf7ej")
+add_uv2 = true
+size = Vector3(15.423492, 19.784103, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1la6"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -67,23 +74,35 @@ size = Vector3(45.346405, 1, 39.52118)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6276855, -0.5, 13.5233)
 shape = SubResource("BoxShape3D_jg88y")
 
+[node name="Walkway" type="MeshInstance3D" parent="LowerConcourse" unique_id=574020471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049418926, 0, -0.017921448)
+mesh = SubResource("BoxMesh_fauy2")
+
+[node name="LowerConcourse2" type="CollisionShape3D" parent="." unique_id=668550423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6276855, -0.5, -16.98093)
+shape = SubResource("BoxShape3D_jg88y")
+
+[node name="Walkway" type="MeshInstance3D" parent="LowerConcourse2" unique_id=1703461650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049418926, 0, -0.017921448)
+mesh = SubResource("BoxMesh_fauy2")
+
 [node name="UpperConcourse" type="CollisionShape3D" parent="." unique_id=833460231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.629165, 12.6710205, -17.361073)
 shape = SubResource("BoxShape3D_xf7ej")
+
+[node name="Walkway2" type="MeshInstance3D" parent="UpperConcourse" unique_id=1607913300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047939777, 0.01260376, 0.019340515)
+mesh = SubResource("BoxMesh_erkwx")
+
+[node name="Walkway3" type="MeshInstance3D" parent="UpperConcourse" unique_id=1816660039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047939777, 0.01260376, 30.373669)
+mesh = SubResource("BoxMesh_erkwx")
 
 [node name="Escalator" type="CollisionShape3D" parent="." unique_id=1397074463]
 transform = Transform3D(1, 0, 0, 0, 0.86162907, -0.5075383, 0, 0.5075383, 0.86162907, -26.746761, 6.101649, -1.7826653)
 shape = SubResource("BoxShape3D_wuyc2")
 
 [node name="Graphics" type="Node3D" parent="." unique_id=862007972]
-
-[node name="Walkway" type="MeshInstance3D" parent="Graphics" unique_id=574020471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6771045, -0.5, 13.505379)
-mesh = SubResource("BoxMesh_fauy2")
-
-[node name="Walkway2" type="MeshInstance3D" parent="Graphics" unique_id=1607913300]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.677105, 12.683624, -17.341732)
-mesh = SubResource("BoxMesh_erkwx")
 
 [node name="Escalator" type="MeshInstance3D" parent="Graphics" unique_id=519940053]
 transform = Transform3D(1, 0, 0, 0, 0.8612518, -0.5081785, 0, 0.5081785, 0.8612518, -26.758766, 6.161932, -1.9166392)
@@ -106,6 +125,10 @@ mesh = SubResource("BoxMesh_xf7ej")
 [node name="FrontLeft2" type="MeshInstance3D" parent="Walls" unique_id=1606292190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6622963, -4.2322845, 17.94362)
 mesh = SubResource("BoxMesh_wuyc2")
+
+[node name="FrontLeft3" type="MeshInstance3D" parent="Walls" unique_id=1031209195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6083717, 16.087624, 17.94362)
+mesh = SubResource("BoxMesh_desp8")
 
 [node name="Lights" type="Node3D" parent="." unique_id=2014657988]
 

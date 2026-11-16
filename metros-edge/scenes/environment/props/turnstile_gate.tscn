@@ -10,7 +10,9 @@ size = Vector3(1.993, 1.9336665, 0.172)
 size = Vector3(0.14353418, 3.2588618, 0.30386424)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
+lightmap_size_hint = Vector2i(7, 34)
 material = ExtResource("2_721o0")
+add_uv2 = true
 size = Vector3(0.3, 2.709, 0.3)
 
 [node name="Gate" type="Node3D" unique_id=903344685]

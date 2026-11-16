@@ -4,14 +4,6 @@
 [ext_resource type="Script" uid="uid://ceq2mjevler3v" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c4laeptydhjxt" path="res://scenes/environment/environment.tscn" id="2_0wfyh"]
 
-[sub_resource type="Environment" id="Environment_jg88y"]
-ambient_light_source = 2
-ambient_light_color = Color(0.5033234, 0.5033233, 0.5033233, 1)
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_375kw"]
-
-[sub_resource type="Compositor" id="Compositor_fauy2"]
-
 [node name="Main" type="Node3D" unique_id=50357158]
 script = ExtResource("1_sugp2")
 
@@ -19,8 +11,3 @@ script = ExtResource("1_sugp2")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.1220932, -7.6293945e-06, 63.96524)
 
 [node name="Environment" parent="." unique_id=437154403 instance=ExtResource("2_0wfyh")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1135965417]
-environment = SubResource("Environment_jg88y")
-camera_attributes = SubResource("CameraAttributesPractical_375kw")
-compositor = SubResource("Compositor_fauy2")
