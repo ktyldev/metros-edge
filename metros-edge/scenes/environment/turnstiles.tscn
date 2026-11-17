@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_40bdf"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_prkmf"]
+[ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="2_14dj8"]
 [ext_resource type="PackedScene" uid="uid://rd1pc1ilqqem" path="res://scenes/environment/props/turnstile_gate.tscn" id="3_pvv00"]
 [ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="4_nai6o"]
 
@@ -22,7 +23,7 @@ size = Vector3(1, 6.6255493, 17.70221)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 lightmap_size_hint = Vector2i(97, 159)
-material = ExtResource("1_prkmf")
+material = ExtResource("2_14dj8")
 add_uv2 = true
 size = Vector3(1, 6.5382996, 17.648987)
 
@@ -96,6 +97,27 @@ transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0
 
 [node name="TunnelLight3" parent="WallLights2" unique_id=1873915623 instance=ExtResource("4_nai6o")]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.29862738, -0.26941824, -5.287919)
+
+[node name="WallLights3" type="Node3D" parent="." unique_id=1691034466]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.38650227, 4.0018497, 0)
+
+[node name="TunnelLight" parent="WallLights3" unique_id=518489122 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.99999994, -5.4042345e-15, 2.5605544e-08, 0, 0.99999994, 6.181724e-08, -2.560553e-08, -6.181724e-08, 1, 2.2986274, -0.26695228, 5.013956)
+
+[node name="TunnelLight2" parent="WallLights3" unique_id=1225036096 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.99999994, -5.4042345e-15, 2.5605544e-08, 0, 0.99999994, 6.181724e-08, -2.560553e-08, -6.181724e-08, 1, 2.2986274, -0.2669525, -0.08561342)
+
+[node name="TunnelLight3" parent="WallLights3" unique_id=1625701013 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.99999994, -5.4042345e-15, 2.5605544e-08, 0, 0.99999994, 6.181724e-08, -2.560553e-08, -6.181724e-08, 1, 2.2986274, -0.26695275, -5.287919)
+
+[node name="TunnelLight4" parent="WallLights3" unique_id=1741337190 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.99999994, -5.4042345e-15, 2.5605544e-08, 0, 0.99999994, 6.181724e-08, -2.560553e-08, -6.181724e-08, 1, -1.7013726, -0.26695228, 5.013956)
+
+[node name="TunnelLight5" parent="WallLights3" unique_id=653154432 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.99999994, -5.4042345e-15, 2.5605544e-08, 0, 0.99999994, 6.181724e-08, -2.560553e-08, -6.181724e-08, 1, -1.7013726, -0.2669525, -0.08561308)
+
+[node name="TunnelLight6" parent="WallLights3" unique_id=1163319264 instance=ExtResource("4_nai6o")]
+transform = Transform3D(0.99999994, -5.4042345e-15, 2.5605544e-08, 0, 0.99999994, 6.181724e-08, -2.560553e-08, -6.181724e-08, 1, -1.7013726, -0.26695275, -5.287919)
 
 [node name="GateArray" type="Node3D" parent="." unique_id=534084939]
 

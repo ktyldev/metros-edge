@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rd1pc1ilqqem"]
 
 [ext_resource type="PackedScene" uid="uid://mv4r03mg1pa1" path="res://models/turnstile_gate/turnstile_gate.gltf" id="1_elmvh"]
-[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_721o0"]
+[ext_resource type="Material" uid="uid://ds0vu8angcvnj" path="res://materials/metal028/Metal028_1K-JPG.tres" id="2_721o0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pvv00"]
 size = Vector3(1.993, 1.9336665, 0.172)
