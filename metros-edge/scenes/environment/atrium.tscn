@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://56don1h463lh"]
 
-[ext_resource type="Material" uid="uid://ba5e1vn53tpty" path="res://materials/granite_tile/M_granite_tile_surface.tres" id="1_wuyc2"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_xf7ej"]
 [ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop.tscn" id="2_cgojt"]
+[ext_resource type="Shader" uid="uid://dyc82c43ildx0" path="res://shader/depth_fog.gdshader" id="3_cgojt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
 size = Vector3(45.84912, 1, 8.993286)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
 lightmap_size_hint = Vector2i(278, 245)
-material = ExtResource("1_wuyc2")
+material = ExtResource("1_xf7ej")
 add_uv2 = true
 size = Vector3(45.943085, 1, 9.036133)
 
@@ -18,7 +18,7 @@ size = Vector3(45.84912, 1, 8.993286)
 
 [sub_resource type="BoxMesh" id="BoxMesh_erkwx"]
 lightmap_size_hint = Vector2i(278, 245)
-material = ExtResource("1_wuyc2")
+material = ExtResource("1_xf7ej")
 add_uv2 = true
 size = Vector3(45.943085, 1, 9.036133)
 
@@ -83,6 +83,17 @@ size = Vector3(45.346405, 1, 39.52118)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_375kw"]
 size = Vector3(45.1532, 38.973724, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fauy2"]
+render_priority = 0
+shader = ExtResource("3_cgojt")
+shader_parameter/fog_color = Color(0, 0, 0.29411766, 1)
+shader_parameter/fog_start = -5.0
+shader_parameter/fog_end = -20.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jg88y"]
+material = SubResource("ShaderMaterial_fauy2")
+size = Vector2(50, 50)
 
 [node name="Atrium" type="StaticBody3D" unique_id=447199645]
 
@@ -206,3 +217,7 @@ mesh = SubResource("BoxMesh_715li")
 [node name="RearWallCollision" type="CollisionShape3D" parent="." unique_id=514557528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0685425, 5.5912933, -21.929508)
 shape = SubResource("BoxShape3D_375kw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=526101159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0868117, 0)
+mesh = SubResource("PlaneMesh_jg88y")
