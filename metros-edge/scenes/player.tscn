@@ -28,3 +28,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59936434, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=686527683]
 target_position = Vector3(0, 1, 0)
+
+[node name="StateLabel" type="Label" parent="." unique_id=1936611993]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PenaltyLabel" type="Label" parent="." unique_id=1205051497]
+offset_left = 0.95
+offset_top = 22.22
+offset_right = 40.95
+offset_bottom = 45.220016
