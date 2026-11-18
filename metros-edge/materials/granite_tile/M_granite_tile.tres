@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwfrya2m4edon"]
+
+[ext_resource type="Texture2D" uid="uid://b2u14r02o410f" path="res://materials/granite_tile/textures/granite_tile_diff_4k.jpg" id="1_icgkk"]
+[ext_resource type="Texture2D" uid="uid://c3kjsauw7a36" path="res://materials/granite_tile/textures/granite_tile_nor_gl_4k.exr" id="2_wvb4s"]
+[ext_resource type="Texture2D" uid="uid://dx2ae1tq4ferv" path="res://materials/granite_tile/textures/granite_tile_rough_4k.exr" id="3_k0i4x"]
+
+[resource]
+albedo_texture = ExtResource("1_icgkk")
+roughness = 0.72
+roughness_texture = ExtResource("3_k0i4x")
+normal_enabled = true
+normal_texture = ExtResource("2_wvb4s")
+uv1_triplanar = true
+uv1_world_triplanar = true

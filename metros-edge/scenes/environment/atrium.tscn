@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://56don1h463lh"]
 
+[ext_resource type="Material" uid="uid://ba5e1vn53tpty" path="res://materials/granite_tile/M_granite_tile_surface.tres" id="1_erkwx"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_xf7ej"]
 [ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop.tscn" id="2_cgojt"]
 [ext_resource type="Shader" uid="uid://dyc82c43ildx0" path="res://shader/depth_fog.gdshader" id="3_cgojt"]
@@ -9,7 +10,7 @@ size = Vector3(45.84912, 1, 8.993286)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
 lightmap_size_hint = Vector2i(278, 245)
-material = ExtResource("1_xf7ej")
+material = ExtResource("1_erkwx")
 add_uv2 = true
 size = Vector3(45.943085, 1, 9.036133)
 
@@ -18,7 +19,7 @@ size = Vector3(45.84912, 1, 8.993286)
 
 [sub_resource type="BoxMesh" id="BoxMesh_erkwx"]
 lightmap_size_hint = Vector2i(278, 245)
-material = ExtResource("1_xf7ej")
+material = ExtResource("1_erkwx")
 add_uv2 = true
 size = Vector3(45.943085, 1, 9.036133)
 
