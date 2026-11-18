@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://y227bmkagvw5"]
+
+[ext_resource type="Theme" uid="uid://ckk8pbjqrtosd" path="res://resources/UI_theme.tres" id="1_agyl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biyew"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(0.25, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[node name="PanelContainer" type="PanelContainer" unique_id=75938156]
+offset_right = 387.0
+offset_bottom = 218.0
+theme = ExtResource("1_agyl0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_biyew")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1150213756]
+layout_mode = 2
+theme_override_constants/margin_left = 39
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 43
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=565787129]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Run complete"
+horizontal_alignment = 1
