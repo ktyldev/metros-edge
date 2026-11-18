@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://i0ryqikrsuyp"]
+
+[ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop/shop.tscn" id="1_y7n50"]
+[ext_resource type="Shader" uid="uid://dctpd38heo5l4" path="res://materials/shop_facade/shop_facade.gdshader" id="2_bsomk"]
+[ext_resource type="Texture2D" uid="uid://dtro25qy5eyfp" path="res://assets/storefronts/storefront_1.jpg" id="3_rrwf3"]
+[ext_resource type="Texture2D" uid="uid://dttxwktyys8n0" path="res://assets/storefronts/storefront_2.jpg" id="4_au1vg"]
+[ext_resource type="Texture2D" uid="uid://cxsqjfdvx4c8t" path="res://assets/storefronts/storefront_3.jpg" id="5_38ju0"]
+[ext_resource type="Texture2D" uid="uid://d3f2io3taxqyy" path="res://assets/storefronts/storefront_4.jpg" id="6_xeij2"]
+[ext_resource type="Texture2D" uid="uid://v04r6ykvwpbh" path="res://assets/storefronts/storefront_5.jpg" id="7_kyswm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7n50"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_bsomk")
+shader_parameter/albedo_array = Array[Texture2D]([ExtResource("3_rrwf3"), ExtResource("4_au1vg"), ExtResource("5_38ju0"), ExtResource("6_xeij2"), ExtResource("7_kyswm")])
+
+[sub_resource type="BoxMesh" id="BoxMesh_bsomk"]
+lightmap_size_hint = Vector2i(6, 38)
+add_uv2 = true
+size = Vector3(0.41738814, 3, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7n50"]
+lightmap_size_hint = Vector2i(5, 37)
+add_uv2 = true
+size = Vector3(0.28936616, 3, 0.1)
+
+[node name="Shop" unique_id=1361191771 instance=ExtResource("1_y7n50")]
+instance_shader_parameters/storefront_index = 1
+surface_material_override/0 = SubResource("ShaderMaterial_y7n50")
+
+[node name="Text" parent="Sign" parent_id_path=PackedInt32Array(1702850499) index="0" unique_id=1693927065]
+text = "like+subscribe"
+
+[node name="Pillar" parent="." index="2" unique_id=530348641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.277905, 2.024701, 0.07448387)
+mesh = SubResource("BoxMesh_bsomk")
+
+[node name="Pillar3" parent="." index="4" unique_id=478726903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5644418, 2.024701, 0.07448387)
+mesh = SubResource("BoxMesh_y7n50")
+
+[node name="Pillar4" parent="." index="5" unique_id=754392707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.407297, 2.024701, 0.04676485)

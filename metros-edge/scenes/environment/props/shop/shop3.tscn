@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c6t5ltn0r18ec"]
+
+[ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop/shop.tscn" id="1_el6bq"]
+[ext_resource type="Shader" uid="uid://dctpd38heo5l4" path="res://materials/shop_facade/shop_facade.gdshader" id="2_km5y2"]
+[ext_resource type="Texture2D" uid="uid://dtro25qy5eyfp" path="res://assets/storefronts/storefront_1.jpg" id="3_ejy2o"]
+[ext_resource type="Texture2D" uid="uid://dttxwktyys8n0" path="res://assets/storefronts/storefront_2.jpg" id="4_ul3i7"]
+[ext_resource type="Texture2D" uid="uid://cxsqjfdvx4c8t" path="res://assets/storefronts/storefront_3.jpg" id="5_0eejq"]
+[ext_resource type="Texture2D" uid="uid://d3f2io3taxqyy" path="res://assets/storefronts/storefront_4.jpg" id="6_cec58"]
+[ext_resource type="Texture2D" uid="uid://v04r6ykvwpbh" path="res://assets/storefronts/storefront_5.jpg" id="7_ma7xn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_el6bq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_km5y2")
+shader_parameter/albedo_array = Array[Texture2D]([ExtResource("3_ejy2o"), ExtResource("4_ul3i7"), ExtResource("5_0eejq"), ExtResource("6_cec58"), ExtResource("7_ma7xn")])
+
+[node name="Shop" unique_id=1361191771 instance=ExtResource("1_el6bq")]
+instance_shader_parameters/storefront_index = 2
+surface_material_override/0 = SubResource("ShaderMaterial_el6bq")
+
+[node name="Text" parent="Sign" parent_id_path=PackedInt32Array(1702850499) index="0" unique_id=1693927065]
+text = "apple (bad)"
+font_size = 180
+
+[node name="Pillar" parent="." index="2" unique_id=530348641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.393965, 2.024701, 0.07448387)
+
+[node name="Pillar2" parent="." index="3" unique_id=436094350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5329564, 2.024701, 0.07448387)
+
+[node name="Pillar3" parent="." index="4" unique_id=478726903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13750422, 2.024701, 0.07448387)
+
+[node name="Pillar4" parent="." index="5" unique_id=754392707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3676, 2.024701, 0.07448387)

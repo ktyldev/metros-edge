@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://d1ojlhpkcugqm"]
+
+[ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop/shop.tscn" id="1_1avrc"]
+[ext_resource type="Shader" uid="uid://dctpd38heo5l4" path="res://materials/shop_facade/shop_facade.gdshader" id="2_78tqb"]
+[ext_resource type="Texture2D" uid="uid://dtro25qy5eyfp" path="res://assets/storefronts/storefront_1.jpg" id="3_yx88t"]
+[ext_resource type="Texture2D" uid="uid://dttxwktyys8n0" path="res://assets/storefronts/storefront_2.jpg" id="4_l2d3d"]
+[ext_resource type="Texture2D" uid="uid://cxsqjfdvx4c8t" path="res://assets/storefronts/storefront_3.jpg" id="5_e1fmu"]
+[ext_resource type="Texture2D" uid="uid://d3f2io3taxqyy" path="res://assets/storefronts/storefront_4.jpg" id="6_f0fam"]
+[ext_resource type="Texture2D" uid="uid://v04r6ykvwpbh" path="res://assets/storefronts/storefront_5.jpg" id="7_h6oqi"]
+[ext_resource type="Material" uid="uid://ds0vu8angcvnj" path="res://materials/metal028/Metal028_1K-JPG.tres" id="8_78tqb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1avrc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_78tqb")
+shader_parameter/albedo_array = Array[Texture2D]([ExtResource("3_yx88t"), ExtResource("4_l2d3d"), ExtResource("5_e1fmu"), ExtResource("6_f0fam"), ExtResource("7_h6oqi")])
+
+[sub_resource type="BoxMesh" id="BoxMesh_yx88t"]
+lightmap_size_hint = Vector2i(5, 41)
+add_uv2 = true
+size = Vector3(0.1, 3.5061646, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_78tqb"]
+lightmap_size_hint = Vector2i(5, 23)
+add_uv2 = true
+size = Vector3(0.1, 1.7278595, 0.1)
+
+[node name="Shop" unique_id=1361191771 instance=ExtResource("1_1avrc")]
+instance_shader_parameters/storefront_index = 4
+surface_material_override/0 = SubResource("ShaderMaterial_1avrc")
+
+[node name="Sign" parent="." index="1" unique_id=1702850499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8096035, 0.155)
+
+[node name="Text" parent="Sign" index="0" unique_id=1693927065]
+text = "covfefe"
+
+[node name="Pillar" parent="." index="2" unique_id=530348641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3723226, 2.024701, 0.07448387)
+
+[node name="Pillar2" parent="." index="3" unique_id=436094350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8374566, 2.024701, 0.07448387)
+
+[node name="Pillar3" parent="." index="4" unique_id=478726903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9458506, 2.024701, 0.07448387)
+
+[node name="Pillar5" type="MeshInstance3D" parent="." index="6" unique_id=1178921807]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.6950054, 0.94707036, 0.07448387)
+material_override = ExtResource("8_78tqb")
+mesh = SubResource("BoxMesh_yx88t")
+
+[node name="Pillar6" type="MeshInstance3D" parent="." index="7" unique_id=359177620]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.6170723, 0.9584768, 0.07448387)
+material_override = ExtResource("8_78tqb")
+mesh = SubResource("BoxMesh_yx88t")
+
+[node name="Pillar7" type="MeshInstance3D" parent="." index="8" unique_id=1379719548]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.05413127, 2.3399882, 0.07448387)
+material_override = ExtResource("8_78tqb")
+mesh = SubResource("BoxMesh_78tqb")

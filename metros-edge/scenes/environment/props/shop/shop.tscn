@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://ds1kk8nbo6ryn"]
+
+[ext_resource type="Material" uid="uid://byexiw41aptcw" path="res://materials/shop_facade/storefront.tres" id="1_e255s"]
+[ext_resource type="Material" uid="uid://ds0vu8angcvnj" path="res://materials/metal028/Metal028_1K-JPG.tres" id="2_12523"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jg88y"]
+size = Vector2(8.795, 3.421)
+center_offset = Vector3(0, 2.103, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fauy2"]
+transparency = 1
+albedo_color = Color(0.25882354, 0.75686276, 0.76862746, 0.2901961)
+roughness = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_375kw"]
+lightmap_size_hint = Vector2i(46, 17)
+material = SubResource("StandardMaterial3D_fauy2")
+add_uv2 = true
+size = Vector2(8.862, 3.002)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vucca"]
+lightmap_size_hint = Vector2i(49, 62)
+add_uv2 = true
+size = Vector3(8.921936, 1.1691895, 0.0819397)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1la6"]
+lightmap_size_hint = Vector2i(5, 37)
+add_uv2 = true
+size = Vector3(0.25274506, 3, 0.1)
+
+[node name="Shop" type="MeshInstance3D" unique_id=1361191771]
+mesh = SubResource("QuadMesh_jg88y")
+surface_material_override/0 = ExtResource("1_e255s")
+
+[node name="Glass" type="MeshInstance3D" parent="." unique_id=1999115070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02, 0.049)
+mesh = SubResource("QuadMesh_375kw")
+
+[node name="Sign" type="MeshInstance3D" parent="." unique_id=1702850499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.991, 0.155)
+material_override = ExtResource("2_12523")
+mesh = SubResource("BoxMesh_vucca")
+
+[node name="Text" type="Label3D" parent="Sign" unique_id=1693927065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023959875, 0.048999995)
+outline_modulate = Color(1, 1, 1, 1)
+text = "consume"
+font_size = 200
+
+[node name="Pillar" type="MeshInstance3D" parent="." unique_id=530348641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.416072, 2.024701, 0.07448387)
+material_override = ExtResource("2_12523")
+mesh = SubResource("BoxMesh_s1la6")
+
+[node name="Pillar2" type="MeshInstance3D" parent="." unique_id=436094350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3123994, 2.024701, 0.07448387)
+material_override = ExtResource("2_12523")
+mesh = SubResource("BoxMesh_s1la6")
+
+[node name="Pillar3" type="MeshInstance3D" parent="." unique_id=478726903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4043231, 2.024701, 0.07448387)
+material_override = ExtResource("2_12523")
+mesh = SubResource("BoxMesh_s1la6")
+
+[node name="Pillar4" type="MeshInstance3D" parent="." unique_id=754392707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.407297, 2.024701, 0.07448387)
+material_override = ExtResource("2_12523")
+mesh = SubResource("BoxMesh_s1la6")
