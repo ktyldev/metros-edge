@@ -1,23 +1,24 @@
+// shader based on: https://godotshaders.com/shader/linear-depth-depth-fog/
+
 shader_type spatial;
 render_mode unshaded;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
 
-uniform vec4 fog_color : source_color = vec4(1.0);
-//uniform float amount = 1.0;
-//uniform float fog_intensity = 1.0;
+instance uniform vec4 fog_color : source_color = vec4(1.0);
+instance uniform float fog_end = 20.0;
 
-uniform float fog_start;
-uniform float fog_end;
+varying vec3 world_pos_v;
+varying vec3 world_normal_v;
 
 void vertex() {
-	// Called for every vertex the material is visible on.
+	world_pos_v = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	world_normal_v = normalize(MODEL_NORMAL_MATRIX * NORMAL);
 }
 
 void fragment() {
 	vec3 screen_color = texture(screen_texture, SCREEN_UV).rgb;
-	//ALBEDO = vec3(1.0) - screen_color;
 
     // The depth can be read using this line. The values returned by it are between 0.0 - 1.0 and are non-linear.
 	// If we plug this directly into the ALBEDO texture, you will notice that everything is white, unless we get very close to it.
@@ -35,18 +36,17 @@ void fragment() {
 	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
 	view.xyz /= view.w;
 	
-	// view space -> world space
+	// world pos of the scene point behind the fragment
 	vec3 world_pos = (INV_VIEW_MATRIX * vec4(view.xyz, 1.0)).xyz;
-	float height = world_pos.y;
-	//ALBEDO = vec3(-height * 0.1, 0, 0);
 	
-//	// Using this depth, a simple depth fog shader can be written. We just need to mix the screen_color with the fog_color using the depth as a value to interpolate by 
-	float fog_factor = clamp((height - fog_start) / (fog_end - fog_start), 0.0, 1.0);
-	//float fog_factor = clamp(linear_depth * fog_intensity, 0.0, 1.0);
+	float dist = dot(world_pos - world_pos_v, world_normal_v);
+	float fog_factor = clamp(dist / -abs(fog_end), 0.0, 1.0);
+	fog_factor = smoothstep(0, 1, fog_factor);
+	
 	vec4 fogged_color = mix(vec4(screen_color, 1.0), fog_color, fog_factor);
 //
 	ALBEDO = fogged_color.rgb; // we then apply the fog color and alpha to the albedo and alpha channels
-	ALPHA = fogged_color.a;
+	ALPHA = fog_factor;
 }
 
 //void light() {

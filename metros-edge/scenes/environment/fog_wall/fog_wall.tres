@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dy6xm38asy2ln"]
+
+[ext_resource type="Shader" uid="uid://dyc82c43ildx0" path="res://shader/depth_fog.gdshader" id="1_qy0xg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qy0xg")
+shader_parameter/fog_color = Color(0, 0, 0.29411766, 1)
+shader_parameter/fog_end = -20.0

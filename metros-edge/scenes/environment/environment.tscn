@@ -29,12 +29,10 @@ size = Vector3(16.340881, 6.429199, 1)
 
 [sub_resource type="Environment" id="Environment_58tnn"]
 tonemap_white = 16.0
-ssao_enabled = true
-ssao_radius = 4.16
-ssao_intensity = 4.97
+ssao_intensity = 1.0
 glow_enabled = true
+glow_intensity = 0.51
 glow_bloom = 0.4
-fog_enabled = true
 fog_sky_affect = 0.0
 
 [node name="Environment" type="Node3D" unique_id=437154403]
