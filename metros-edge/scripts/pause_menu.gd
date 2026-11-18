@@ -4,7 +4,6 @@ extends MarginContainer
 var source_string := "pause"
 var in_options := false
 
-
 func _ready():
 	for button:Button in [%Resume, %Options, %Quit]:
 		button.connect("focus_entered", _on_button_focused.bind(button))
@@ -14,7 +13,6 @@ func _ready():
 		button.focus_mode = Control.FOCUS_NONE
 		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 	get_parent().get_node("Options").connect("options_exited", _on_options_closed)
-
 
 func _input(event):
 	if event.is_action_pressed("pause") and Global.pauseable and !Global.paused:
