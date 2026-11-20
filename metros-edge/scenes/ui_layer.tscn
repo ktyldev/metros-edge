@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://by7mk00e6ma3b" path="res://scenes/options_menu.tscn" id="1_bkwom"]
 [ext_resource type="PackedScene" uid="uid://b688a74yi2ksk" path="res://scenes/pause_menu.tscn" id="2_6av8n"]
 [ext_resource type="Texture2D" uid="uid://blajr4bjvj2xu" path="res://assets/UI_run_icon.svg" id="3_6av8n"]
+[ext_resource type="PackedScene" uid="uid://y227bmkagvw5" path="res://scenes/level_end_ui.tscn" id="3_6syxi"]
 
 [sub_resource type="Animation" id="Animation_6syxi"]
 length = 0.001
@@ -104,6 +105,8 @@ process_mode = 3
 [node name="PauseMenu" parent="." unique_id=2074902505 instance=ExtResource("2_6av8n")]
 
 [node name="Options" parent="." unique_id=61530862 instance=ExtResource("1_bkwom")]
+
+[node name="LevelEndUI" parent="." unique_id=937472244 instance=ExtResource("3_6syxi")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2053838372]
 modulate = Color(1, 1, 1, 0)
