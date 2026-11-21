@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ba5e1vn53tpty"]
+
+[ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/surface.gdshader" id="1_eppsy"]
+[ext_resource type="Texture2D" uid="uid://c3jj5spushkrq" path="res://materials/granite_tile/textures/granite_tile_diff_256.jpg" id="2_6eup3"]
+[ext_resource type="Texture2D" uid="uid://1nb6i0ewomh6" path="res://materials/granite_tile/textures/granite_tile_nor_gl_256.exr" id="3_vu8os"]
+[ext_resource type="Texture2D" uid="uid://btfgf3r132moi" path="res://materials/granite_tile/textures/granite_tile_rough_256.exr" id="4_ybklr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_eppsy")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/albedo = ExtResource("2_6eup3")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal = ExtResource("3_vu8os")
+shader_parameter/roughness_scale = 0.466
+shader_parameter/roughness = ExtResource("4_ybklr")
+shader_parameter/specular = 0.668
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = 2.0
+shader_parameter/angle = 0.0

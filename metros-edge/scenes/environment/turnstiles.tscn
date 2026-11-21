@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_40bdf"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_prkmf"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="2_14dj8"]
+[ext_resource type="Material" uid="uid://odd2tonjxlyw" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles.tres" id="3_ciqi3"]
 [ext_resource type="PackedScene" uid="uid://rd1pc1ilqqem" path="res://scenes/environment/props/turnstile_gate.tscn" id="3_pvv00"]
 [ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="4_nai6o"]
 
@@ -72,6 +73,7 @@ shape = SubResource("BoxShape3D_pvv00")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceiling" unique_id=1762890573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024414063, 0.008561134, 0)
+material_override = ExtResource("3_ciqi3")
 mesh = SubResource("BoxMesh_nai6o")
 
 [node name="WallLights" type="Node3D" parent="." unique_id=1510129127]

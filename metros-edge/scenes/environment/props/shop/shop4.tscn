@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cx75es1jvnf4d"]
+
+[ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop/shop.tscn" id="1_b2708"]
+[ext_resource type="Shader" uid="uid://dctpd38heo5l4" path="res://materials/shop_facade/shop_facade.gdshader" id="2_sq3f2"]
+[ext_resource type="Texture2D" uid="uid://dtro25qy5eyfp" path="res://assets/storefronts/storefront_1.jpg" id="3_4wvrt"]
+[ext_resource type="Texture2D" uid="uid://dttxwktyys8n0" path="res://assets/storefronts/storefront_2.jpg" id="4_w325a"]
+[ext_resource type="Texture2D" uid="uid://cxsqjfdvx4c8t" path="res://assets/storefronts/storefront_3.jpg" id="5_ftpbn"]
+[ext_resource type="Texture2D" uid="uid://d3f2io3taxqyy" path="res://assets/storefronts/storefront_4.jpg" id="6_aedgx"]
+[ext_resource type="Texture2D" uid="uid://v04r6ykvwpbh" path="res://assets/storefronts/storefront_5.jpg" id="7_epi8t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2708"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_sq3f2")
+shader_parameter/albedo_array = Array[Texture2D]([ExtResource("3_4wvrt"), ExtResource("4_w325a"), ExtResource("5_ftpbn"), ExtResource("6_aedgx"), ExtResource("7_epi8t")])
+
+[node name="Shop" unique_id=1361191771 instance=ExtResource("1_b2708")]
+instance_shader_parameters/storefront_index = 3
+surface_material_override/0 = SubResource("ShaderMaterial_b2708")
+
+[node name="Sign" parent="." index="1" unique_id=1702850499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.087802, 0.155)
+
+[node name="Text" parent="Sign" index="0" unique_id=1693927065]
+text = "coupla bits"
+font_size = 170
+
+[node name="Pillar2" parent="." index="3" unique_id=436094350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5323766, 2.024701, 0.07448387)
+
+[node name="Pillar3" parent="." index="4" unique_id=478726903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.594749, 2.024701, 0.07448387)

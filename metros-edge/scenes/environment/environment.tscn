@@ -1,25 +1,22 @@
 [gd_scene format=3 uid="uid://c4laeptydhjxt"]
 
+[ext_resource type="Script" uid="uid://ba0p4khhbnjyf" path="res://scripts/environment.gd" id="1_8nd6w"]
 [ext_resource type="PackedScene" uid="uid://bsq1gdc4f7624" path="res://scenes/environment/starting_platform.tscn" id="1_8nqbb"]
 [ext_resource type="PackedScene" uid="uid://ckq8i1qxrwru7" path="res://scenes/environment/turnstiles.tscn" id="2_4ff8o"]
 [ext_resource type="PackedScene" uid="uid://bkqqndwingm17" path="res://scenes/environment/tunnel_1.tscn" id="2_8nd6w"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_58tnn"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
+[ext_resource type="PackedScene" uid="uid://cuy6ed1fxalfa" path="res://scenes/environment/tunnel_2.tscn" id="6_7cjvn"]
+[ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="8_m43ax"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("2_58tnn")
 size = Vector3(6.171814, 0.964798, 17.10437)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ff8o"]
-material = ExtResource("2_58tnn")
-size = Vector3(6.171814, 0.892395, 17.043945)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bw5cw"]
-size = Vector3(9.89801, 1, 5.7052)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6uwxm"]
-size = Vector3(16.340881, 6.429199, 1)
+material = ExtResource("8_m43ax")
+size = Vector3(6.171814, 0.892395, 12.014893)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8nd6w"]
 size = Vector3(16.35733, 1, 5.7052)
@@ -29,15 +26,14 @@ size = Vector3(16.340881, 6.429199, 1)
 
 [sub_resource type="Environment" id="Environment_58tnn"]
 tonemap_white = 16.0
-ssao_enabled = true
-ssao_radius = 4.16
-ssao_intensity = 4.97
+ssao_intensity = 1.0
 glow_enabled = true
+glow_intensity = 0.51
 glow_bloom = 0.4
-fog_enabled = true
 fog_sky_affect = 0.0
 
 [node name="Environment" type="Node3D" unique_id=437154403]
+script = ExtResource("1_8nd6w")
 
 [node name="Greybox" type="Node3D" parent="." unique_id=1592725347]
 
@@ -53,24 +49,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.736181, 0, 7.119705)
 [node name="Atrium" parent="Greybox" unique_id=330536154 instance=ExtResource("3_als2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.372126, 0, -19.779125)
 
-[node name="Tunnel2" type="StaticBody3D" parent="Greybox" unique_id=1880214225]
+[node name="Tunnel2" parent="Greybox" unique_id=606998366 instance=ExtResource("6_7cjvn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615602, 13.135507, -40.835175)
-
-[node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel2" unique_id=805310567]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7340002, -0.48337555, 2.118)
-mesh = SubResource("BoxMesh_jg88y")
-
-[node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel2" unique_id=2121769102]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.7191658, 2.8518467, -1.2247162)
-mesh = SubResource("BoxMesh_4ff8o")
-
-[node name="FloorCollision" type="CollisionShape3D" parent="Greybox/Tunnel2" unique_id=1376245028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9186096, -0.5, 2.3526)
-shape = SubResource("BoxShape3D_bw5cw")
-
-[node name="WallCollision" type="CollisionShape3D" parent="Greybox/Tunnel2" unique_id=163877608]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7254944, 2.7145996, -1.2668495)
-shape = SubResource("BoxShape3D_6uwxm")
 
 [node name="Tunnel3" type="StaticBody3D" parent="Greybox" unique_id=916919284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.617455, 13.135507, -40.835175)

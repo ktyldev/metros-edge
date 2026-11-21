@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ok5ijd2fsrgw"]
+
+[ext_resource type="Material" uid="uid://dy6xm38asy2ln" path="res://scenes/environment/fog_wall/fog_wall.tres" id="1_tvkhj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jg88y"]
+material = ExtResource("1_tvkhj")
+size = Vector2(50, 50)
+
+[node name="FogWall" type="MeshInstance3D" unique_id=680910896]
+mesh = SubResource("PlaneMesh_jg88y")

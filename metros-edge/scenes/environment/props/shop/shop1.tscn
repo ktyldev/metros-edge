@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://blxgkafm1fk5o"]
+
+[ext_resource type="PackedScene" uid="uid://ds1kk8nbo6ryn" path="res://scenes/environment/props/shop/shop.tscn" id="1_0jmrv"]
+[ext_resource type="Shader" uid="uid://dctpd38heo5l4" path="res://materials/shop_facade/shop_facade.gdshader" id="2_fryqp"]
+[ext_resource type="Texture2D" uid="uid://dtro25qy5eyfp" path="res://assets/storefronts/storefront_1.jpg" id="3_h2bnp"]
+[ext_resource type="Texture2D" uid="uid://dttxwktyys8n0" path="res://assets/storefronts/storefront_2.jpg" id="4_63n4t"]
+[ext_resource type="Texture2D" uid="uid://cxsqjfdvx4c8t" path="res://assets/storefronts/storefront_3.jpg" id="5_klhoj"]
+[ext_resource type="Texture2D" uid="uid://d3f2io3taxqyy" path="res://assets/storefronts/storefront_4.jpg" id="6_kwep5"]
+[ext_resource type="Texture2D" uid="uid://v04r6ykvwpbh" path="res://assets/storefronts/storefront_5.jpg" id="7_0g4en"]
+[ext_resource type="Material" uid="uid://ds0vu8angcvnj" path="res://materials/metal028/Metal028_1K-JPG.tres" id="8_h2bnp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63n4t"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_fryqp")
+shader_parameter/albedo_array = Array[Texture2D]([ExtResource("3_h2bnp"), ExtResource("4_63n4t"), ExtResource("5_klhoj"), ExtResource("6_kwep5"), ExtResource("7_0g4en")])
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1la6"]
+lightmap_size_hint = Vector2i(5, 37)
+add_uv2 = true
+size = Vector3(0.25274506, 3, 0.1)
+
+[node name="Shop" unique_id=1361191771 instance=ExtResource("1_0jmrv")]
+instance_shader_parameters/storefront_index = 0
+surface_material_override/0 = SubResource("ShaderMaterial_63n4t")
+
+[node name="Text" parent="Sign" parent_id_path=PackedInt32Array(1702850499) index="0" unique_id=1693927065]
+text = "jussum bobz"
+
+[node name="Pillar2" parent="." index="3" unique_id=436094350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9634441, 2.024701, 0.07448387)
+
+[node name="Pillar3" parent="." index="4" unique_id=478726903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6271474, 2.024701, 0.07448387)
+
+[node name="Pillar5" type="MeshInstance3D" parent="." index="5" unique_id=1521753587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8553004, 2.024701, 0.07448387)
+material_override = ExtResource("8_h2bnp")
+mesh = SubResource("BoxMesh_s1la6")
