@@ -31,4 +31,5 @@ This project uses static global illumination, which requires baking a lightmap (
 - Textures: Concrete Wall 009 from [Polyhaven](https://polyhaven.com/a/concrete_wall_009)
 - Textures: Granite Tile from [Polyhaven](https://polyhaven.com/a/granite_tile)
 - Textures: Metal 028 from [AmbientCG](https://ambientcg.com/view?id=Metal028)
-
+- Textures: Tiles 132 A from [AmbientCG](https://ambientcg.com/view?id=Tiles132A)
+- Textures: Escalator Steps 001 from [3Dtextures.me](https://3dtextures.me/2026/07/22/escalator-steps-001/)

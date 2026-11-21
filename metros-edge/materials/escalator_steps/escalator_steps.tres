@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2sjl6h6ecvwn"]
+
+[ext_resource type="Texture2D" uid="uid://hijpnfe30foc" path="res://materials/escalator_steps/Escalator_Steps_001_basecolor.png" id="1_m4exg"]
+[ext_resource type="Texture2D" uid="uid://b3b64l8htfctd" path="res://materials/escalator_steps/Escalator_Steps_001_metallic.png" id="2_bajf5"]
+[ext_resource type="Texture2D" uid="uid://0ht4xxg0n0kw" path="res://materials/escalator_steps/Escalator_Steps_001_normal.png" id="3_bjmj0"]
+[ext_resource type="Texture2D" uid="uid://bxry1eptegiao" path="res://materials/escalator_steps/Escalator_Steps_001_roughness.png" id="4_smdqt"]
+
+[resource]
+albedo_texture = ExtResource("1_m4exg")
+metallic = 1.0
+metallic_texture = ExtResource("2_bajf5")
+roughness_texture = ExtResource("4_smdqt")
+normal_enabled = true
+normal_texture = ExtResource("3_bjmj0")

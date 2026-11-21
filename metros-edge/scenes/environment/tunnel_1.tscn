@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_sa8xu"]
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_xejik"]
+[ext_resource type="Material" uid="uid://odd2tonjxlyw" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles.tres" id="2_t05tv"]
 [ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="2_w2cwu"]
 [ext_resource type="PackedScene" uid="uid://bamsl0yax1pcq" path="res://scenes/environment/props/poster_frame.tscn" id="4_bk1iq"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="4_jmilr"]
@@ -38,19 +39,19 @@ size = Vector3(10.157021, 0.964798, 8.841106)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kprjh"]
 lightmap_size_hint = Vector2i(119, 99)
-material = ExtResource("1_sa8xu")
+material = ExtResource("2_t05tv")
 add_uv2 = true
 size = Vector3(16.700132, 0.964798, 6.497696)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bk1iq"]
 lightmap_size_hint = Vector2i(86, 70)
-material = ExtResource("1_sa8xu")
+material = ExtResource("2_t05tv")
 add_uv2 = true
 size = Vector3(5.6101527, 0.964798, 10.87043)
 
 [sub_resource type="BoxMesh" id="BoxMesh_prmyh"]
 lightmap_size_hint = Vector2i(146, 129)
-material = ExtResource("1_sa8xu")
+material = ExtResource("2_t05tv")
 add_uv2 = true
 size = Vector3(22.825584, 0.964798, 5.7679005)
 

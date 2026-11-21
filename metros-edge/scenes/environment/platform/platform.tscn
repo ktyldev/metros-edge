@@ -5,15 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://nt2x1x4tw8d3" path="res://scenes/environment/props/train.tscn" id="4_86x3v"]
 [ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/light.tscn" id="5_juk0s"]
 [ext_resource type="Material" uid="uid://vg2uxgx2fgl2" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles_surface.tres" id="6_dkujg"]
+[ext_resource type="PackedScene" uid="uid://ok5ijd2fsrgw" path="res://scenes/environment/fog_wall/fog_wall.tscn" id="6_xf20w"]
+[ext_resource type="Material" uid="uid://dy6xm38asy2ln" path="res://scenes/environment/fog_wall/fog_wall.tres" id="7_d4gko"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fauy2"]
-lightmap_size_hint = Vector2i(526, 515)
+lightmap_size_hint = Vector2i(526, 528)
 material = ExtResource("1_0udi4")
 add_uv2 = true
-size = Vector3(100, 0.90148926, 4.434082)
+size = Vector3(100, 2.2988892, 4.434082)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
-size = Vector3(100.007225, 1.3006592, 4.438551)
+size = Vector3(100.007225, 1.953186, 4.438551)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tnd4i"]
 lightmap_size_hint = Vector2i(502, 22)
@@ -31,21 +33,26 @@ size = Vector3(96.067, 2.456, 2.9822304)
 lightmap_size_hint = Vector2i(12, 12)
 material = ExtResource("6_dkujg")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_86x3v"]
+material = ExtResource("7_d4gko")
+size = Vector2(100.544, 4.852)
+
 [node name="Platform" type="Node3D" unique_id=76340691]
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=1379870810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034029037, -0.4739608, 0.28441215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034029037, -1.1726607, 0.28441215)
 material_override = ExtResource("1_0udi4")
 mesh = SubResource("BoxMesh_fauy2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=838165008]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1608796117]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, -0.14788815, -0.057034492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, 0.17837524, -0.057034492)
 shape = SubResource("BoxShape3D_jg88y")
 
 [node name="Rails" type="MeshInstance3D" parent="." unique_id=1589063684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -0.91342294, -3.276105)
+visible = false
 mesh = SubResource("PlaneMesh_tnd4i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rails" unique_id=1102674119]
@@ -100,5 +107,11 @@ ambient_color_energy = 10.0
 transform = Transform3D(49.821934, 0, 0, 0, 1, 0, 0, 0, 0.27226412, 0, 0.001, -0.9835582)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_375kw")
+
+[node name="FogWall" parent="." unique_id=680910896 instance=ExtResource("6_xf20w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08821297, 0.0030562878, -3.6098456)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 1.9929999999999999
+mesh = SubResource("PlaneMesh_86x3v")
 
 [editable path="Train"]

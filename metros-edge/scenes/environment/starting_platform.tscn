@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ok5ijd2fsrgw" path="res://scenes/environment/fog_wall/fog_wall.tscn" id="1_5s7c0"]
 [ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform/platform.tscn" id="1_p7wm6"]
 [ext_resource type="Material" uid="uid://dy6xm38asy2ln" path="res://scenes/environment/fog_wall/fog_wall.tres" id="2_2uwt5"]
-[ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_5d18s"]
+[ext_resource type="Material" uid="uid://odd2tonjxlyw" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles.tres" id="4_2uwt5"]
 [ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/light.tscn" id="5_v07ep"]
 [ext_resource type="PackedScene" uid="uid://ba57ch2ex3sm3" path="res://scenes/environment/platform/platform_wall_door.tscn" id="6_5s7c0"]
 [ext_resource type="PackedScene" uid="uid://bamsl0yax1pcq" path="res://scenes/environment/props/poster_frame.tscn" id="9_hukej"]
@@ -25,7 +25,7 @@ material = SubResource("StandardMaterial3D_375kw")
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 lightmap_size_hint = Vector2i(598, 518)
-material = ExtResource("2_5d18s")
+material = ExtResource("4_2uwt5")
 add_uv2 = true
 size = Vector3(100.47061, 1, 18.375977)
 

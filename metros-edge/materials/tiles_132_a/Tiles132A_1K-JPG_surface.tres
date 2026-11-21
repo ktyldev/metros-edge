@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b4a3xn62rxoyx"]
+
+[ext_resource type="Shader" uid="uid://7b6vl2kkoyfk" path="res://shader/surface.gdshader" id="1_xd737"]
+[ext_resource type="Texture2D" uid="uid://dlv6ijvfg3x6f" path="res://materials/tiles_132_a/Tiles132A_1K-JPG_Color.jpg" id="2_ex1vj"]
+[ext_resource type="Texture2D" uid="uid://fwfihhsyy2ym" path="res://materials/tiles_132_a/Tiles132A_1K-JPG_NormalGL.jpg" id="3_vc12x"]
+[ext_resource type="Texture2D" uid="uid://dak8ine13mfam" path="res://materials/tiles_132_a/Tiles132A_1K-JPG_Roughness.jpg" id="4_n8jq0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xd737")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/albedo = ExtResource("2_ex1vj")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal = ExtResource("3_vc12x")
+shader_parameter/roughness_scale = 0.5
+shader_parameter/roughness = ExtResource("4_n8jq0")
+shader_parameter/specular = 0.5
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = 3.146
+shader_parameter/angle = 0.0
