@@ -53,6 +53,7 @@ var last_velocity = Vector3.ZERO
 
 # Wall stick vars
 const wall_stick_wait_time = 1.0
+var wall_normal: Vector3 = Vector3.ZERO
 var wall_stick_timer := 0.0
 var wall_stick_ready := true
 var wall_stick: KinematicCollision3D = null
@@ -89,18 +90,19 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _input(event):
 	# Mouse looking logic
-	if event is InputEventMouseMotion:
-		if free_looking:
-			neck.rotate_y(deg_to_rad(-event.relative.x) * mouse_sens) 
-			neck.rotation.y = clamp(neck.rotation.y,deg_to_rad(-120),deg_to_rad(120))
-		#was (deg_to_rad(-event.relative.x * mouse_sens)) but i felt this made more sense
-		#also it's the x axis rotating the character on the body's y axis that's why it looks a little weird
-		else:
-			var turn_amount: float = deg_to_rad(-event.relative.x) * mouse_sens 
-			rotate_y(turn_amount)
-			direction = direction.rotated(Vector3.UP,turn_amount)
-			head.rotate_x(deg_to_rad(-event.relative.y)*mouse_sens)
-			head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
+	if current_state != states.slide:
+		if event is InputEventMouseMotion:
+			if free_looking:
+				neck.rotate_y(deg_to_rad(-event.relative.x) * mouse_sens) 
+				neck.rotation.y = clamp(neck.rotation.y,deg_to_rad(-120),deg_to_rad(120))
+			#was (deg_to_rad(-event.relative.x * mouse_sens)) but i felt this made more sense
+			#also it's the x axis rotating the character on the body's y axis that's why it looks a little weird
+			else:
+				var turn_amount: float = deg_to_rad(-event.relative.x) * mouse_sens 
+				rotate_y(turn_amount)
+				direction = direction.rotated(Vector3.UP,turn_amount)
+				head.rotate_x(deg_to_rad(-event.relative.y)*mouse_sens)
+				head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -138,27 +140,151 @@ func handle_movement(delta):
 	if target_speed < current_speed:
 		new_speed = current_speed - ((max_speed / accel_to_max_speed_time) * delta)
 	
+	if penalty_multiplyer == 0:
+		new_speed = 0
+	#new_speed *= clamp(penalty_multiplyer * 10, 0, 1)
+	
 	new_speed = clamp(new_speed, 0, max_speed)
-	if input_dir:
-		velocity.x = target_h_velocity_dir.x * new_speed
-		velocity.z = target_h_velocity_dir.z * new_speed
+	if is_on_floor():
+		if input_dir:
+			velocity.x = target_h_velocity_dir.x * new_speed
+			velocity.z = target_h_velocity_dir.z * new_speed
+		else:
+			velocity.x = current_direction.x * new_speed
+			velocity.z = current_direction.z * new_speed
 	else:
-		velocity.x = current_direction.x * new_speed
-		velocity.z = current_direction.z * new_speed
+		if input_dir:
+			velocity.x = move_toward(velocity.x, target_h_velocity_dir.x * max_speed, (max_speed / accel_to_max_speed_time) * delta)
+			velocity.z = move_toward(velocity.z, target_h_velocity_dir.z * max_speed, (max_speed / accel_to_max_speed_time) * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, (max_speed / accel_to_max_speed_time) * delta)
+			velocity.z = move_toward(velocity.z, 0, (max_speed / accel_to_max_speed_time) * delta)
 	
-	if Input.is_action_just_pressed("jump"):
-		velocity.y = jump_velocity
+	if is_on_floor():
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = jump_velocity
+			return
+		if Input.is_action_pressed("crouch"):
+			set_crouch_camera(true)
+			if new_speed >= slide_min_speed:
+				current_state = states.slide
+				start_slide(target_h_velocity_dir)
+				return
+
+func set_crouch_camera(now_crouching):
+	var tween = get_tree().create_tween()
+	if now_crouching:
+		tween.tween_property(head, "position:y", crouching_depth, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	else:
+		tween.tween_property(head, "position:y", 0.0, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+func start_slide(slide_dir):
+	velocity.x = slide_dir.x * slide_speed
+	velocity.z = slide_dir.z * slide_speed
+	standing_collision_shape.disabled = true
+	crouching_collision_shape.disabled = false
+	#free_looking = true
+
+func end_slide():
+	standing_collision_shape.disabled = false
+	crouching_collision_shape.disabled = true
+	#free_looking = false
+
+func check_wall_stick():
+	var look_dir = Vector3(last_velocity.x, 0, last_velocity.z).normalized()
+	var collision := _get_wall_stick_collision()
+	if collision and wall_stick_ready:
+		var normal := collision.get_normal()
+		print(normal)
+		var look_normal_dot := normal.dot(look_dir)
+		# if we're facing towards the wall then we should start sticking to it
+		if look_normal_dot < -0.8: #and wall_stick_timer == 0.0:
+			wall_stick_timer = wall_stick_wait_time
+			wall_stick = collision
+			#wall_stick_ready = false
+			wall_normal = normal
+			start_wall_stick()
+			current_state = states.w_stick
+		else:
+			wall_normal = normal
+			wall_run_vector = Vector3(last_velocity.x, 0, last_velocity.z).normalized().slide(normal).normalized()
+			#print(collision.get_angle())
+			start_wall_run()
+			current_state = states.w_run
+
+func start_wall_stick():
+	velocity = Vector3.ZERO
+	velocity.y = jump_velocity
+
+func start_wall_run():
+	print(wall_run_vector)
+	velocity = wall_run_vector * max_speed
+	velocity.y = jump_velocity
+
+func _get_wall_stick_collision() -> KinematicCollision3D:
+	if not is_on_wall_only():
+		return null
 	
-	move_and_slide()
+	if get_slide_collision_count() != 1:
+		return null
+	
+	return get_slide_collision(0)
 
 func apply_gravity(delta):
 	velocity.y -= gravity * delta
 
 func _physics_process(delta: float) -> void:
+	if current_state not in [states.w_stick, states.w_run]:
+		apply_gravity(delta)
+	last_velocity = velocity
+	move_and_slide()
+	state_label.text = states.find_key(current_state)
+	
 	if current_state == states.running:
 		handle_movement(delta)
-		apply_gravity(delta)
-	state_label.text = str(velocity.length())
+		check_wall_stick()
+		return
+	
+	if current_state == states.slide:
+		velocity = velocity.move_toward(Vector3.ZERO, (max_speed / (accel_to_max_speed_time * 3)) * delta)
+		if Input.is_action_just_released("crouch"):
+			set_crouch_camera(false)
+			end_slide()
+			current_state = states.running
+			return
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = jump_velocity
+			var dir = Vector3(velocity.x, 0, velocity.z).normalized()
+			velocity.x = dir.x * max_speed
+			velocity.z = dir.z * max_speed
+			set_crouch_camera(false)
+			end_slide()
+			current_state = states.running
+			return
+	
+	if current_state == states.w_stick:
+		velocity.y -= (gravity * delta) / 1.2
+		if is_on_floor():
+			current_state = states.running
+			return
+		if Input.is_action_just_pressed("jump"):
+			velocity.x = wall_normal.x * max_speed * 0.3
+			velocity.z = wall_normal.z * max_speed * 0.3
+			velocity.y = jump_velocity
+			current_state = states.running 
+			return
+	
+	if current_state == states.w_run:
+		velocity.y -= (gravity * delta) / 1.2
+		if is_on_floor():
+			current_state = states.running
+			return
+		if Input.is_action_just_pressed("jump"):
+			velocity.x += wall_normal.x * max_speed * 0.3
+			velocity.z += wall_normal.z * max_speed * 0.3
+			velocity.y = jump_velocity
+			current_state = states.running 
+			return
 #############
 # OLD STUFF #
 #############
@@ -430,15 +556,8 @@ func _physics_process(delta: float) -> void:
 	#current_state = handle_states()
 	#state_label.text = states.find_key(current_state)
 #
-#func _get_wall_stick_collision() -> KinematicCollision3D:
-	#if not is_on_wall_only():
-		#return null
-#
-	#if get_slide_collision_count() != 1:
-		#return null
-#
-	#return get_slide_collision(0)
-#
+
+
 #func handle_states() -> states:
 	#if wall_running:
 		#return states.w_run
