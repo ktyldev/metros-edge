@@ -133,6 +133,8 @@ func handle_movement(delta):
 	
 	# Handle velocity magnitude
 	var target_speed = max_speed * input_dir.length() * penalty_multiplyer
+	if current_state == states.crouch:
+		target_speed = clamp(target_speed, 0, crouching_speed)
 	#var new_speed = move_toward(current_speed, target_speed * penalty_multiplyer, (max_speed / accel_to_max_speed_time) * delta)
 	var new_speed = 0
 	if target_speed >= current_speed:
@@ -166,17 +168,22 @@ func handle_movement(delta):
 			return
 		if Input.is_action_pressed("crouch"):
 			set_crouch_camera(true)
-			if new_speed >= slide_min_speed:
+			if new_speed >= slide_min_speed and current_state != states.crouch:
 				current_state = states.slide
 				start_slide(target_h_velocity_dir)
 				return
+			current_state = states.crouch
 
 func set_crouch_camera(now_crouching):
 	var tween = get_tree().create_tween()
 	if now_crouching:
 		tween.tween_property(head, "position:y", crouching_depth, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+		standing_collision_shape.disabled = true
+		crouching_collision_shape.disabled = false
 	else:
 		tween.tween_property(head, "position:y", 0.0, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+		standing_collision_shape.disabled = false
+		crouching_collision_shape.disabled = true
 
 func start_slide(slide_dir):
 	velocity.x = slide_dir.x * slide_speed
@@ -240,13 +247,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	state_label.text = states.find_key(current_state)
 	
-	if current_state == states.running:
+	if current_state in [states.running, states.crouch]:
 		handle_movement(delta)
 		check_wall_stick()
+		if current_state == states.crouch:
+			if Input.is_action_just_released("crouch"):
+				current_state = states.running
+				set_crouch_camera(false)
+				return
+			if !is_on_floor():
+				current_state = states.running
+				set_crouch_camera(false)
+				return
 		return
 	
 	if current_state == states.slide:
-		velocity = velocity.move_toward(Vector3.ZERO, (max_speed / (accel_to_max_speed_time * 3)) * delta)
+		velocity = velocity.move_toward(Vector3.ZERO, (max_speed / (accel_to_max_speed_time * 10)) * delta)
 		if Input.is_action_just_released("crouch"):
 			set_crouch_camera(false)
 			end_slide()
@@ -260,6 +276,11 @@ func _physics_process(delta: float) -> void:
 			set_crouch_camera(false)
 			end_slide()
 			current_state = states.running
+			return
+		if !is_on_floor():
+			current_state = states.running
+			set_crouch_camera(false)
+			end_slide()
 			return
 	
 	if current_state == states.w_stick:
