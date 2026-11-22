@@ -4,8 +4,9 @@ extends MarginContainer
 var source_string := "pause"
 var in_options := false
 
+
 func _ready():
-	for button:Button in [%Resume, %Options, %Quit]:
+	for button:Button in [%Resume, %Options, %Quit, %Reset]:
 		button.connect("focus_entered", _on_button_focused.bind(button))
 		button.connect("mouse_entered", _on_button_mouse_entered.bind(button))
 		button.connect("mouse_exited", _on_button_mouse_exited.bind(button))
@@ -13,6 +14,7 @@ func _ready():
 		button.focus_mode = Control.FOCUS_NONE
 		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 	get_parent().get_node("Options").connect("options_exited", _on_options_closed)
+
 
 func _input(event):
 	if event.is_action_pressed("pause") and Global.pauseable and !Global.paused:
@@ -30,6 +32,18 @@ func _input(event):
 			$AnimationPlayer.play("pause_exit")
 
 
+func enable_buttons() -> void:
+	for button:Button in [%Resume, %Options, %Quit, %Reset]:
+		button.focus_mode = Control.FOCUS_ALL
+		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
+
+
+func disable_buttons() -> void:
+	for button:Button in [%Resume, %Options, %Quit, %Reset]:
+		button.focus_mode = Control.FOCUS_NONE
+		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+
+
 func _on_button_focused(button:Button) -> void:
 	var tween := get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -45,6 +59,9 @@ func _on_button_focused(button:Button) -> void:
 	elif button.name == "Quit":
 		%QuitGradient.visible = true
 		%AnimationPlayer.play("quit_marquee")
+	elif button.name == "Reset":
+		%ResetGradient.visible = true
+		%AnimationPlayer.play("reset_marquee")
 
 
 func _on_button_focus_exited(button:Button) -> void:
@@ -63,6 +80,9 @@ func _on_button_focus_exited(button:Button) -> void:
 	elif button.name == "Quit":
 		%QuitGradient.visible = false
 		%QuitMarquee.visible = false
+	elif button.name == "Reset":
+		%ResetGradient.visible = false
+		%ResetMarquee.visible = false
 
 
 func _on_button_mouse_entered(button:Button) -> void:
@@ -75,9 +95,7 @@ func _on_button_mouse_exited(button:Button) -> void:
 
 func _on_animation_player_animation_finished(anim_name) -> void:
 	if "pause_enter" in anim_name:
-		for button:Button in [%Resume, %Options, %Quit]:
-			button.focus_mode = Control.FOCUS_ALL
-			button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
+		enable_buttons()
 	elif anim_name == "pause_exit":
 		get_tree().paused = false
 		Global.paused = false
@@ -87,9 +105,7 @@ func _on_animation_player_animation_finished(anim_name) -> void:
 
 
 func _on_options_pressed() -> void:
-	for button:Button in [%Resume, %Options, %Quit]:
-		button.focus_mode = Control.FOCUS_NONE
-		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+	disable_buttons()
 	$AnimationPlayer.play("pause_exit_with_bg")
 
 
@@ -99,18 +115,23 @@ func _on_options_closed(source:String) -> void:
 
 
 func _on_resume_pressed():
-	for button:Button in [%Resume, %Options, %Quit]:
-		button.focus_mode = Control.FOCUS_NONE
-		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+	disable_buttons()
 	$AnimationPlayer.play("pause_exit")
 
 
 func _on_quit_pressed():
-	for button:Button in [%Resume, %Options, %Quit]:
-		button.focus_mode = Control.FOCUS_NONE
-		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+	disable_buttons()
 	Global.pauseable = false
 	Global.paused = false
 	Global.change_scene_to("res://scenes/main_menu.tscn")
+	await Global.trans_entered
+	$AnimationPlayer.play("set_exit")
+
+
+func _on_reset_pressed():
+	disable_buttons()
+	Global.pauseable = false
+	Global.paused = false
+	Global.change_scene_to("res://scenes/main.tscn")
 	await Global.trans_entered
 	$AnimationPlayer.play("set_exit")

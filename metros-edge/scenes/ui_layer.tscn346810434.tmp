@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://dwl83vik3o2af"]
+
+[ext_resource type="PackedScene" uid="uid://by7mk00e6ma3b" path="res://scenes/options_menu.tscn" id="1_bkwom"]
+[ext_resource type="PackedScene" uid="uid://b688a74yi2ksk" path="res://scenes/pause_menu.tscn" id="2_6av8n"]
+[ext_resource type="Texture2D" uid="uid://blajr4bjvj2xu" path="res://assets/UI_run_icon.svg" id="3_6av8n"]
+[ext_resource type="PackedScene" uid="uid://y227bmkagvw5" path="res://scenes/level_end_ui.tscn" id="3_6syxi"]
+[ext_resource type="FontFile" uid="uid://m21p0pwqnsan" path="res://resources/spotted-rail-ticket.otf" id="5_6gmgv"]
+[ext_resource type="Script" uid="uid://bhv8m3c851adr" path="res://scenes/timer_label.gd" id="6_qey6e"]
+
+[sub_resource type="Animation" id="Animation_6syxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/TextureRect:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6gmgv"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/TextureRect:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.008333325, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(3.14, 0.31847134, 3.14, 0.31847134),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(-1, 1), Vector2(1.1920929e-07, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qey6e"]
+_data = {
+&"RESET": SubResource("Animation_6syxi"),
+&"spin": SubResource("Animation_6gmgv")
+}
+
+[sub_resource type="Animation" id="Animation_qey6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6av8n"]
+resource_name = "enter"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yplav"]
+resource_name = "exit"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6syxi"]
+_data = {
+&"RESET": SubResource("Animation_qey6e"),
+&"enter": SubResource("Animation_6av8n"),
+&"exit": SubResource("Animation_yplav")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si8gi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.13319638, 0.13319641, 0.1331963, 1)
+
+[node name="UILayer" type="CanvasLayer" unique_id=1335326909]
+process_mode = 3
+
+[node name="PauseMenu" parent="." unique_id=2074902505 instance=ExtResource("2_6av8n")]
+
+[node name="Options" parent="." unique_id=61530862 instance=ExtResource("1_bkwom")]
+
+[node name="LevelEndUI" parent="." unique_id=937472244 instance=ExtResource("3_6syxi")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2053838372]
+modulate = Color(1, 1, 1, 0)
+offset_right = 644.0
+offset_bottom = 486.0
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=1664200923]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_qey6e")
+autoplay = &"spin"
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1228706025]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -100.0
+offset_right = -20.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+mouse_filter = 2
+texture = ExtResource("3_6av8n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1733745770]
+libraries/ = SubResource("AnimationLibrary_6syxi")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1882929021]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_right = 54.5
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_si8gi")
+
+[node name="TimerLabel" type="Label" parent="PanelContainer" unique_id=1775703779]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 2.93)
+theme_override_colors/font_color = Color(0.49803922, 0.8784314, 1, 1)
+theme_override_fonts/font = ExtResource("5_6gmgv")
+theme_override_font_sizes/font_size = 24
+text = "20.00"
+script = ExtResource("6_qey6e")

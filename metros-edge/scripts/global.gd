@@ -20,6 +20,7 @@ func _ready():
 	load_timer.one_shot = true
 	add_child(load_timer)
 	level_timer.one_shot = true
+	level_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_child(level_timer)
 	level_timer.connect("timeout", level_timer_timeout)
 
@@ -37,6 +38,15 @@ func level_timer_timeout():
 	Engine.time_scale = 1.0
 	get_tree().paused = true
 	UILayer.get_node("LevelEndUI").lose()
+
+
+func win_level():
+	if !level_timer.is_stopped():
+		level_timer.paused = true
+		get_tree().paused = true
+		UILayer.get_node("LevelEndUI").win()
+		level_timer.paused = false
+		level_timer.stop()
 
 
 func _process(delta):

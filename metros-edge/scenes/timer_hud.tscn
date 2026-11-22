@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dksfxk2cns7i8"]
+
+[ext_resource type="Texture2D" uid="uid://fcpmsp2t2arr" path="res://assets/UI_timer_box.svg" id="1_gk23e"]
+[ext_resource type="FontFile" uid="uid://dcau1iw4rt1aq" path="res://resources/Digital Display.ttf" id="1_y8pur"]
+[ext_resource type="Texture2D" uid="uid://cdg8b4ss6ti2o" path="res://assets/UI_timer_box_2.svg" id="1_yyln5"]
+[ext_resource type="Script" uid="uid://bhv8m3c851adr" path="res://scripts/timer_label.gd" id="2_gk23e"]
+
+[sub_resource type="FontVariation" id="FontVariation_0jcxb"]
+base_font = ExtResource("1_y8pur")
+variation_transform = Transform2D(1, 0.255, 0, 1, 0, 0)
+
+[node name="PanelContainer" type="MarginContainer" unique_id=1474989620]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=442646557]
+layout_mode = 2
+texture = ExtResource("1_yyln5")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=303721622]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_gk23e")
+
+[node name="TimerLabel2" type="Label" parent="." unique_id=797495463]
+visible = false
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(1.21, -1)
+theme_override_colors/font_color = Color(0.4977886, 0.8782205, 1, 0.17500001)
+theme_override_fonts/font = ExtResource("1_y8pur")
+theme_override_font_sizes/font_size = 24
+text = "00.00"
+
+[node name="TimerLabel" type="Label" parent="." unique_id=2089710973]
+visible = false
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(1.21, -1)
+theme_override_colors/font_color = Color(0.49803922, 0.8784314, 1, 1)
+theme_override_fonts/font = ExtResource("1_y8pur")
+theme_override_font_sizes/font_size = 24
+text = "20.00"
+script = ExtResource("2_gk23e")
+
+[node name="TimerLabel4" type="Label" parent="." unique_id=1890330296]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-2.25, 0)
+theme_override_colors/font_color = Color(0, 0.5370987, 0.8548469, 0.20500001)
+theme_override_fonts/font = SubResource("FontVariation_0jcxb")
+theme_override_font_sizes/font_size = 36
+text = "00.00"
+
+[node name="TimerLabel3" type="Label" parent="." unique_id=483693211]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-2.25, 0)
+theme_override_colors/font_color = Color(0, 0.5372549, 0.85490197, 1)
+theme_override_fonts/font = SubResource("FontVariation_0jcxb")
+theme_override_font_sizes/font_size = 36
+text = "20.00"
+horizontal_alignment = 2
+script = ExtResource("2_gk23e")

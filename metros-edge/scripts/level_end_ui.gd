@@ -6,8 +6,10 @@ const LOSS_TEXT := "Run failed"
 const LOSS_BLURB := "You missed your train..."
 
 func win():
-	%TimeShadow.text
-	%TimeLabel.text
+	%TimeShadow.visible = true
+	%TimeLabel.visible = true
+	%TimeShadow.text = "%05.2f" % Global.level_timer.time_left
+	%TimeLabel.text = "%05.2f" % Global.level_timer.time_left
 	%RunShadow.text = WIN_TEXT
 	%RunLabel.text = WIN_TEXT
 	%BlurbShadow.text = WIN_BLURB
@@ -16,8 +18,10 @@ func win():
 
 
 func lose():
-	%TimeShadow.text = "20.00"
-	%TimeLabel.text = "20.00"
+	%TimeShadow.text = "00.00"
+	%TimeLabel.text = "00.00"
+	%TimeShadow.visible = false
+	%TimeLabel.visible = false
 	%RunShadow.text = LOSS_TEXT
 	%RunLabel.text = LOSS_TEXT
 	%BlurbShadow.text = LOSS_BLURB

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dimkn5ceaexmd" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://ceq2mjevler3v" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c4laeptydhjxt" path="res://scenes/environment/environment.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dksfxk2cns7i8" path="res://scenes/timer_hud.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node3D" unique_id=50357158]
 script = ExtResource("1_sugp2")
@@ -11,3 +12,6 @@ script = ExtResource("1_sugp2")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.1220932, -7.6293945e-06, 63.96524)
 
 [node name="Environment" parent="." unique_id=437154403 instance=ExtResource("2_0wfyh")]
+
+[node name="PanelContainer" parent="." unique_id=741893145 instance=ExtResource("4_jyhfs")]
+offset_bottom = 45.0
