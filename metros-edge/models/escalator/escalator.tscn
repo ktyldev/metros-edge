@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c2sjl6h6ecvwn" path="res://materials/escalator_steps/escalator_steps.tres" id="1_dhs8a"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_wfdt2"]
-[ext_resource type="Material" uid="uid://ditpdkst07yxt" path="res://materials/metal028/Metal028_1K-JPG_silver.tres" id="3_66gvb"]
+[ext_resource type="Material" uid="uid://ditpdkst07yxt" path="res://materials/metal028/Metal028_256-JPG_silver.tres" id="3_66gvb"]
 [ext_resource type="Material" uid="uid://c8vcabmewaojn" path="res://materials/escalator_steps/glass.tres" id="4_57k30"]
 [ext_resource type="Material" uid="uid://ds0vu8angcvnj" path="res://materials/metal028/Metal028_1K-JPG.tres" id="5_cd87n"]
 
