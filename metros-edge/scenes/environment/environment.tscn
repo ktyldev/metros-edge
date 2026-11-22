@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckq8i1qxrwru7" path="res://scenes/environment/turnstiles.tscn" id="2_4ff8o"]
 [ext_resource type="PackedScene" uid="uid://bkqqndwingm17" path="res://scenes/environment/tunnel_1.tscn" id="2_8nd6w"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="2_58tnn"]
+[ext_resource type="Material" uid="uid://bnokworgm7hgn" path="res://materials/floor_pavers/floor_pavers.tres" id="3_7cjvn"]
 [ext_resource type="PackedScene" uid="uid://56don1h463lh" path="res://scenes/environment/atrium.tscn" id="3_als2k"]
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
 [ext_resource type="PackedScene" uid="uid://cuy6ed1fxalfa" path="res://scenes/environment/tunnel_2.tscn" id="6_7cjvn"]
@@ -56,7 +57,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615602, 13.135507, -40.83
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.617455, 13.135507, -40.835175)
 
 [node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=1851400776]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7341957, -0.4053936, 2.1182098)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, -0.47044945, 2.118)
+material_override = ExtResource("3_7cjvn")
 mesh = SubResource("BoxMesh_jg88y")
 
 [node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=599836072]

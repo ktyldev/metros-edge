@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cuy6ed1fxalfa"]
 
+[ext_resource type="Material" uid="uid://bnokworgm7hgn" path="res://materials/floor_pavers/floor_pavers.tres" id="1_gd721"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_q8puf"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="2_gd721"]
+[ext_resource type="Material" uid="uid://odd2tonjxlyw" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles.tres" id="5_7782e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("1_q8puf")
@@ -36,6 +38,7 @@ size = Vector3(13.29007, 6.429199, 17.393433)
 
 [node name="Floor4" type="MeshInstance3D" parent="." unique_id=582799443]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7340002, -0.48337555, 2.118)
+material_override = ExtResource("1_gd721")
 mesh = SubResource("BoxMesh_jg88y")
 
 [node name="Wall5" type="MeshInstance3D" parent="." unique_id=583838462]
@@ -56,6 +59,7 @@ mesh = SubResource("BoxMesh_8nd6w")
 
 [node name="Wall6" type="MeshInstance3D" parent="." unique_id=695617462]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -2.2452288, 4.7771616, 2.403225)
+material_override = ExtResource("5_7782e")
 mesh = SubResource("BoxMesh_6uwxm")
 
 [node name="FloorCollision" type="CollisionShape3D" parent="." unique_id=1135054504]

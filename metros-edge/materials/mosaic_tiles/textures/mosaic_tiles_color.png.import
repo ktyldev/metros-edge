@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m01xewha5dmk"
-path="res://.godot/imported/mosaic_tiles_normal.png-c2b15e7401f78a82c2bd916b27645f95.ctex"
+uid="uid://ciuudt1pyha6a"
+path.s3tc="res://.godot/imported/mosaic_tiles_color.png-bd0027a022a4a90ce60ce149e336848a.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://materials/mosaic_tiles/mosaic_tiles_normal.png"
-dest_files=["res://.godot/imported/mosaic_tiles_normal.png-c2b15e7401f78a82c2bd916b27645f95.ctex"]
+source_file="res://materials/mosaic_tiles/textures/mosaic_tiles_color.png"
+dest_files=["res://.godot/imported/mosaic_tiles_color.png-bd0027a022a4a90ce60ce149e336848a.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

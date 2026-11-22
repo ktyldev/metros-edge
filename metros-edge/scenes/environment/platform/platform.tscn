@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3pubuujs71cs"]
 
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_0udi4"]
+[ext_resource type="Material" uid="uid://bnokworgm7hgn" path="res://materials/floor_pavers/floor_pavers.tres" id="1_d4gko"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="3_d4gko"]
 [ext_resource type="PackedScene" uid="uid://nt2x1x4tw8d3" path="res://scenes/environment/props/train.tscn" id="4_86x3v"]
 [ext_resource type="PackedScene" uid="uid://bm0of53csllq5" path="res://scenes/environment/light.tscn" id="5_juk0s"]
@@ -41,7 +42,7 @@ size = Vector2(100.544, 4.852)
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=1379870810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0034029037, -1.1726607, 0.28441215)
-material_override = ExtResource("1_0udi4")
+material_override = ExtResource("1_d4gko")
 mesh = SubResource("BoxMesh_fauy2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=838165008]
@@ -111,7 +112,7 @@ mesh = SubResource("PlaneMesh_375kw")
 [node name="FogWall" parent="." unique_id=680910896 instance=ExtResource("6_xf20w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08821297, 0.0030562878, -3.6098456)
 instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
-instance_shader_parameters/fog_end = 1.9929999999999999
+instance_shader_parameters/fog_end = 1.993
 mesh = SubResource("PlaneMesh_86x3v")
 
 [editable path="Train"]
