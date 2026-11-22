@@ -820,9 +820,9 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../../../MarginContainer4/HBoxContainer4/CheckBox")
 focus_next = NodePath("../../../MarginContainer4/HBoxContainer4/CheckBox")
 focus_previous = NodePath("../../../MarginContainer2/HBoxContainer2/SFXSlider")
-max_value = 1.0
-step = 0.1
-value = 1.0
+min_value = 75.0
+max_value = 90.0
+value = 75.0
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=923813962]
 layout_mode = 2
@@ -1089,5 +1089,8 @@ text = "Options"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2058724614]
 libraries/ = SubResource("AnimationLibrary_dhn0l")
 
+[connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer3/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer4/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer5/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

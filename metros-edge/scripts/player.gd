@@ -105,14 +105,22 @@ func _input(event):
 				head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 
 func _ready() -> void:
+	$neck/head/eyes/Camera3D.fov = Global.fov
+	Global.connect("fov_changed", _on_fov_changed)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	state_label.text = states.find_key(current_state)
+
+
+func _on_fov_changed():
+	$neck/head/eyes/Camera3D.fov = Global.fov
+
 
 func handle_movement(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward").normalized()
 	
 	var current_speed = Vector3(velocity.x, 0, velocity.z).length()
 	var current_direction = Vector3(velocity.x, 0, velocity.z).normalized()
+	
 	
 	# Handle velocity direction
 	var facing_dir = camera_3d.global_basis.z
@@ -122,12 +130,13 @@ func handle_movement(delta):
 	target_h_velocity_dir.y = 0
 	target_h_velocity_dir = target_h_velocity_dir.normalized()
 	var new_direction = current_direction.move_toward(target_h_velocity_dir, delta)
-	#print("current direction: " + str(current_direction))
-	#print("new direction: " + str(new_direction))
+	print("current direction: " + str(current_direction) + ", " + str(current_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
+	print("target_h_velocity_dir: ", target_h_velocity_dir, ", ", target_h_velocity_dir.signed_angle_to(Vector3.FORWARD, Vector3.UP))
+	print("new direction: " + str(new_direction) + ", " + str(new_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
 	
 	# Handle turn penality
 	var angle_to_new = current_direction.angle_to(target_h_velocity_dir)
-	var penalty_multiplyer = max(1 - (float(abs(int(rad_to_deg(angle_to_new)))) / 10), 0)
+	var penalty_multiplyer = max(1 - (float(abs(int(rad_to_deg(angle_to_new)))) / 20), 0)
 	penalty_label.text = str(penalty_multiplyer)
 	#current_speed *= penalty_multiplyer
 	
@@ -156,8 +165,8 @@ func handle_movement(delta):
 			velocity.z = current_direction.z * new_speed
 	else:
 		if input_dir:
-			velocity.x = move_toward(velocity.x, target_h_velocity_dir.x * max_speed, (max_speed / accel_to_max_speed_time) * delta)
-			velocity.z = move_toward(velocity.z, target_h_velocity_dir.z * max_speed, (max_speed / accel_to_max_speed_time) * delta)
+			velocity.x = move_toward(velocity.x, target_h_velocity_dir.x * max_speed, (max_speed / accel_to_max_speed_time) * delta / 3.0)
+			velocity.z = move_toward(velocity.z, target_h_velocity_dir.z * max_speed, (max_speed / accel_to_max_speed_time) * delta / 3.0)
 		else:
 			velocity.x = move_toward(velocity.x, 0, (max_speed / accel_to_max_speed_time) * delta)
 			velocity.z = move_toward(velocity.z, 0, (max_speed / accel_to_max_speed_time) * delta)
@@ -198,21 +207,22 @@ func end_slide():
 	#free_looking = false
 
 func check_wall_stick():
-	var look_dir = Vector3(last_velocity.x, 0, last_velocity.z).normalized()
+	var look_dir = camera_3d.global_basis.z#Vector3(last_velocity.x, 0, last_velocity.z).normalized()
+	look_dir.y = 0
+	look_dir = look_dir.normalized()
 	var collision := _get_wall_stick_collision()
-	if collision and wall_stick_ready:
+	if collision and !collision.get_collider(0).get_parent().is_in_group("Nonstick") and wall_stick_ready:
 		var normal := collision.get_normal()
-		print(normal)
 		var look_normal_dot := normal.dot(look_dir)
 		# if we're facing towards the wall then we should start sticking to it
-		if look_normal_dot < -0.8: #and wall_stick_timer == 0.0:
+		if abs(look_normal_dot) > 0.8: #and wall_stick_timer == 0.0:
 			wall_stick_timer = wall_stick_wait_time
 			wall_stick = collision
 			#wall_stick_ready = false
 			wall_normal = normal
 			start_wall_stick()
 			current_state = states.w_stick
-		else:
+		elif look_normal_dot >= 0.0:
 			wall_normal = normal
 			wall_run_vector = Vector3(last_velocity.x, 0, last_velocity.z).normalized().slide(normal).normalized()
 			#print(collision.get_angle())
@@ -224,9 +234,10 @@ func start_wall_stick():
 	velocity.y = jump_velocity
 
 func start_wall_run():
-	print(wall_run_vector)
-	velocity = wall_run_vector * max_speed
-	velocity.y = jump_velocity
+	#print(wall_run_vector)
+	velocity.x = wall_run_vector.x * max_speed
+	velocity.z = wall_run_vector.z * max_speed
+	velocity.y = max(0, velocity.y)
 
 func _get_wall_stick_collision() -> KinematicCollision3D:
 	if not is_on_wall_only():
@@ -235,7 +246,7 @@ func _get_wall_stick_collision() -> KinematicCollision3D:
 	if get_slide_collision_count() != 1:
 		return null
 	
-	return get_slide_collision(0)
+	return get_slide_collision(0) 
 
 func apply_gravity(delta):
 	velocity.y -= gravity * delta

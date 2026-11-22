@@ -3,10 +3,16 @@ extends Node
 var pauseable := false
 var paused := false
 var loading_scene : String
+var fov := 75 : 
+	set(value):
+		if fov != value:
+			fov_changed.emit()
+		fov = value
 @onready var load_timer : Timer = Timer.new()
 @onready var level_timer : Timer = Timer.new()
 
 signal trans_entered
+signal fov_changed
 
 # FMOD Stuff
 var banks := Array()
@@ -27,6 +33,7 @@ func _ready():
 
 func start_level_timer():
 	level_timer.start(20)
+	pass
 
 
 func level_timer_timeout():

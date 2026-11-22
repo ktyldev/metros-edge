@@ -15,7 +15,7 @@ material = ExtResource("2_721o0")
 add_uv2 = true
 size = Vector3(0.3, 2.709, 0.3)
 
-[node name="Gate" type="Node3D" unique_id=903344685]
+[node name="Gate" type="Node3D" unique_id=903344685 groups=["Nonstick"]]
 
 [node name="Collision" type="StaticBody3D" parent="." unique_id=139812649]
 

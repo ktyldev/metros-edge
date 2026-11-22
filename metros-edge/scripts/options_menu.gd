@@ -84,3 +84,15 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 		get_window().mode = Window.MODE_FULLSCREEN
 	else:
 		get_window().mode = Window.MODE_WINDOWED
+
+
+func _on_music_slider_value_changed(value):
+	FmodServer.set_global_parameter_by_name("Music_Volume", value)
+
+
+func _on_sfx_slider_value_changed(value):
+	FmodServer.set_global_parameter_by_name("SFX_Volume", value)
+
+
+func _on_fov_slider_value_changed(value):
+	Global.fov = value
