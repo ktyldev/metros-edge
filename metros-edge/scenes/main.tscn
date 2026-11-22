@@ -15,3 +15,41 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.1
 
 [node name="PanelContainer" parent="." unique_id=741893145 instance=ExtResource("4_jyhfs")]
 offset_bottom = 45.0
+
+[node name="StationOneAmbience" type="FmodEventEmitter3D" parent="." unique_id=1712846781]
+event_name = "event:/AMB_Platform"
+event_guid = "{11d69c0e-da94-41b0-b704-d629e3e7623c}"
+attached = false
+autoplay = true
+volume = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9826093, 4.268171, 58.04177)
+
+[node name="HallwayAmbience" type="FmodEventEmitter3D" parent="." unique_id=1789953762]
+event_name = "event:/AMB_Hallway"
+event_guid = "{287ca87d-a012-4d53-beb1-515bf779c617}"
+attached = false
+autoplay = true
+volume = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22758, 0, 35.687492)
+
+[node name="StationTwoAmbience" type="FmodEventEmitter3D" parent="." unique_id=414033388]
+event_name = "event:/AMB_Platform"
+event_guid = "{11d69c0e-da94-41b0-b704-d629e3e7623c}"
+attached = false
+autoplay = true
+volume = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.87216, 14.152037, -38.575287)
+
+[node name="MallAmbience" type="FmodEventEmitter3D" parent="." unique_id=1010947683]
+event_name = "event:/AMB_Shopping_Mall"
+event_guid = "{18ff6850-28a1-47a8-b86e-14a05ce9bcbb}"
+attached = false
+autoplay = true
+volume = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0516636, 0, -37.14946)
+
+[node name="Music" type="FmodEventEmitter3D" parent="." unique_id=1199251317]
+event_name = "event:/MUS_Run"
+event_guid = "{112e67fc-9365-4b4e-bfda-bda832d1b4c0}"
+autoplay = true
+volume = 0.2

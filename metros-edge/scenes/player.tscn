@@ -39,3 +39,5 @@ offset_left = 0.95
 offset_top = 22.22
 offset_right = 40.95
 offset_bottom = 45.220016
+
+[node name="FmodListener3D" type="FmodListener3D" parent="." unique_id=702196097]
