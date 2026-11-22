@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b6bcyydl586c"]
+
+[ext_resource type="Texture2D" uid="uid://ciuudt1pyha6a" path="res://materials/mosaic_tiles/textures/mosaic_tiles_color.png" id="1_itdhl"]
+[ext_resource type="Texture2D" uid="uid://bnjqdiek20ugb" path="res://materials/mosaic_tiles/textures/mosaic_tiles_occlusion.png" id="2_603qg"]
+[ext_resource type="Texture2D" uid="uid://m01xewha5dmk" path="res://materials/mosaic_tiles/textures/mosaic_tiles_normal.png" id="3_itdhl"]
+[ext_resource type="Texture2D" uid="uid://cfeqllq5uqwi2" path="res://materials/mosaic_tiles/textures/mosaic_tiles_roughness.png" id="4_bg0w2"]
+
+[resource]
+albedo_texture = ExtResource("1_itdhl")
+roughness_texture = ExtResource("4_bg0w2")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("3_itdhl")
+ao_enabled = true
+ao_texture = ExtResource("2_603qg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

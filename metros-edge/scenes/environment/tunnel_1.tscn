@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bkqqndwingm17"]
 
+[ext_resource type="Material" uid="uid://bnokworgm7hgn" path="res://materials/floor_pavers/floor_pavers.tres" id="1_bk1iq"]
 [ext_resource type="Material" uid="uid://cxa0qqjb8yxod" path="res://materials/graybox/graybox_mat.tres" id="1_sa8xu"]
 [ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="1_xejik"]
 [ext_resource type="Material" uid="uid://odd2tonjxlyw" path="res://materials/rectangular_facade_tiles/M_rectangular_facade_tiles.tres" id="2_t05tv"]
 [ext_resource type="PackedScene" uid="uid://bnf1avcq5r2xb" path="res://scenes/environment/lights/light_tunnel.tscn" id="2_w2cwu"]
 [ext_resource type="PackedScene" uid="uid://bamsl0yax1pcq" path="res://scenes/environment/props/poster_frame.tscn" id="4_bk1iq"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="4_jmilr"]
+[ext_resource type="Material" uid="uid://b6bcyydl586c" path="res://materials/mosaic_tiles/mosaic_tiles.tres" id="5_prmyh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w2cwu"]
 lightmap_size_hint = Vector2i(77, 56)
@@ -123,22 +125,27 @@ size = Vector3(0.8862915, 5.2871094, 18.285765)
 
 [node name="Floor1" type="MeshInstance3D" parent="." unique_id=22242911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28572464, -0.4602356, 11.919509)
+material_override = ExtResource("1_bk1iq")
 mesh = SubResource("BoxMesh_w2cwu")
 
 [node name="Floor4" type="MeshInstance3D" parent="." unique_id=1864957526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28572464, -0.4602356, 3.8362355)
+material_override = ExtResource("1_bk1iq")
 mesh = SubResource("BoxMesh_qhvf8")
 
 [node name="Floor2" type="MeshInstance3D" parent="." unique_id=1811388284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.267196, -0.4602356, 2.1998358)
+material_override = ExtResource("1_bk1iq")
 mesh = SubResource("BoxMesh_jmilr")
 
 [node name="Floor3" type="MeshInstance3D" parent="." unique_id=745569793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.761196, -0.4602356, -9.741247)
+material_override = ExtResource("1_bk1iq")
 mesh = SubResource("BoxMesh_t05tv")
 
 [node name="Floor5" type="MeshInstance3D" parent="." unique_id=1538035720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.607773, -0.4602356, 3.1812859)
+material_override = ExtResource("1_bk1iq")
 mesh = SubResource("BoxMesh_akf2s")
 
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1818709750]
@@ -171,6 +178,7 @@ mesh = SubResource("BoxMesh_eh1q2")
 
 [node name="Wall7" type="MeshInstance3D" parent="." unique_id=868038120]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -0.61445904, 7.1985145, 14.830253)
+material_override = ExtResource("5_prmyh")
 mesh = SubResource("BoxMesh_xejik")
 
 [node name="Wall3" type="MeshInstance3D" parent="." unique_id=1041689716]
@@ -183,6 +191,7 @@ mesh = SubResource("BoxMesh_7cjvn")
 
 [node name="Wall8" type="MeshInstance3D" parent="." unique_id=924220146]
 transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 5.1165094, 2.1158686, -18.18158)
+material_override = ExtResource("5_prmyh")
 mesh = SubResource("BoxMesh_scot0")
 
 [node name="Wall5" type="MeshInstance3D" parent="." unique_id=730984343]
@@ -219,10 +228,12 @@ shape = SubResource("BoxShape3D_58tnn")
 
 [node name="Wall9" type="MeshInstance3D" parent="." unique_id=163181249]
 transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 27.918095, 2.1158686, -18.18158)
+material_override = ExtResource("5_prmyh")
 mesh = SubResource("BoxMesh_scot0")
 
 [node name="Wall10" type="MeshInstance3D" parent="." unique_id=1685628062]
 transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 16.73499, 6.384124, -18.18158)
+material_override = ExtResource("5_prmyh")
 mesh = SubResource("BoxMesh_scot0")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="." unique_id=1178800017]
