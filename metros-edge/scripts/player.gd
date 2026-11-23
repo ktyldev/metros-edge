@@ -35,7 +35,7 @@ var slide_min_speed = 7.0
 #@export var slide_timer = 0.0
 #@export var slide_timer_max = 1.0
 var slide_vector = Vector2.ZERO
-var slide_speed = 10.5
+var slide_speed = 13#10.5
 var slide_end_speed_offset = 0.1
 var slide_headtilt = 7.0
 
@@ -270,6 +270,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	state_label.text = states.find_key(current_state)
 	
+	camera_3d.fov = Global.fov + Vector2(velocity.x, velocity.z).length()
+	
 	if current_state in [states.running, states.crouch]:
 		handle_movement(delta)
 		check_wall_stick()
@@ -285,7 +287,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if current_state == states.slide:
-		velocity = velocity.move_toward(Vector3.ZERO, (max_speed / (accel_to_max_speed_time * 10)) * delta)
+		velocity = velocity.move_toward(Vector3.ZERO, (max_speed / (accel_to_max_speed_time * 5)) * delta)
 		if Input.is_action_just_released("crouch"):
 			set_crouch_camera(false)
 			end_slide()
@@ -294,8 +296,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump_velocity
 			var dir = Vector3(velocity.x, 0, velocity.z).normalized()
-			velocity.x = dir.x * max_speed
-			velocity.z = dir.z * max_speed
+			velocity.x = dir.x * max(max_speed, Vector2(velocity.x, velocity.z).length())
+			velocity.z = dir.z * max(max_speed, Vector2(velocity.x, velocity.z).length())
 			set_crouch_camera(false)
 			end_slide()
 			current_state = states.running
