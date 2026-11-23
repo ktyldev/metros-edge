@@ -18,15 +18,16 @@ This project uses static global illumination, which requires baking a lightmap (
 
 ## Team
 
-- [Eric/LemonyFresh](https://lemonyfresh.itch.io/)
-- [Cat/ktyl](https://ktyl.dev/)
+- [Eric / LemonyFresh](https://lemonyfresh.itch.io/)
+- [Cat / ktyl](https://ktyl.dev/)
+- [Cody / hucota7](https://hucota7.itch.io/)
 
 ## Assets used
 
 - Fonts: Dissolved Exchange, Provicali, Smorgasbord, Candy Beans, and Digital Display by [Chequered Ink Ltd](https://chequered.ink/).
 - Images: [Hanna Lazar](https://unsplash.com/photos/person-sitting-against-tree-in-forest-HB35YH1KGok), [Keithen Schwahn](https://unsplash.com/photos/child-with-toy-camera-on-street--lUPqlaH7Q4), [Marcus Loke](https://unsplash.com/photos/black-and-white-wooden-store-Uw9wQp0uv7I), [Quaid Lagan](https://unsplash.com/photos/a-store-front-with-a-number-on-the-front-of-it-7KWhvhFftpk), [Revendo](https://unsplash.com/photos/a-building-with-a-store-front-on-the-corner-of-a-street-Q6-z_J7aJhQ), [Revendo again](https://unsplash.com/photos/a-store-front-with-a-lit-up-window-TCguv0ngekk), [Louisdoeslife](https://unsplash.com/photos/man-in-blue-jacket-standing-in-front-of-store-VxsCmaSuj64), [Mitchell Luo](https://unsplash.com/photos/a-blue-garage-door-with-a-stop-sign-in-front-of-it-OkKnDGax1mA)
 - Model: Subway Car from [Grab3D](https://grab3d.com/models/vehicles/subway-car/)
-- Model: Modular Pipes from [Polyhave](https://polyhaven.com/a/modular_pipes)
+- Model: Modular Pipes from [Polyhaven](https://polyhaven.com/a/modular_pipes)
 - Textures: Long White Tiles from [Polyhaven](https://polyhaven.com/a/long_white_tiles)
 - Textures: Rectangular Facade Tiles from [Polyhaven](https://polyhaven.com/a/rectangular_facade_tiles)
 - Textures: Concrete Wall 009 from [Polyhaven](https://polyhaven.com/a/concrete_wall_009)
