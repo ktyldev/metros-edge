@@ -22,6 +22,8 @@ This project uses static global illumination, which requires baking a lightmap (
 - [Cat / ktyl](https://ktyl.dev/)
 - [Cody / hucota7](https://hucota7.itch.io/)
 - [Keli / Keldingull](https://keldingull.itch.io/)
+- [Christian / ManInBlue](https://maninblue.itch.io/)
+
 ## Assets used
 
 - Fonts: Dissolved Exchange, Provicali, Smorgasbord, Candy Beans, and Digital Display by [Chequered Ink Ltd](https://chequered.ink/).
