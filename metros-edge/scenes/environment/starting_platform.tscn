@@ -57,13 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81048584, 0, 1.557312)
 shape = SubResource("BoxShape3D_jg88y")
 
 [node name="Platform" parent="." unique_id=76340691 instance=ExtResource("1_p7wm6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.297198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0152693, 0, 5.297198)
 
 [node name="Platform3" parent="." unique_id=753467421 instance=ExtResource("1_p7wm6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -5.278249)
 
 [node name="PlayerStart" type="MeshInstance3D" parent="." unique_id=476203600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0785036, -0.032143712, 4.1411643)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.058256, -0.032143712, 4.1411643)
 mesh = SubResource("SphereMesh_jg88y")
 
 [node name="Ceiling" type="MeshInstance3D" parent="." unique_id=763779216]
@@ -100,7 +100,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6544566, 7.4324236)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42539883, -0.2922716, -8.018111)
 
 [node name="PosterFrame" parent="." unique_id=1929314103 instance=ExtResource("9_hukej")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.028755, 2.614729, 6.8772926)
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, 16.008509, 1.8164716, 6.8772926)
+
+[node name="PosterFrame8" parent="." unique_id=1557779952 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, 13.500266, 1.8164716, 6.8772926)
+
+[node name="PosterFrame9" parent="." unique_id=183134301 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, 16.008509, 1.8164716, -6.907315)
+instance_shader_parameters/poster_index = 3
+
+[node name="PosterFrame10" parent="." unique_id=1275469561 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, 13.500266, 1.8164716, -6.907315)
+instance_shader_parameters/poster_index = 4
+
+[node name="PosterFrame2" parent="." unique_id=857199777 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, 23.503029, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 2
+
+[node name="PosterFrame3" parent="." unique_id=1912968735 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, 25.982569, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 4
+
+[node name="PosterFrame6" parent="." unique_id=947080582 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.7749999, 0, 1.8477436e-07, 0, 0.7749999, 0, -1.8477436e-07, 0, 0.7749999, 25.982567, 1.8164716, -6.914544)
+instance_shader_parameters/poster_index = 5
+
+[node name="PosterFrame7" parent="." unique_id=1207766644 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.7749999, 0, 1.8477436e-07, 0, 0.7749999, 0, -1.8477436e-07, 0, 0.7749999, 23.503027, 1.8164716, -6.914544)
+instance_shader_parameters/poster_index = 4
+
+[node name="PosterFrame4" parent="." unique_id=1938279213 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, 5.875216, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 3
+
+[node name="PosterFrame5" parent="." unique_id=642010657 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, 3.3489194, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 5
+
+[node name="PosterFrame13" parent="." unique_id=909356077 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, -4.1208696, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 2
+
+[node name="PosterFrame14" parent="." unique_id=677344041 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, -6.6471663, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 3
+
+[node name="PosterFrame19" parent="." unique_id=142743564 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, -14.130821, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 5
+
+[node name="PosterFrame20" parent="." unique_id=502647404 instance=ExtResource("9_hukej")]
+transform = Transform3D(-0.775, 0, -1.1702174e-07, 0, 0.775, 0, 1.1702174e-07, 0, -0.775, -16.657118, 1.8164716, 6.8772926)
+instance_shader_parameters/poster_index = 2
+
+[node name="PosterFrame15" parent="." unique_id=1439896294 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, -4.1208696, 1.8164716, -6.90365)
+instance_shader_parameters/poster_index = 4
+
+[node name="PosterFrame16" parent="." unique_id=2012215706 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, -6.6471663, 1.8164716, -6.90365)
+instance_shader_parameters/poster_index = 4
+
+[node name="PosterFrame17" parent="." unique_id=289084858 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, -14.156054, 1.8164716, -6.90365)
+instance_shader_parameters/poster_index = 5
+
+[node name="PosterFrame18" parent="." unique_id=460202292 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, -16.68235, 1.8164716, -6.90365)
+instance_shader_parameters/poster_index = 3
+
+[node name="PosterFrame11" parent="." unique_id=765110123 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, 6.1246266, 1.8164716, -6.916074)
+instance_shader_parameters/poster_index = 2
+
+[node name="PosterFrame12" parent="." unique_id=297442060 instance=ExtResource("9_hukej")]
+transform = Transform3D(0.775, 0, 0, 0, 0.775, 0, 0, 0, 0.775, 3.59833, 1.8164716, -6.916074)
+instance_shader_parameters/poster_index = 5
 
 [editable path="Platform3"]
 [editable path="Platform3/Train"]

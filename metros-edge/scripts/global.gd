@@ -43,7 +43,6 @@ func add_time(time:float):
 
 func start_level_timer():
 	level_timer.start(20)
-	pass
 
 
 func level_timer_timeout():

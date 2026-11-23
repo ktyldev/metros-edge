@@ -412,6 +412,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1.025, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartScreen/BoxContainer/MarginContainer2/TimerTracker:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.28, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
 _data = {

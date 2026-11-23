@@ -135,9 +135,9 @@ func handle_movement(delta):
 		var angle_to_target = current_direction.signed_angle_to(target_h_velocity_dir, Vector3.UP)
 		var turn_step = deg_to_rad(ground_turn_speed_degrees) * delta
 		new_direction = current_direction.rotated(Vector3.UP, clamp(angle_to_target, -turn_step, turn_step))
-	print("current direction: " + str(current_direction) + ", " + str(current_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
-	print("target_h_velocity_dir: ", target_h_velocity_dir, ", ", target_h_velocity_dir.signed_angle_to(Vector3.FORWARD, Vector3.UP))
-	print("new direction: " + str(new_direction) + ", " + str(new_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
+	#print("current direction: " + str(current_direction) + ", " + str(current_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
+	#print("target_h_velocity_dir: ", target_h_velocity_dir, ", ", target_h_velocity_dir.signed_angle_to(Vector3.FORWARD, Vector3.UP))
+	#print("new direction: " + str(new_direction) + ", " + str(new_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
 	
 	# Handle turn penality
 	var penalty_multiplyer = clamp(1.0 + new_direction.dot(target_h_velocity_dir), 0.0, 1.0)

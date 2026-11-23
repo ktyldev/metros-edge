@@ -26,7 +26,7 @@ func _input(event):
 		if UILayer.get_node("Options").entered:
 			UILayer.get_node("Options")._on_back_button_pressed()
 		elif !$AnimationPlayer.is_playing() and !UILayer.get_node("Options/AnimationPlayer").is_playing():
-			for button:Button in [%Resume, %Options, %Quit]:
+			for button:Button in [%Resume, %Options, %Quit, %Reset]:
 				button.focus_mode = Control.FOCUS_NONE
 				button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 			$AnimationPlayer.play("pause_exit")
