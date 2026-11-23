@@ -21,7 +21,7 @@ This project uses static global illumination, which requires baking a lightmap (
 - [Eric / LemonyFresh](https://lemonyfresh.itch.io/)
 - [Cat / ktyl](https://ktyl.dev/)
 - [Cody / hucota7](https://hucota7.itch.io/)
-
+- [Keli / Keldingull](https://github.com/Kelztergit)
 ## Assets used
 
 - Fonts: Dissolved Exchange, Provicali, Smorgasbord, Candy Beans, and Digital Display by [Chequered Ink Ltd](https://chequered.ink/).
