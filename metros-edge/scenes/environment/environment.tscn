@@ -10,14 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://ha5ko6i2cxv3" path="res://scenes/environment/end_platform.tscn" id="4_s0v2d"]
 [ext_resource type="PackedScene" uid="uid://cuy6ed1fxalfa" path="res://scenes/environment/tunnel_2.tscn" id="6_7cjvn"]
 [ext_resource type="Material" uid="uid://d15cwybmaj0on" path="res://materials/long_white_tiles/M_long_white_tiles_wall.tres" id="8_m43ax"]
+[ext_resource type="Material" uid="uid://b6bcyydl586c" path="res://materials/mosaic_tiles/mosaic_tiles.tres" id="10_kprjh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jg88y"]
 material = ExtResource("2_58tnn")
-size = Vector3(6.171814, 0.964798, 17.10437)
+size = Vector3(6.171814, 0.964798, 16.346813)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ff8o"]
 material = ExtResource("8_m43ax")
-size = Vector3(6.171814, 0.892395, 12.014893)
+size = Vector3(5.5624695, 0.892395, 15.117554)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m43ax"]
+material = ExtResource("8_m43ax")
+size = Vector3(5.5624695, 1.1166077, 6.478821)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8nd6w"]
 size = Vector3(16.35733, 1, 5.7052)
@@ -57,20 +62,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.615602, 13.135507, -40.83
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.617455, 13.135507, -40.835175)
 
 [node name="Floor4" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=1851400776]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, -0.47044945, 2.118)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.70420074, -0.47044945, 2.118)
+material_override = ExtResource("3_7cjvn")
+mesh = SubResource("BoxMesh_jg88y")
+
+[node name="Floor5" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=64317515]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.63655853, 4.9396677, 2.118)
 material_override = ExtResource("3_7cjvn")
 mesh = SubResource("BoxMesh_jg88y")
 
 [node name="Wall5" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=599836072]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.7191658, 2.8518467, -1.2247162)
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -1.2480316, 2.5017319, -1.2247162)
+mesh = SubResource("BoxMesh_4ff8o")
+
+[node name="Wall7" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=794294073]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 6.898037, 2.5017319, -4.064823)
+mesh = SubResource("BoxMesh_m43ax")
+surface_material_override/0 = ExtResource("10_kprjh")
+
+[node name="Wall8" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=2000686544]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 6.8864098, 2.5017319, 8.145866)
+mesh = SubResource("BoxMesh_m43ax")
+surface_material_override/0 = ExtResource("10_kprjh")
+
+[node name="Wall6" type="MeshInstance3D" parent="Greybox/Tunnel3" unique_id=542015526]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -1.2444954, 2.5471745, 5.3727684)
 mesh = SubResource("BoxMesh_4ff8o")
 
 [node name="FloorCollision" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=741639720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6889496, -0.5, 2.3526)
 shape = SubResource("BoxShape3D_8nd6w")
 
+[node name="FloorCollision2" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=1262593102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6889496, 4.973584, 2.3526)
+shape = SubResource("BoxShape3D_8nd6w")
+
 [node name="WallCollision" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=1035911377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7254944, 2.7145996, -1.2668495)
+shape = SubResource("BoxShape3D_c00nx")
+
+[node name="WallCollision2" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=765651689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7254944, 2.7145996, 5.3942604)
+shape = SubResource("BoxShape3D_c00nx")
+
+[node name="WallCollision3" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=396192618]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.906578, 2.7145996, 13.004597)
+shape = SubResource("BoxShape3D_c00nx")
+
+[node name="WallCollision4" type="CollisionShape3D" parent="Greybox/Tunnel3" unique_id=2141672081]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.906578, 2.7145996, -8.678162)
 shape = SubResource("BoxShape3D_c00nx")
 
 [node name="Turnstiles2" parent="Greybox" unique_id=1785544008 instance=ExtResource("2_4ff8o")]

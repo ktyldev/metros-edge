@@ -189,10 +189,10 @@ add_uv2 = true
 size = Vector3(53.257484, 6.729327, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xf7ej"]
-lightmap_size_hint = Vector2i(298, 1379)
+lightmap_size_hint = Vector2i(277, 1358)
 material = ExtResource("13_7nj0b")
 add_uv2 = true
-size = Vector3(57.913654, 108.43124, 1)
+size = Vector3(53.635536, 108.43124, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wuyc2"]
 lightmap_size_hint = Vector2i(92, 1121)
@@ -538,7 +538,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -63.
 mesh = SubResource("BoxMesh_jqmxc")
 
 [node name="FrontLeft" type="MeshInstance3D" parent="Walls" unique_id=1341559189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.194916, 19.771374, 17.94362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.055855, 19.771374, 17.94362)
 mesh = SubResource("BoxMesh_xf7ej")
 
 [node name="FrontLeft2" type="MeshInstance3D" parent="Walls" unique_id=1606292190]

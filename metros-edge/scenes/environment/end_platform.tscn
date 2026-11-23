@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c3pubuujs71cs" path="res://scenes/environment/platform/platform.tscn" id="1_75rmq"]
 [ext_resource type="Script" uid="uid://8hcakd3tx7sk" path="res://scripts/level_end_detect.gd" id="1_iu2yh"]
+[ext_resource type="Material" uid="uid://bnokworgm7hgn" path="res://materials/floor_pavers/floor_pavers.tres" id="3_4oay6"]
+[ext_resource type="PackedScene" uid="uid://ok5ijd2fsrgw" path="res://scenes/environment/fog_wall/fog_wall.tscn" id="3_llqt3"]
+[ext_resource type="PackedScene" uid="uid://ci3w73u8u2stf" path="res://models/escalator/escalator.tscn" id="3_rvhmy"]
+[ext_resource type="Material" uid="uid://jdxftpyxwuyg" path="res://materials/concrete_wall_009/M_concrete_wall_009_surface.tres" id="4_4vghr"]
+[ext_resource type="Material" uid="uid://dy6xm38asy2ln" path="res://scenes/environment/fog_wall/fog_wall.tres" id="4_y5cde"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58tnn"]
 albedo_color = Color(0, 0, 1, 1)
@@ -13,6 +18,27 @@ height = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jygx2"]
 size = Vector3(1.4832764, 1.4829102, 12.501343)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jv7sy"]
+lightmap_size_hint = Vector2i(276, 278)
+material = ExtResource("4_4vghr")
+add_uv2 = true
+size = Vector3(50, 2.299, 4.434)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
+size = Vector3(100.007225, 1.953186, 4.438551)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4vghr"]
+material = ExtResource("4_y5cde")
+size = Vector2(26.61, 4.852)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4oay6"]
+material = ExtResource("4_y5cde")
+size = Vector2(100.544, 60.137)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jv7sy"]
+material = ExtResource("4_y5cde")
+size = Vector2(100.544, 6.637)
 
 [node name="EndPlatform" type="Node3D" unique_id=736771860]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -32,11 +58,75 @@ shape = SubResource("BoxShape3D_jygx2")
 
 [node name="Platform" parent="." unique_id=76340691 instance=ExtResource("1_75rmq")]
 
-[node name="Train" parent="Platform" index="2" unique_id=1648389235]
+[node name="Floor2" type="MeshInstance3D" parent="Platform" unique_id=574523800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.030392, -1.1726607, 4.719593)
+material_override = ExtResource("3_4oay6")
+mesh = SubResource("BoxMesh_jv7sy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform/Floor2" unique_id=1546316459]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform/Floor2/StaticBody3D" unique_id=194195139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, 0.17837524, -0.057034492)
+shape = SubResource("BoxShape3D_jg88y")
+
+[node name="Floor3" type="MeshInstance3D" parent="Platform" unique_id=1449801158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.360172, -1.1726607, 4.695897)
+material_override = ExtResource("3_4oay6")
+mesh = SubResource("BoxMesh_jv7sy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform/Floor3" unique_id=811270266]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform/Floor3/StaticBody3D" unique_id=1580238418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017253682, 0.17837524, -0.057034492)
+shape = SubResource("BoxShape3D_jg88y")
+
+[node name="Train" parent="Platform" index="4" unique_id=1648389235]
 visible = false
 
 [node name="CollisionShape3D" parent="Platform/Train/StaticBody3D" parent_id_path=PackedInt32Array(76340691, 1648389235, 606736781) index="0" unique_id=665239781]
 disabled = true
+
+[node name="FogWall2" parent="Platform" unique_id=680910896 instance=ExtResource("3_llqt3")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16.263363, 2.4850252, 2.3194458)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 4.408
+mesh = SubResource("PlaneMesh_4vghr")
+
+[node name="FogWall7" parent="Platform" unique_id=580116094 instance=ExtResource("3_llqt3")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 16.8507, 2.4850252, 2.3194458)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 4.408
+mesh = SubResource("PlaneMesh_4vghr")
+
+[node name="FogWall3" parent="Platform" unique_id=481661306 instance=ExtResource("3_llqt3")]
+transform = Transform3D(1, -1.0790731e-08, 8.675426e-08, -3.5527137e-15, -0.9923531, -0.12343149, 8.742278e-08, 0.12343149, -0.9923531, -0.088210635, 4.345887, -19.144247)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 6.733
+mesh = SubResource("PlaneMesh_4oay6")
+
+[node name="FogWall8" parent="Platform" unique_id=91135333 instance=ExtResource("3_llqt3")]
+transform = Transform3D(1, 8.653422e-08, 1.2432594e-08, 0, -0.14221229, 0.98983616, 8.742278e-08, -0.98983616, -0.14221229, -0.08821246, 7.521187, 1.777843)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 6.733
+mesh = SubResource("PlaneMesh_jv7sy")
+
+[node name="FogWall4" parent="Platform" unique_id=1220617206 instance=ExtResource("3_llqt3")]
+transform = Transform3D(1, -4.3711392e-08, 4.3711395e-08, 4.371139e-08, -4.371139e-08, -1, 4.371139e-08, 1, -4.3711385e-08, -0.08821108, 3.8191705, -24.431423)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 6.733
+mesh = SubResource("PlaneMesh_4oay6")
+
+[node name="FogWall5" parent="Platform" unique_id=918144306 instance=ExtResource("3_llqt3")]
+transform = Transform3D(0, 1, 4.3711392e-08, 4.371138e-08, 4.371139e-08, -1, -1, 7.1054274e-15, -4.371138e-08, -26.760754, 4.345885, -24.431423)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 22.903
+mesh = SubResource("PlaneMesh_4oay6")
+
+[node name="FogWall6" parent="Platform" unique_id=1950260425 instance=ExtResource("3_llqt3")]
+transform = Transform3D(8.742278e-08, -1, 4.371139e-08, -4.3711374e-08, -4.3711402e-08, -1, 1, 8.742277e-08, -4.371138e-08, 16.530008, 4.345886, -24.431423)
+instance_shader_parameters/fog_color = Color(1, 1, 1, 1)
+instance_shader_parameters/fog_end = 22.903
+mesh = SubResource("PlaneMesh_4oay6")
 
 [node name="Platform2" parent="." unique_id=499176395 instance=ExtResource("1_75rmq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -11.469887)
@@ -49,6 +139,30 @@ disabled = true
 
 [node name="Platform3" parent="." unique_id=992827585 instance=ExtResource("1_75rmq")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, -16.417496)
+
+[node name="Escalator" parent="." unique_id=967490327 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(6.039832e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, 6.039832e-08, -24.00974, 0.30592775, -14.035657)
+
+[node name="Escalator2" parent="." unique_id=681936395 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(-1.3033655e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, -1.3033655e-07, 20.415815, 0.30592775, -14.035655)
+
+[node name="Escalator3" parent="." unique_id=2006979060 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(6.039832e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, 6.039832e-08, -24.009739, 0.30592775, -26.819592)
+
+[node name="Escalator4" parent="." unique_id=383198544 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(-1.3033655e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, -1.3033655e-07, 20.415817, 0.30592775, -26.81959)
+
+[node name="Escalator5" parent="." unique_id=1306483917 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(6.039832e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, 6.039832e-08, -24.009739, 0.30592775, -39.79261)
+
+[node name="Escalator6" parent="." unique_id=542676415 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(-1.3033655e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, -1.3033655e-07, 20.415817, 0.30592775, -39.79261)
+
+[node name="Escalator7" parent="." unique_id=1687616195 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(6.039832e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, 6.039832e-08, -24.009739, 0.30592775, -55.989227)
+
+[node name="Escalator8" parent="." unique_id=504648155 instance=ExtResource("3_rvhmy")]
+transform = Transform3D(-1.3033655e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, -1.3033655e-07, 20.415817, 0.30592775, -55.989227)
 
 [connection signal="body_entered" from="PlayerEnd/Area3D" to="PlayerEnd/Area3D" method="_on_body_entered"]
 
