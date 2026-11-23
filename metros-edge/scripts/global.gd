@@ -10,6 +10,7 @@ var fov := 75 :
 		fov = value
 var times : Array[float] = []
 var best_time : float = -1.0
+var launched = false
 @onready var load_timer : Timer = Timer.new()
 @onready var level_timer : Timer = Timer.new()
 
@@ -96,5 +97,11 @@ func enter_scene():
 	await UILayer.get_node("AnimationPlayer").animation_finished
 	get_tree().paused = false
 	Global.pauseable = loading_scene != "res://scenes/main_menu.tscn"
+	test_event.stop(0)
 	if loading_scene != "res://scenes/main_menu.tscn":
+		test_event = FmodServer.create_event_instance("event:/MUS_Run")
+		test_event.start()
 		start_level_timer()
+	else:
+		test_event = FmodServer.create_event_instance("event:/MUS_Menu")
+		test_event.start()

@@ -5,6 +5,11 @@ var source_string := "main"
 
 
 func _ready():
+	if Global.launched:
+		$AnimationPlayer.play("start_enter")
+	else:
+		$AnimationPlayer.play("game_start")
+		Global.launched = true
 	for button:Button in [%Start, %Options]:
 		button.connect("mouse_entered", _on_button_mouse_entered.bind(button))
 		button.connect("mouse_exited", _on_button_mouse_exited.bind(button))
@@ -89,7 +94,7 @@ func _on_options_closed(source:String) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "start_enter":
+	if anim_name == "start_enter" or anim_name == "game_start":
 		for button:Button in [%Start, %Options]:
 			button.focus_mode = Control.FOCUS_ALL
 			button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED

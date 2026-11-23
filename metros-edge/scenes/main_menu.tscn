@@ -3,10 +3,15 @@
 [ext_resource type="Theme" uid="uid://ckk8pbjqrtosd" path="res://resources/UI_theme.tres" id="1_rtw2f"]
 [ext_resource type="Script" uid="uid://8srakymakwae" path="res://scripts/main_menu.gd" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bb20mf050pghw" path="res://assets/TRICKMETRO_LOGO_FINAL_V5_1.png" id="3_bqqt6"]
+[ext_resource type="Shader" uid="uid://bd6e00omutj56" path="res://shader/blue_tint.gdshader" id="3_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://g57sr8lyuclf" path="res://assets/metros_edge_mockup_bg.png" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://qcstf4knwicv" path="res://assets/temp_spinning.png" id="5_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="6_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://5gfr3ibwefol" path="res://assets/UI_ITG_Logo.svg" id="7_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://c8inh30pmj7js" path="res://test_menu_scenery.tscn" id="9_5dd4i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rw8j"]
+shader = ExtResource("3_jk1qb")
 
 [sub_resource type="Gradient" id="Gradient_tbmy8"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
@@ -271,6 +276,107 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0.26499996, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5dd4i"]
+resource_name = "game_start"
+length = 4.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartScreen/ColorRect:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.3999999, 3.6),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, -1.04), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.3999999, 3.9),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.45, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.455, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartScreen/MarginContainer/TextureRect:offset_transform_position_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.3, 2.8),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-0.795, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartScreen/BoxContainer/MarginContainer:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.2999997, 3.7999997),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 1.015), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartScreen/BoxContainer/MarginContainer2/TimerTracker:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0.265, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_oa1go"]
 resource_name = "start_enter"
@@ -428,6 +534,7 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
 _data = {
 &"RESET": SubResource("Animation_tbmy8"),
+&"game_start": SubResource("Animation_5dd4i"),
 &"start_enter": SubResource("Animation_oa1go"),
 &"start_exit": SubResource("Animation_jk1qb")
 }
@@ -437,12 +544,36 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 480.0
+mouse_filter = 2
 script = ExtResource("2_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1712646675]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 480.0
+mouse_filter = 2
+texture = ExtResource("3_wu84c")
+expand_mode = 1
+
+[node name="TextureRect2" type="SubViewportContainer" parent="." unique_id=195767532]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="TextureRect2" unique_id=649473727]
+handle_input_locally = false
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="Node3D" parent="TextureRect2/SubViewport" unique_id=428250955 instance=ExtResource("9_5dd4i")]
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1500015167]
+material = SubResource("ShaderMaterial_4rw8j")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+mouse_filter = 2
 texture = ExtResource("3_wu84c")
 expand_mode = 1
 
@@ -453,6 +584,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_rtw2f")
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen" unique_id=1766529307]
@@ -460,13 +592,16 @@ custom_maximum_size = Vector2(-1, 8)
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0, -1.04)
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="StartScreen" unique_id=1322528496]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(12, 0)
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="StartScreen/MarginContainer" unique_id=1900715115]
+z_index = 6
 custom_minimum_size = Vector2(450, 450)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -474,12 +609,14 @@ size_flags_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-45, -103)
 offset_transform_position_ratio = Vector2(-0.795, 0)
+mouse_filter = 2
 texture = ExtResource("3_bqqt6")
 expand_mode = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="StartScreen/MarginContainer" unique_id=1788754066]
 layout_mode = 2
 offset_transform_enabled = true
+mouse_filter = 2
 theme_override_constants/separation = -9
 alignment = 1
 vertical = true
@@ -487,9 +624,11 @@ vertical = true
 [node name="Container" type="Container" parent="StartScreen/MarginContainer/BoxContainer" unique_id=502441522]
 custom_minimum_size = Vector2(0, 192.835)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer" unique_id=1996104201]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="StartGradient" type="TextureRect" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer" unique_id=868649209]
 unique_name_in_owner = true
@@ -499,12 +638,14 @@ layout_mode = 2
 size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(-14, 0)
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_tbmy8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer" unique_id=293914571]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.45, 0)
+mouse_filter = 2
 
 [node name="StartSpinny" type="AnimatedSprite2D" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer" unique_id=704601859]
 unique_name_in_owner = true
@@ -519,11 +660,13 @@ frame_progress = 0.6575269
 layout_mode = 2
 size_flags_vertical = 0
 offset_transform_enabled = true
+mouse_filter = 2
 
 [node name="DropShadow" type="RichTextLabel" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer/StartContainer" unique_id=1390173449]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(1, 6)
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Start Game"
@@ -540,6 +683,7 @@ flat = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="StartScreen/MarginContainer/BoxContainer" unique_id=110125070]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="OptionGradient" type="TextureRect" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2" unique_id=1578568646]
 unique_name_in_owner = true
@@ -549,12 +693,14 @@ layout_mode = 2
 size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(-14, 0)
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_tbmy8")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2" unique_id=1270811013]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.455, 0)
+mouse_filter = 2
 
 [node name="OptionSpinny" type="AnimatedSprite2D" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2" unique_id=1413744993]
 unique_name_in_owner = true
@@ -569,11 +715,13 @@ frame_progress = 0.86194086
 layout_mode = 2
 size_flags_vertical = 0
 offset_transform_enabled = true
+mouse_filter = 2
 
 [node name="DropShadow" type="RichTextLabel" parent="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2/OptionsContainer" unique_id=2034721592]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(1, 6)
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Options"
@@ -674,6 +822,7 @@ mouse_filter = 2
 
 [node name="BottomBar" type="TextureRect" parent="StartScreen/BoxContainer/MarginContainer" unique_id=627094321]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("6_rtw2f")
 
 [node name="StartText" type="RichTextLabel" parent="StartScreen/BoxContainer/MarginContainer" unique_id=729996559]
@@ -715,12 +864,14 @@ texture = SubResource("GradientTexture1D_l6cm7")
 custom_minimum_size = Vector2(123.755, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+mouse_filter = 2
 theme_override_constants/margin_right = 6
 
 [node name="ITGLogo" type="RichTextLabel" parent="StartScreen/BoxContainer/MarginContainer/MarginContainer" unique_id=608585443]
 visible = false
 clip_contents = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.5372549, 0.85490197, 1)
 theme_override_font_sizes/normal_font_size = 51
 text = "ITG"
@@ -729,13 +880,20 @@ text = "ITG"
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-6.6, 5.99)
+mouse_filter = 2
 texture = ExtResource("7_tbmy8")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1350230102]
 libraries/ = SubResource("AnimationLibrary_5dd4i")
-autoplay = &"start_enter"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1877655260]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 483.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="StartScreen/MarginContainer/BoxContainer/MarginContainer/HBoxContainer/StartContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="StartScreen/MarginContainer/BoxContainer/MarginContainer2/HBoxContainer2/OptionsContainer/Options" to="." method="_on_options_pressed"]
