@@ -15,6 +15,7 @@ func _ready():
 
 
 func _on_node_focused(node:Control) -> void:
+	FmodServer.play_one_shot("event:/UI_Scroll")
 	#%AnimationPlayer.stop()
 	match node.name:
 		"MusicSlider":
@@ -69,6 +70,7 @@ func enter(from_source:String) -> void:
 
 
 func _on_back_button_pressed() -> void:
+	FmodServer.play_one_shot("event:/UI_Select")
 	for node:Control in [%MusicSlider, %SFXSlider, %FOVSlider, %CheckBox, %BackButton]:
 		node.focus_mode = Control.FOCUS_NONE
 		node.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
@@ -80,6 +82,7 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
+	FmodServer.play_one_shot("event:/UI_Select")
 	if toggled_on:
 		get_window().mode = Window.MODE_FULLSCREEN
 	else:
@@ -87,12 +90,15 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 
 
 func _on_music_slider_value_changed(value):
+	FmodServer.play_one_shot("event:/UI_Error")
 	FmodServer.set_global_parameter_by_name("Music_Volume", value)
 
 
 func _on_sfx_slider_value_changed(value):
+	FmodServer.play_one_shot("event:/UI_Error")
 	FmodServer.set_global_parameter_by_name("SFX_Volume", value)
 
 
 func _on_fov_slider_value_changed(value):
+	FmodServer.play_one_shot("event:/UI_Error")
 	Global.fov = value

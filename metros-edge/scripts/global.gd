@@ -21,6 +21,8 @@ signal fov_changed
 var banks := Array()
 var test_event: FmodEvent = null
 
+var ten_second_warning_given = false
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().scene_changed.connect(enter_scene)
@@ -47,6 +49,7 @@ func start_level_timer():
 
 
 func level_timer_timeout():
+	FmodServer.play_one_shot("event:/VO_Announcer_Departed")
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_EXPO)
@@ -59,6 +62,7 @@ func level_timer_timeout():
 
 func win_level():
 	if !level_timer.is_stopped():
+		FmodServer.play_one_shot("event:/Sfx_Win")
 		level_timer.paused = true
 		add_time(Global.level_timer.time_left)
 		get_tree().paused = true
@@ -71,6 +75,9 @@ func _process(delta):
 	if ResourceLoader.load_threaded_get_status(loading_scene) == ResourceLoader.THREAD_LOAD_LOADED and load_timer.is_stopped():
 		var scene = ResourceLoader.load_threaded_get(loading_scene)
 		get_tree().change_scene_to_packed(scene)
+	if level_timer.time_left <= 13 and !ten_second_warning_given and !level_timer.is_stopped():
+		ten_second_warning_given = true
+		FmodServer.play_one_shot("event:/VO_Announcer_10Secs")
 
 func load_fmod_banks():
 	banks.append(FmodServer.load_bank("res://assets/FMODBanks/Desktop/Master.strings.bank", FmodBank.ConnectFlags.CONNECT_REFERENCE_COUNTED))
@@ -105,3 +112,7 @@ func enter_scene():
 	else:
 		test_event = FmodServer.create_event_instance("event:/MUS_Menu")
 		test_event.start()
+
+func play_fmod_event(event_name: String):
+	var event: FmodEvent = FmodServer.create_event_instance("event:/" + event_name)
+	event.start()

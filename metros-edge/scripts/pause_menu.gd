@@ -45,6 +45,7 @@ func disable_buttons() -> void:
 
 
 func _on_button_focused(button:Button) -> void:
+	FmodServer.play_one_shot("event:/UI_Scroll")
 	var tween := get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_ease(Tween.EASE_OUT)
@@ -105,6 +106,7 @@ func _on_animation_player_animation_finished(anim_name) -> void:
 
 
 func _on_options_pressed() -> void:
+	FmodServer.play_one_shot("event:/UI_Select")
 	disable_buttons()
 	$AnimationPlayer.play("pause_exit_with_bg")
 
@@ -115,11 +117,13 @@ func _on_options_closed(source:String) -> void:
 
 
 func _on_resume_pressed():
+	FmodServer.play_one_shot("event:/UI_Select")
 	disable_buttons()
 	$AnimationPlayer.play("pause_exit")
 
 
 func _on_quit_pressed():
+	FmodServer.play_one_shot("event:/UI_Select")
 	disable_buttons()
 	Global.pauseable = false
 	Global.paused = false
@@ -129,6 +133,7 @@ func _on_quit_pressed():
 
 
 func _on_reset_pressed():
+	FmodServer.play_one_shot("event:/UI_Select")
 	disable_buttons()
 	Global.pauseable = false
 	Global.paused = false

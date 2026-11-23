@@ -40,6 +40,7 @@ func _on_button_mouse_entered(button:Button) -> void:
 
 
 func _on_button_focus_entered(button:Button) -> void:
+	FmodServer.play_one_shot("event:/UI_Scroll")
 	var tween := get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
@@ -80,6 +81,7 @@ func _on_button_focus_exited(button:Button) -> void:
 
 
 func _on_options_pressed() -> void:
+	FmodServer.play_one_shot("event:/UI_Select")
 	for button:Button in [%Start, %Options]:
 		button.focus_mode = Control.FOCUS_NONE
 		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
@@ -101,4 +103,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_start_pressed():
+	FmodServer.play_one_shot("event:/UI_Select")
+	FmodServer.play_one_shot("event:/VO_Announcer_20Secs")
 	Global.change_scene_to("res://scenes/main.tscn")

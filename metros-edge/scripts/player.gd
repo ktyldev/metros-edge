@@ -76,6 +76,12 @@ var direction = Vector3.ZERO
 @onready var head = $neck/head
 @onready var eyes = $neck/head/eyes
 @onready var camera_3d = $neck/head/eyes/Camera3D
+@onready var animation_player = $AnimationPlayer
+
+# sfx things
+var slide_event: FmodEvent
+var wall_attach_event: FmodEvent
+var jump_event: FmodEvent
 
 
 @onready var ray_cast_3d = $RayCast3D
@@ -110,6 +116,10 @@ func _ready() -> void:
 	Global.connect("fov_changed", _on_fov_changed)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	state_label.text = states.find_key(current_state)
+	
+	slide_event = FmodServer.create_event_instance("event:/Player_Slide")
+	jump_event = FmodServer.create_event_instance("event:/Player_Jump")
+	wall_attach_event = FmodServer.create_event_instance("event:/Player_WallAttached")
 
 
 func _on_fov_changed():
@@ -175,6 +185,7 @@ func handle_movement(delta):
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
+			jump_event.start()
 			velocity.y = jump_velocity
 			return
 		if Input.is_action_pressed("crouch"):
@@ -197,6 +208,7 @@ func set_crouch_camera(now_crouching):
 		crouching_collision_shape.disabled = true
 
 func start_slide(slide_dir):
+	slide_event.start()
 	velocity.x = slide_dir.x * slide_speed
 	velocity.z = slide_dir.z * slide_speed
 	standing_collision_shape.disabled = true
@@ -204,6 +216,7 @@ func start_slide(slide_dir):
 	#free_looking = true
 
 func end_slide():
+	slide_event.stop(0)
 	standing_collision_shape.disabled = false
 	crouching_collision_shape.disabled = true
 	#free_looking = false
@@ -218,6 +231,7 @@ func check_wall_stick():
 		var look_normal_dot := normal.dot(look_dir)
 		# if we're facing towards the wall then we should start sticking to it
 		if abs(look_normal_dot) > 0.8: #and wall_stick_timer == 0.0:
+			wall_attach_event.start()
 			wall_stick_timer = wall_stick_wait_time
 			wall_stick = collision
 			#wall_stick_ready = false
@@ -225,6 +239,7 @@ func check_wall_stick():
 			start_wall_stick()
 			current_state = states.w_stick
 		elif look_normal_dot >= 0.0:
+			wall_attach_event.start()
 			wall_normal = normal
 			wall_run_vector = Vector3(last_velocity.x, 0, last_velocity.z).normalized().slide(normal).normalized()
 			#print(collision.get_angle())
@@ -275,6 +290,15 @@ func _physics_process(delta: float) -> void:
 	if current_state in [states.running, states.crouch]:
 		handle_movement(delta)
 		check_wall_stick()
+		
+		if current_state == states.running:
+			if is_on_floor():
+				animation_player.play("running")
+			else:
+				animation_player.stop()
+		else:
+			animation_player.stop()
+		
 		if current_state == states.crouch:
 			if Input.is_action_just_released("crouch"):
 				current_state = states.running
@@ -294,6 +318,7 @@ func _physics_process(delta: float) -> void:
 			current_state = states.running
 			return
 		if Input.is_action_just_pressed("jump"):
+			jump_event.start()
 			velocity.y = jump_velocity
 			var dir = Vector3(velocity.x, 0, velocity.z).normalized()
 			velocity.x = dir.x * max(max_speed, Vector2(velocity.x, velocity.z).length())
@@ -314,6 +339,7 @@ func _physics_process(delta: float) -> void:
 			current_state = states.running
 			return
 		if Input.is_action_just_pressed("jump"):
+			jump_event.start()
 			velocity.x = wall_normal.x * max_speed * 0.3
 			velocity.z = wall_normal.z * max_speed * 0.3
 			velocity.y = jump_velocity
@@ -326,11 +352,16 @@ func _physics_process(delta: float) -> void:
 			current_state = states.running
 			return
 		if Input.is_action_just_pressed("jump"):
+			jump_event.start()
 			velocity.x += wall_normal.x * max_speed * 0.3
 			velocity.z += wall_normal.z * max_speed * 0.3
 			velocity.y = jump_velocity
 			current_state = states.running 
 			return
+
+func play_fmod_event(event_name: String):
+	Global.play_fmod_event(event_name)
+
 #############
 # OLD STUFF #
 #############
