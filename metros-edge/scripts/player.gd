@@ -15,6 +15,7 @@ var horizontal_velocity = Vector3.ZERO
 @export var ground_turn_acceleration = 80
 @export var accel_to_max_speed_time = 0.5
 @export var accel_to_max_speed_timer = 0.0
+@export var ground_turn_speed_degrees = 540.0
 
 # will leave/rename after rewriting
 var lerp_speed = 10
@@ -129,14 +130,17 @@ func handle_movement(delta):
 	var target_h_velocity_dir = (camera_3d.global_basis * Vector3(input_dir.x, 0, input_dir.y))
 	target_h_velocity_dir.y = 0
 	target_h_velocity_dir = target_h_velocity_dir.normalized()
-	var new_direction = current_direction.move_toward(target_h_velocity_dir, delta)
+	var new_direction = target_h_velocity_dir
+	if current_speed > 0.1 and target_h_velocity_dir != Vector3.ZERO:
+		var angle_to_target = current_direction.signed_angle_to(target_h_velocity_dir, Vector3.UP)
+		var turn_step = deg_to_rad(ground_turn_speed_degrees) * delta
+		new_direction = current_direction.rotated(Vector3.UP, clamp(angle_to_target, -turn_step, turn_step))
 	print("current direction: " + str(current_direction) + ", " + str(current_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
 	print("target_h_velocity_dir: ", target_h_velocity_dir, ", ", target_h_velocity_dir.signed_angle_to(Vector3.FORWARD, Vector3.UP))
 	print("new direction: " + str(new_direction) + ", " + str(new_direction.signed_angle_to(Vector3.FORWARD, Vector3.UP)))
 	
 	# Handle turn penality
-	var angle_to_new = current_direction.angle_to(target_h_velocity_dir)
-	var penalty_multiplyer = max(1 - (float(abs(int(rad_to_deg(angle_to_new)))) / 20), 0)
+	var penalty_multiplyer = clamp(1.0 + new_direction.dot(target_h_velocity_dir), 0.0, 1.0)
 	penalty_label.text = str(penalty_multiplyer)
 	#current_speed *= penalty_multiplyer
 	
@@ -151,15 +155,13 @@ func handle_movement(delta):
 	if target_speed < current_speed:
 		new_speed = current_speed - ((max_speed / accel_to_max_speed_time) * delta)
 	
-	if penalty_multiplyer == 0:
-		new_speed = 0
 	#new_speed *= clamp(penalty_multiplyer * 10, 0, 1)
 	
 	new_speed = clamp(new_speed, 0, max_speed)
 	if is_on_floor():
 		if input_dir:
-			velocity.x = target_h_velocity_dir.x * new_speed
-			velocity.z = target_h_velocity_dir.z * new_speed
+			velocity.x = new_direction.x * new_speed
+			velocity.z = new_direction.z * new_speed
 		else:
 			velocity.x = current_direction.x * new_speed
 			velocity.z = current_direction.z * new_speed
