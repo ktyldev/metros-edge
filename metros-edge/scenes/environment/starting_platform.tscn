@@ -13,6 +13,9 @@
 material = ExtResource("2_2uwt5")
 size = Vector2(14.424, 18.614)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg88y"]
+size = Vector3(12.750122, 1, 24.566528)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_setbh"]
 material = ExtResource("2_2uwt5")
 size = Vector2(12.456, 19.571)
@@ -35,9 +38,23 @@ size = Vector3(100.47061, 1, 18.375977)
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -20, 3.873228, 0)
 mesh = SubResource("PlaneMesh_hukej")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="FogWall" unique_id=920562301]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FogWall/StaticBody3D" unique_id=1972473355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81048584, 0, 1.557312)
+shape = SubResource("BoxShape3D_jg88y")
+
 [node name="FogWall2" parent="." unique_id=1348155776 instance=ExtResource("1_5s7c0")]
 transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 28.286913, 4.472208, 0)
 mesh = SubResource("PlaneMesh_setbh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FogWall2" unique_id=36882679]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FogWall2/StaticBody3D" unique_id=63761555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81048584, 0, 1.557312)
+shape = SubResource("BoxShape3D_jg88y")
 
 [node name="Platform" parent="." unique_id=76340691 instance=ExtResource("1_p7wm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.297198)

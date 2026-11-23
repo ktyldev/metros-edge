@@ -248,6 +248,16 @@ func _get_wall_stick_collision() -> KinematicCollision3D:
 	if get_slide_collision_count() != 1:
 		return null
 	
+	var collision := get_slide_collision(0)
+	var collider := collision.get_collider()
+	if not collider is CollisionObject3D:
+		printerr("collided with not a collision object?" , collider)
+		return null
+
+	# layer 3 can't be wall stuck
+	if collider.get_collision_layer_value(3):
+		return null
+
 	return get_slide_collision(0) 
 
 func apply_gravity(delta):
