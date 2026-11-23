@@ -8,6 +8,8 @@ var fov := 75 :
 		if fov != value:
 			fov_changed.emit()
 		fov = value
+var times : Array[float] = []
+var best_time : float = -1.0
 @onready var load_timer : Timer = Timer.new()
 @onready var level_timer : Timer = Timer.new()
 
@@ -31,6 +33,14 @@ func _ready():
 	level_timer.connect("timeout", level_timer_timeout)
 
 
+func add_time(time:float):
+	times.append(time)
+	if times.size() > 5:
+		times.pop_front()
+	if time > best_time:
+		best_time = time
+
+
 func start_level_timer():
 	level_timer.start(20)
 	pass
@@ -50,6 +60,7 @@ func level_timer_timeout():
 func win_level():
 	if !level_timer.is_stopped():
 		level_timer.paused = true
+		add_time(Global.level_timer.time_left)
 		get_tree().paused = true
 		UILayer.get_node("LevelEndUI").win()
 		level_timer.paused = false

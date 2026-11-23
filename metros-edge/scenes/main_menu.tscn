@@ -259,6 +259,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 1.015)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartScreen/BoxContainer/MarginContainer2/TimerTracker:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.26499996, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_oa1go"]
 resource_name = "start_enter"
@@ -322,6 +334,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(0.2, 1),
 "update": 0,
 "values": [Vector2(0, 1.015), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartScreen/BoxContainer/MarginContainer2/TimerTracker:offset_transform_position_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0.265, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jk1qb"]
@@ -559,6 +583,60 @@ vertical = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="TimerTracker" type="VBoxContainer" parent="StartScreen/BoxContainer/MarginContainer2" unique_id=183409381]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.26499996, 0)
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker" unique_id=849910583]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/MarginContainer2" unique_id=640762283]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-3, 2)
+theme_override_colors/font_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Best Time"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/MarginContainer2" unique_id=1229082508]
+layout_mode = 2
+text = "Best Time"
+horizontal_alignment = 2
+
+[node name="BestContainer" type="VBoxContainer" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker" unique_id=331538170]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TimesContainter" type="VBoxContainer" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker" unique_id=1991743330]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_position_ratio = Vector2(0.165, 0)
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/TimesContainter" unique_id=774723610]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/TimesContainter/MarginContainer" unique_id=51737108]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-3, 2)
+theme_override_colors/font_color = Color(0, 0.5372549, 0.85490197, 1)
+text = "Times"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/TimesContainter/MarginContainer" unique_id=1210317930]
+layout_mode = 2
+text = "Times"
+horizontal_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="StartScreen/BoxContainer" unique_id=2105544054]
 layout_mode = 2

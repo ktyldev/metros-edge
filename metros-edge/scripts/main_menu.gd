@@ -13,6 +13,21 @@ func _ready():
 		button.focus_mode = Control.FOCUS_NONE
 		button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 	UILayer.get_node("Options").connect("options_exited", _on_options_closed)
+	if Global.times.size() > 0:
+		%TimerTracker.visible = true
+		for time in Global.times:
+			var label = Label.new()
+			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			label.text = "%05.2f" % time
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			label.add_theme_font_size_override("font_size", 16)
+			%TimesContainter.add_child(label)
+		var label = Label.new()
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		label.text = "%05.2f" % Global.best_time
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		label.add_theme_font_size_override("font_size", 16)
+		%BestContainer.add_child(label)
 
 
 func _on_button_mouse_entered(button:Button) -> void:
