@@ -51,7 +51,13 @@ lightmap_size_hint = Vector2i(12, 14)
 add_uv2 = true
 size = Vector3(0.3133545, 0.105789185, 1.4047089)
 
-[node name="Escalator" type="Node3D" unique_id=152843420]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd87n"]
+size = Vector3(4.757538, 2.4643555, 27.131058)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sy7d2"]
+size = Vector3(0.2980919, 2.4643555, 27.230484)
+
+[node name="Escalator" type="StaticBody3D" unique_id=967490327]
 
 [node name="Escalator" type="MeshInstance3D" parent="." unique_id=1093228232]
 transform = Transform3D(1, 0, 0, 0, 0.8612518, -0.5081785, 0, 0.5081785, 0.8612518, 0, 6.162, -11.201)
@@ -342,3 +348,15 @@ mesh = SubResource("BoxMesh_en0v0")
 transform = Transform3D(1, 0, 0, 0, -0.8740849, -0.48577303, 0, 0.48577303, -0.8740849, 0.13000298, 2.3385653, -14.34653)
 material_override = ExtResource("5_cd87n")
 mesh = SubResource("BoxMesh_j0pec")
+
+[node name="Escalator2" type="CollisionShape3D" parent="." unique_id=191684840]
+transform = Transform3D(1, 0, 0, 0, 0.86162907, -0.5075383, 0, 0.5075383, 0.86162907, -0.09892368, 5.673598, -10.543601)
+shape = SubResource("BoxShape3D_cd87n")
+
+[node name="Escalator11" type="CollisionShape3D" parent="." unique_id=510557503]
+transform = Transform3D(1, 0, 0, 0, 0.86162907, -0.5075383, 0, 0.5075383, 0.86162907, 2.265007, 7.348844, -9.568857)
+shape = SubResource("BoxShape3D_sy7d2")
+
+[node name="Escalator12" type="CollisionShape3D" parent="." unique_id=1656085848]
+transform = Transform3D(1, 0, 0, 0, 0.86162907, -0.5075383, 0, 0.5075383, 0.86162907, -2.0442443, 7.348844, -9.568857)
+shape = SubResource("BoxShape3D_sy7d2")
