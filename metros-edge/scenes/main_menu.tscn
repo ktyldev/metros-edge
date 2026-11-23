@@ -592,10 +592,12 @@ visible = false
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0.26499996, 0)
+mouse_filter = 2
 alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker" unique_id=849910583]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label2" type="Label" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/MarginContainer2" unique_id=640762283]
 layout_mode = 2
@@ -624,6 +626,7 @@ alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/TimesContainter" unique_id=774723610]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label2" type="Label" parent="StartScreen/BoxContainer/MarginContainer2/TimerTracker/TimesContainter/MarginContainer" unique_id=51737108]
 layout_mode = 2
