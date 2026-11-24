@@ -9,7 +9,7 @@ const FmodManager_Autoload_Name: StringName = &"FmodManager"
 var fmod_bank_explorer_window: PackedScene = load("res://addons/fmod/tool/ui/FmodBankExplorer.tscn")
 var bank_explorer: FmodBankExplorer
 var fmod_button: Button
-var export_plugin: FmodEditorExportPlugin = FmodEditorExportPlugin.new()
+var export_plugin: FmodBankExportPlugin = FmodBankExportPlugin.new()
 var android_export_plugin: FmodAndroidExportPlugin = FmodAndroidExportPlugin.new()
 var emitter_inspector_plugin: FmodEmitterPropertyInspectorPlugin = FmodEmitterPropertyInspectorPlugin.new(self)
 var bank_loader_inspector_plugin: FmodBankLoaderPropertyInspectorPlugin = FmodBankLoaderPropertyInspectorPlugin.new(self)

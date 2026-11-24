@@ -3,6 +3,7 @@ extends MarginContainer
 
 var source_string := "pause"
 var in_options := false
+var web_mouse_was_captured := false
 
 
 func _ready():
@@ -17,11 +18,11 @@ func _ready():
 
 
 func _input(event):
+	if OS.has_feature("web") and event is InputEventMouseButton and event.pressed and is_playing() \
+			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if event.is_action_pressed("pause") and Global.pauseable and !Global.paused:
-		Global.paused = true
-		get_tree().paused = true
-		$AnimationPlayer.play("pause_enter")
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pause()
 	elif event.is_action_pressed("pause") and Global.paused:
 		if UILayer.get_node("Options").entered:
 			UILayer.get_node("Options")._on_back_button_pressed()
@@ -30,6 +31,26 @@ func _input(event):
 				button.focus_mode = Control.FOCUS_NONE
 				button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 			$AnimationPlayer.play("pause_exit")
+
+
+func _process(_delta):
+	if !OS.has_feature("web"):
+		return
+	var captured := Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+	if web_mouse_was_captured and !captured and is_playing():
+		pause()
+	web_mouse_was_captured = captured
+
+
+func is_playing() -> bool:
+	return Global.pauseable and !Global.paused and !get_tree().paused
+
+
+func pause() -> void:
+	Global.paused = true
+	get_tree().paused = true
+	$AnimationPlayer.play("pause_enter")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func enable_buttons() -> void:
