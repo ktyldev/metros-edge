@@ -23,6 +23,8 @@ This project uses static global illumination, which requires baking a lightmap (
 - [Cody / hucota7](https://hucota7.itch.io/)
 - [Keli / Keldingull](https://keldingull.itch.io/)
 - [Christian / ManInBlue](https://maninblue.itch.io/)
+- [Cai / caijonesaudio](https://www.caijonesaudio.com/)
+- [Dom / _thechief](https://wayfarer-games.com/)
 
 ## Assets used
 
