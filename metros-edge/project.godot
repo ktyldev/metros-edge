@@ -15,7 +15,7 @@ General/banks_path="res://assets/FMODBanks/Desktop"
 [application]
 
 config/name="TRICK METRO"
-run/main_scene="uid://17hry686y0s3"
+run/main_scene="uid://d11nh50ycjcm5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://bb20mf050pghw"
 

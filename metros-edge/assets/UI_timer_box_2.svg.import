@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/UI_timer_box_2.svg-c13866e37d5f498b208aceb8ec
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

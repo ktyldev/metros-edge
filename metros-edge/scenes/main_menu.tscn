@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://8srakymakwae" path="res://scripts/main_menu.gd" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bb20mf050pghw" path="res://assets/TRICKMETRO_LOGO_FINAL_V5_1.png" id="3_bqqt6"]
 [ext_resource type="Shader" uid="uid://bd6e00omutj56" path="res://shader/blue_tint.gdshader" id="3_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://g57sr8lyuclf" path="res://assets/metros_edge_mockup_bg.png" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://qcstf4knwicv" path="res://assets/temp_spinning.png" id="5_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c1on3mn736olb" path="res://assets/UI_menu_bar.svg" id="6_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://5gfr3ibwefol" path="res://assets/UI_ITG_Logo.svg" id="7_tbmy8"]
@@ -12,6 +11,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rw8j"]
 shader = ExtResource("3_jk1qb")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jk1qb"]
+viewport_path = NodePath("TextureRect2/SubViewport")
 
 [sub_resource type="Gradient" id="Gradient_tbmy8"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
@@ -547,14 +549,6 @@ offset_bottom = 480.0
 mouse_filter = 2
 script = ExtResource("2_ekxnf")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1712646675]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 480.0
-mouse_filter = 2
-texture = ExtResource("3_wu84c")
-expand_mode = 1
-
 [node name="TextureRect2" type="SubViewportContainer" parent="." unique_id=195767532]
 layout_mode = 0
 offset_right = 640.0
@@ -574,7 +568,7 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 480.0
 mouse_filter = 2
-texture = ExtResource("3_wu84c")
+texture = SubResource("ViewportTexture_jk1qb")
 expand_mode = 1
 
 [node name="StartScreen" type="MarginContainer" parent="." unique_id=1896956136]

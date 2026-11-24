@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/UI_menu_bar.svg-8723232ddd98e5bb39c43f4141663
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
